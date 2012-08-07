@@ -27,8 +27,11 @@ def lap(cost):
       u:       row reduction numbers (dual variables)
       v:       column reduction numbers (dual variables)
     '''
-
-    assert cost.shape[0] == cost.shape[1]
+    
+    if cost.ndim != 2:
+        raise ValueError('2-dimensional array expected')
+    if cost.shape[0] != cost.shape[1]:
+        raise ValueError('Square array expected')
 
     cdef np.ndarray[np.double_t, ndim=2, mode='c'] cost_c
     cost_c = np.ascontiguousarray(cost, dtype=np.double)
