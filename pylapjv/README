@@ -1,0 +1,13 @@
+python-lapjv 0.00 - Python wrapper of LAPJV
+
+This is a Cython implementation of a wrapper of the original Jonker's code.
+
+1. Extract python-lapjv
+2. Make sure there are two directories python-lapjv with the wrapper and lapjv with the C++ code
+3. Enter python-lapjv and run:
+	   python setup.py build_ext --inplace
+   and copy the resulting lapjv.so somewhere to your PYTHON_PATH.
+
+Tested under Mac OS X 10.7 Lion only.
+
+Tomas Kazmar, 2012
