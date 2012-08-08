@@ -1,4 +1,4 @@
-python-lapjv 0.01 - Python wrapper of LAPJV
+python-lapjv 0.02 - Python wrapper of LAPJV
 
 This is a Cython implementation of a wrapper of the original Jonker's code.
 
