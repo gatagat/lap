@@ -4,14 +4,18 @@
 # Thanks to Dr N.D. van Foreest for providing this example code.
 
 """
-The cost matrix is based on Balas and Toth, 1985, Branch and bound
+First cost matrix is based on Balas and Toth, 1985, Branch and bound
 # methods, in Lawler, E.L, et al., The TSP, John Wiley & Sons,
 Chischester, pp 361--401.
+
+Second cost matrix (cost_eps) was provided by Michael Lewis.
 """
 
 from nose.tools import raises
 
+from gzip import GzipFile
 import numpy as np
+import os
 import lapjv
 
 large = 1000
@@ -57,3 +61,8 @@ def test_lap_cost_limit():
     assert ret[0] == 3.0
     assert np.all(ret[1] == [1, 2, -1])
     assert np.all(ret[2] == [-1, 0, 1])
+
+def test_lap_cost_eps():
+    # This test should just return.
+    cost = np.genfromtxt(GzipFile('cost_eps.csv.gz'), delimiter=",")
+    lapjv.lap(cost)

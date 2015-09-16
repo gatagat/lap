@@ -1,4 +1,4 @@
-python-lapjv 0.02 - Python wrapper of LAPJV
+python-lapjv 0.03 - Python wrapper of LAPJV
 
 This is a Cython implementation of a wrapper of the original Jonker's code.
 
@@ -9,6 +9,6 @@ This is a Cython implementation of a wrapper of the original Jonker's code.
      python setup.py build
      python setup.py install
 
-Tested under Mac OS X 10.7 Lion only.
+Tested under Mac OS X 10.10 Yosemite only.
 
 Tomas Kazmar, 2012

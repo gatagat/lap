@@ -6,7 +6,7 @@ from Cython.Distutils import build_ext
 ext_modules = [Extension(
     name='lapjv',
     sources=["python_lapjv.pyx", "wrap_lapjv.cpp", "../lapjv/lap.cpp"],
-    include_dirs = [numpy.get_include(), "../lapjv/"],
+    include_dirs=[numpy.get_include(), "../lapjv/"],
     language="c++"
     )]
 
