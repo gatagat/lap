@@ -8,9 +8,10 @@ R. Jonker and A. Volgenant (University of Amsterdam)
 This code is not the original version from authors' website. To my knowledge,
 there are only two changes:
   1. usage of double precision floating-point numbers for costs, and
-  2. a different test for decrease of the objective that prevents endless
-     loop when close to the machine precision (thanks to Michael Lewis)
-
+  2. a different test for the decrease in the objective that prevents endless
+     loop when the optimization gets close to the machine precision (thanks to
+     Michael Lewis)
+   
 The legal status of the code is most probably best described by the few
 sentences from the original website:
 
