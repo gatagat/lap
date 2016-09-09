@@ -1,7 +1,12 @@
 import numpy
-from distutils.core import setup
-from distutils.extension import Extension
+from setuptools import setup, find_packages
+from setuptools.extension import Extension
 from Cython.Distutils import build_ext
+
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
 
 ext_modules = [Extension(
     name='lapjv',
@@ -11,7 +16,15 @@ ext_modules = [Extension(
     )]
 
 setup(
-    name = 'lapjv',
+    description='Python wrapper of LAPJV',
+    author='Tomas Kazmar',
+    url='https://github.com/gatagat/lapjv',
+    author_email='robert@clarifai.com',
+    version='0.03',
+    install_requires=[],
+    packages=find_packages(),
+    scripts=[],
+    name="python-lapjv",
     cmdclass = {'build_ext': build_ext},
     ext_modules = ext_modules,
-    )
+)
