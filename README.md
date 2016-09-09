@@ -15,6 +15,6 @@ Installation
     	python setup.py build
     	python setup.py install
 
-Tested under Mac OS X 10.10 Yosemite and Debian 7 only.
+Tested under Mac OS X 10.10 Yosemite, 10.11 El Capitan, Debian 7, and Ubuntu 14.04 only.
 
 Tomas Kazmar, 2012-2016
