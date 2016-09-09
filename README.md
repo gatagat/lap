@@ -8,12 +8,19 @@ wrapper (python-lapjv).
 Installation
 ------------
 
+  Using Pip
+  ``` pip install git+git://github.com/gatagat/lapjv.git ```
+
+  Install from source
+
   1. Clone or extract lapjv and make sure there are two directories python-lapjv
      with the wrapper and lapjv with the C++ code.
-  2. Enter python-lapjv and run:
 
-    	python setup.py build
-    	python setup.py install
+  2. Under the root of the repo
+     ```
+     python setup.py build
+     python setup.py install
+     ```
 
 Tested under Mac OS X 10.10 Yosemite, 10.11 El Capitan, Debian 7, and Ubuntu 14.04 only.
 
