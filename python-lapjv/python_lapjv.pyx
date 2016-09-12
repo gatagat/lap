@@ -6,12 +6,12 @@ from libc.stdlib cimport malloc, free
 
 from libc.stdint cimport int32_t
 
-cdef extern from "wrap_lapjv.h": 
-    double _solve(int dim, 
+cdef extern from "wrap_lapjv.h":
+    double _solve(int dim,
         double **assigncost,
-        int32_t *rowsol, 
-        int32_t *colsol, 
-        double *u, 
+        int32_t *rowsol,
+        int32_t *colsol,
+        double *u,
         double *v)
 
 def lap(np.ndarray cost not None, extend_cost=False, cost_limit=None):

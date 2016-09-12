@@ -3,6 +3,8 @@
 #ifndef WRAP_LAPJV_H
 #define WRAP_LAPJV_H
 
-double _solve(int dim, double **assigncost, int *rowsol, int *colsol, double *u, double *v);
+#include <stdint.h>
+
+double _solve(int dim, double **assigncost, int32_t *rowsol, int32_t *colsol, double *u, double *v);
 
 #endif

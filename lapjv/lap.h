@@ -8,21 +8,27 @@
 *
 **************************************************************************/
 
+#ifndef LAP_H
+#define LAP_H
+
+#include <stdint.h>
+
 /*************** CONSTANTS  *******************/
 
   #define BIG 100000
 
 /*************** TYPES      *******************/
 
-  typedef int row;
-  typedef int col;
+  typedef int32_t row;
+  typedef row col;
   typedef double cost;
 
 /*************** FUNCTIONS  *******************/
 
-extern double lap(int dim, double **assigncost,
-               int *rowsol, int *colsol, double *u, double *v);
+extern double lap(int dim, cost **assigncost,
+               row *rowsol, col *colsol, cost *u, cost *v);
 
-extern void checklap(int dim, double **assigncost,
-                     int *rowsol, int *colsol, double *u, double *v);
+extern void checklap(int dim, cost **assigncost,
+                     row *rowsol, col *colsol, cost *u, cost *v);
 
+#endif
