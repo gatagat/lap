@@ -1,30 +1,37 @@
-import numpy
-from setuptools import setup, find_packages
-from setuptools.extension import Extension
-from Cython.Distutils import build_ext
+#!/usr/bin/env python
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+def configuration(parent_package='', top_path=None):
+    from numpy.distutils.misc_util import Configuration
+    config = Configuration(None, parent_package, top_path)
+    config.set_options(
+        ignore_setup_xxx_py=True,
+        assume_default_configuration=True,
+        delegate_options_to_subpackages=True,
+        quiet=False)
+    config.add_subpackage('lapjv')
+    return config
 
-ext_modules = [Extension(
-    name='lapjv',
-    sources=["./python-lapjv/python_lapjv.pyx", "./python-lapjv/wrap_lapjv.cpp", "./lapjv/lap.cpp"],
-    include_dirs=[numpy.get_include(), "./lapjv/"],
-    language="c++"
-    )]
+with open('lapjv/__init__.py') as fid:
+    for line in fid:
+        if line.startswith('__version__'):
+            VERSION = line.strip().split()[-1][1:-1]
+            break
 
-setup(
-    description='Python wrapper of LAPJV',
-    author='Tomas Kazmar',
-    url='https://github.com/gatagat/lapjv',
-    author_email='',
-    version='0.03',
-    install_requires=[],
-    packages=find_packages(),
-    scripts=[],
-    name="python-lapjv",
-    cmdclass = {'build_ext': build_ext},
-    ext_modules = ext_modules,
-)
+with open('requirements.txt') as fid:
+        INSTALL_REQUIRES = [l.strip() for l in fid.readlines() if l]
+REQUIRES = [r.replace('>=', ' (>= ') + ')' for r in INSTALL_REQUIRES]
+REQUIRES = [r.replace('==', ' (== ') for r in REQUIRES]
+REQUIRES = [r.replace('[array]', '') for r in REQUIRES]
+
+if __name__ == "__main__":
+    from numpy.distutils.core import setup
+    setup(configuration=configuration,
+          name="python-lapjv",
+          version=VERSION,
+          url='https://github.com/gatagat/lapjv',
+          description='Python wrapper of LAPJV',
+          author='Tomas Kazmar',
+          setup_requires=['cython>=0.21'],
+          install_requires=INSTALL_REQUIRES,
+          requires=REQUIRES,
+    )
