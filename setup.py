@@ -72,11 +72,12 @@ for details on whether you are allowed to use it.
 """
 
 base_path = os.path.abspath(os.path.dirname(__file__))
-source_files = [os.path.join(base_path, 'lapjv', '_lapjv.pyx'), os.path.join(base_path, 'lapjv', 'internal', 'lap.cpp')]
+source_files = [os.path.join(base_path, 'lapjv', '_lapjv.pyx'), os.path.join(base_path, 'lapjv', 'internal', 'lap.c')]
 import pkg_resources
 numpy_incl = pkg_resources.resource_filename('numpy', 'core/include')
 lapjv_ext = Extension('lapjv._lapjv', source_files, include_dirs=[numpy_incl, 'lapjv/internal'])
 lapjv_ext = cythonize(lapjv_ext)
+#lapjv_ext = cythonize('lapjv/_lapjv.pyx', sources=['lapjv/internal/lap.c'], include_dirs=[numpy_incl])
 
 setup(name="python-lapjv",
       version=VERSION,

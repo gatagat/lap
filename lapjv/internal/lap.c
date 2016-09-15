@@ -17,17 +17,21 @@
 *************************************************************************/
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #if !defined TRUE
-#define	TRUE		1
+#define TRUE 1
 #endif
 #if !defined FALSE
-#define FALSE		0
+#define FALSE 0
 #endif
 
 typedef int boolean;
 
 #include "lap.h"
+
+#define NEW(x, t, n) if ((x = (t *)malloc(sizeof(t) * (n))) == 0) { return -1; }
+#define FREE(x) if (x != 0) { free(x); x = 0; }
 
 double lap_internal(int dim,
                     cost **assigncost,
@@ -46,15 +50,15 @@ double lap_internal(int dim,
 
 {
   boolean unassignedfound, vj1_lowers;
-  row  i, imin, numfree = 0, prvnumfree, f, i0, k, freerow, *pred, *free;
-  col  j, j1, j2, endofpath, last, low, up, *collist, *matches;
+  row i, imin, numfree = 0, prvnumfree, f, i0, k, freerow, *pred, *freerows;
+  col j, j1, j2, endofpath, last, low, up, *collist, *matches;
   cost min, h, umin, usubmin, vj1_new, v2, *d;
 
-  free = new row[dim];       // list of unassigned rows.
-  collist = new col[dim];    // list of columns to be scanned in various ways.
-  matches = new col[dim];    // counts how many times a row could be assigned.
-  d = new cost[dim];         // 'cost-distance' in augmenting path calculation.
-  pred = new row[dim];       // row-predecessor of column in augmenting/alternating path.
+  NEW(freerows, row, dim);   // list of unassigned rows.
+  NEW(collist, col, dim);    // list of columns to be scanned in various ways.
+  NEW(matches, col, dim);    // counts how many times a row could be assigned.
+  NEW(d, cost, dim);         // 'cost-distance' in augmenting path calculation.
+  NEW(pred, row, dim);       // row-predecessor of column in augmenting/alternating path.
 
   // init how many times a row will be assigned in the column reduction.
   for (i = 0; i < dim; i++)
@@ -87,7 +91,7 @@ double lap_internal(int dim,
   // REDUCTION TRANSFER
   for (i = 0; i < dim; i++)
     if (matches[i] == 0)     // fill list of unassigned 'free' rows.
-      free[numfree++] = i;
+      freerows[numfree++] = i;
     else
       if (matches[i] == 1)   // transfer reduction from rows that are assigned once.
       {
@@ -113,7 +117,7 @@ double lap_internal(int dim,
     numfree = 0;             // start list of rows still free after augmenting row reduction.
     while (k < prvnumfree)
     {
-      i = free[k];
+      i = freerows[k];
       k++;
 
       // find minimum and second minimum reduced cost over columns.
@@ -124,6 +128,7 @@ double lap_internal(int dim,
       {
         h = assigncost[i][j] - v[j];
         if (h < usubmin)
+        {
           if (h >= umin)
           {
             usubmin = h;
@@ -136,6 +141,7 @@ double lap_internal(int dim,
             j2 = j1;
             j1 = j;
           }
+        }
       }
 
       i0 = colsol[j1];
@@ -158,14 +164,16 @@ double lap_internal(int dim,
       colsol[j1] = i;
 
       if (i0 >= 0)           // minimum column j1 assigned earlier.
+      {
         if (vj1_lowers)
           // put in current k, and go back to that k.
           // continue augmenting path i - j1 with i0.
-          free[--k] = i0;
+          freerows[--k] = i0;
         else
           // no further augmenting reduction possible.
           // store i0 in list of free rows for next phase.
-          free[numfree++] = i0;
+          freerows[numfree++] = i0;
+      }
     }
   }
   while (loopcnt < 2);       // repeat once.
@@ -173,7 +181,7 @@ double lap_internal(int dim,
   // AUGMENT SOLUTION for each free row.
   for (f = 0; f < numfree; f++)
   {
-    freerow = free[f];       // start row of augmenting path.
+    freerow = freerows[f];       // start row of augmenting path.
 
     // Dijkstra shortest path algorithm.
     // runs until unassigned column added to shortest path tree.
@@ -242,6 +250,7 @@ double lap_internal(int dim,
           {
             pred[j] = i;
             if (v2 == min)   // new column found at same minimum value
+            {
               if (colsol[j] < 0)
               {
                 // if unassigned, shortest augmenting path is complete.
@@ -255,6 +264,7 @@ double lap_internal(int dim,
                 collist[k] = collist[up];
                 collist[up++] = j;
               }
+            }
             d[j] = v2;
           }
         }
@@ -291,11 +301,11 @@ double lap_internal(int dim,
   }
 
   // free reserved memory.
-  delete[] pred;
-  delete[] free;
-  delete[] collist;
-  delete[] matches;
-  delete[] d;
+  FREE(pred);
+  FREE(freerows);
+  FREE(collist);
+  FREE(matches);
+  FREE(d);
 
   return lapcost;
 }
