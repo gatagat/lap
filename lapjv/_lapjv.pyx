@@ -1,20 +1,21 @@
 # Tomas Kazmar, 2012, BSD 2-clause license, see LICENSE
 
 import numpy as np
-cimport numpy as np
+cimport numpy as cnp
+cimport cython
 from libc.stdlib cimport malloc, free
 
 from libc.stdint cimport int32_t
 
-cdef extern from "wrap_lapjv.h":
-    double _solve(int dim,
+cdef extern from "internal/lap.h":
+    double _lap(int dim,
         double **assigncost,
         int32_t *rowsol,
         int32_t *colsol,
         double *u,
         double *v)
 
-def lap(np.ndarray cost not None, extend_cost=False, cost_limit=None):
+def lapjv(cnp.ndarray cost not None, char extend_cost=False, double cost_limit=np.inf):
     '''
     Solve linear assignment problem using Jonker-Volgenant algorithm.
 
@@ -33,19 +34,23 @@ def lap(np.ndarray cost not None, extend_cost=False, cost_limit=None):
     
     if cost.ndim != 2:
         raise ValueError('2-dimensional array expected')
-    cdef np.ndarray[np.double_t, ndim=2, mode='c'] cost_c = np.ascontiguousarray(cost, dtype=np.double)
-    cdef np.ndarray[np.double_t, ndim=2, mode='c'] cost_c_extended
-    if cost_c.shape[0] != cost_c.shape[1] and not extend_cost:
-        raise ValueError('No cost extension allowed - square array expected')
-    cdef int N
-    if cost_c.shape[0] != cost_c.shape[1] or cost_limit != None:
-        N = max(cost_c.shape[0], cost_c.shape[1])
-        if cost_limit == None:
-            cost_c_extended = np.zeros((N, N), dtype=np.double)
+    cdef cnp.ndarray[cnp.double_t, ndim=2, mode='c'] cost_c = np.ascontiguousarray(cost, dtype=np.double)
+    cdef cnp.ndarray[cnp.double_t, ndim=2, mode='c'] cost_c_extended
+    cdef int N = max(cost_c.shape[0], cost_c.shape[1])
+    if cost_c.shape[0] != cost_c.shape[1]:
+        if not extend_cost:
+            raise ValueError('No cost extension allowed - square array expected')
+        if cost_limit < np.inf:
+            cost_c_extended = np.empty((2*N, 2*N), dtype=np.double)
+            cost_c_extended[:] = cost_limit
+            cost_c_extended[:N, :N] = cost_c.max() + cost_limit + 1
         else:
-            cost_c_extended = np.zeros((2*N, 2*N), dtype=np.double) + cost_limit
-        if extend_cost:
-            cost_c_extended[:N, :N] = 2*cost_c.max()
+            cost_c_extended = np.empty((N, N), dtype=np.double)
+            cost_c_extended[:] = cost_c.max() + 1
+        cost_c_extended[:cost_c.shape[0], :cost_c.shape[1]] = cost_c
+    elif cost_limit < np.inf:
+        cost_c_extended = np.empty((2*N, 2*N), dtype=np.double)
+        cost_c_extended[:] = cost_limit
         cost_c_extended[:cost_c.shape[0], :cost_c.shape[1]] = cost_c
         cost_c = cost_c_extended
 
@@ -55,12 +60,12 @@ def lap(np.ndarray cost not None, extend_cost=False, cost_limit=None):
     for i in range(cost_c.shape[0]):
         cost_ptr[i] = &cost_c[i, 0]
 
-    cdef np.ndarray[np.int32_t, ndim=1, mode='c'] rowsol_c = np.zeros((cost_c.shape[0],), dtype=np.int32)
-    cdef np.ndarray[np.int32_t, ndim=1, mode='c'] colsol_c = np.zeros((cost_c.shape[0],), dtype=np.int32)
-    cdef np.ndarray[np.double_t, ndim=1, mode='c'] u_c = np.zeros((cost_c.shape[0],), dtype=np.double)
-    cdef np.ndarray[np.double_t, ndim=1, mode='c'] v_c = np.zeros((cost_c.shape[0],), dtype=np.double)
+    cdef cnp.ndarray[cnp.int32_t, ndim=1, mode='c'] rowsol_c = np.zeros((cost_c.shape[0],), dtype=np.int32)
+    cdef cnp.ndarray[cnp.int32_t, ndim=1, mode='c'] colsol_c = np.zeros((cost_c.shape[0],), dtype=np.int32)
+    cdef cnp.ndarray[cnp.double_t, ndim=1, mode='c'] u_c = np.zeros((cost_c.shape[0],), dtype=np.double)
+    cdef cnp.ndarray[cnp.double_t, ndim=1, mode='c'] v_c = np.zeros((cost_c.shape[0],), dtype=np.double)
 
-    ret = _solve(cost_c.shape[0], cost_ptr, &rowsol_c[0], &colsol_c[0], &u_c[0], &v_c[0])
+    ret = _lap(cost_c.shape[0], cost_ptr, &rowsol_c[0], &colsol_c[0], &u_c[0], &v_c[0])
     free(cost_ptr)
 
     if cost_limit != None or extend_cost:
