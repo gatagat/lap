@@ -16,7 +16,7 @@ from nose.tools import raises
 from gzip import GzipFile
 import numpy as np
 import os
-import lapjv
+from lapjv import lapjv
 
 large = 1000
 cost = np.array( [[large,2,11,10,8,7,6,5],
@@ -29,7 +29,7 @@ cost = np.array( [[large,2,11,10,8,7,6,5],
                   [10,10,10,10,6,3,1,large]] )
 
 def test_lap_square():
-    ret = lapjv.lap(cost)
+    ret = lapjv(cost)
     assert ret[0] == 17.0
     assert np.all(ret[1] == [1, 2, 0, 4, 5, 3, 7, 6])
     assert np.all(ret[2] == [2, 0, 1, 5, 3, 4, 7, 6])
@@ -37,32 +37,32 @@ def test_lap_square():
     assert cost[ret[2], range(cost.shape[1])].sum() == ret[0]
 
 @raises(ValueError)
-def test_lap_empty():
-    lapjv.lap(np.ndarray([]))
+def test_lapjv_empty():
+    lapjv(np.ndarray([]))
 
 @raises(ValueError)
-def test_lap_non_square_fail():
-    lapjv.lap(np.zeros((3, 2)))
+def test_lapjv_non_square_fail():
+    lapjv(np.zeros((3, 2)))
 
-def test_lap_non_contigous():
-    ret = lapjv.lap(cost[:3, :3])
+def test_lapjv_non_contigous():
+    ret = lapjv(cost[:3, :3])
     assert ret[0] == 8.0
     assert np.all(ret[1] == [1, 2, 0])
     assert np.all(ret[2] == [2, 0, 1])
 
-def test_lap_extension():
-    ret = lapjv.lap(cost[:2, :4], extend_cost=True)
+def test_lapjv_extension():
+    ret = lapjv(cost[:2, :4], extend_cost=True)
     assert ret[0] == 3.0
     assert np.all(ret[1] == [1, 2])
     assert np.all(ret[2] == [-1, 0, 1, -1])
 
-def test_lap_cost_limit():
-    ret = lapjv.lap(cost[:3, :3], cost_limit=4.99)
+def test_lapjv_cost_limit():
+    ret = lapjv(cost[:3, :3], cost_limit=4.99)
     assert ret[0] == 3.0
     assert np.all(ret[1] == [1, 2, -1])
     assert np.all(ret[2] == [-1, 0, 1])
 
-def test_lap_cost_eps():
+def test_lapjv_cost_eps():
     # This test should just return.
     cost = np.genfromtxt(GzipFile('cost_eps.csv.gz'), delimiter=",")
-    lapjv.lap(cost)
+    lapjv(cost)
