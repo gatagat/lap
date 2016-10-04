@@ -28,7 +28,7 @@ cost = np.array( [[large,2,11,10,8,7,6,5],
                   [10,11,12,10,9,12,large,3],
                   [10,10,10,10,6,3,1,large]] )
 
-def test_lap_square():
+def test_lapjv_square():
     ret = lapjv(cost)
     assert ret[0] == 17.0
     assert np.all(ret[1] == [1, 2, 0, 4, 5, 3, 7, 6])
@@ -56,6 +56,13 @@ def test_lapjv_extension():
     assert np.all(ret[1] == [1, 2])
     assert np.all(ret[2] == [-1, 0, 1, -1])
 
+def test_lapjv_noextension():
+    c = np.r_[cost[:2, :4], [[1001, 1001, 1001, 2001], [2001, 1001, 1001, 1001]]]
+    ret = lapjv(c, extend_cost=False)
+    assert ret[0] - 2002 == 3.0
+    assert np.all(ret[1] == [1, 2, 0, 3])
+    assert np.all(ret[2] == [2, 0, 1, 3])
+
 def test_lapjv_cost_limit():
     ret = lapjv(cost[:3, :3], cost_limit=4.99)
     assert ret[0] == 3.0
@@ -64,5 +71,7 @@ def test_lapjv_cost_limit():
 
 def test_lapjv_cost_eps():
     # This test should just return.
-    cost = np.genfromtxt(GzipFile('cost_eps.csv.gz'), delimiter=",")
+    datadir = os.path.abspath(os.path.dirname(__file__))
+    filename = os.path.join(datadir, 'cost_eps.csv.gz')
+    cost = np.genfromtxt(GzipFile(filename), delimiter=",")
     lapjv(cost)

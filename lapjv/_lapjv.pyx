@@ -39,7 +39,7 @@ def lapjv(cnp.ndarray cost not None, char extend_cost=False, double cost_limit=n
     cdef int N = max(cost_c.shape[0], cost_c.shape[1])
     if cost_c.shape[0] != cost_c.shape[1]:
         if not extend_cost:
-            raise ValueError('No cost extension allowed - square array expected')
+            raise ValueError('Square cost array expected. If intentional, pass extend_cost=True.')
         if cost_limit < np.inf:
             cost_c_extended = np.empty((2*N, 2*N), dtype=np.double)
             cost_c_extended[:] = cost_limit
@@ -48,6 +48,7 @@ def lapjv(cnp.ndarray cost not None, char extend_cost=False, double cost_limit=n
             cost_c_extended = np.empty((N, N), dtype=np.double)
             cost_c_extended[:] = cost_c.max() + 1
         cost_c_extended[:cost_c.shape[0], :cost_c.shape[1]] = cost_c
+        cost_c = cost_c_extended
     elif cost_limit < np.inf:
         cost_c_extended = np.empty((2*N, 2*N), dtype=np.double)
         cost_c_extended[:] = cost_limit
@@ -68,7 +69,7 @@ def lapjv(cnp.ndarray cost not None, char extend_cost=False, double cost_limit=n
     ret = lap_internal(cost_c.shape[0], cost_ptr, &rowsol_c[0], &colsol_c[0], &u_c[0], &v_c[0])
     free(cost_ptr)
 
-    if cost_limit != None or extend_cost:
+    if cost_limit < np.inf or extend_cost:
         rowsol_c[rowsol_c >= cost.shape[1]] = -1
         colsol_c[colsol_c >= cost.shape[0]] = -1
         rowsol_c = rowsol_c[:cost.shape[0]]
