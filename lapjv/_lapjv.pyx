@@ -20,8 +20,8 @@ def lapjv(cnp.ndarray cost not None, char extend_cost=False, double cost_limit=n
     Solve linear assignment problem using Jonker-Volgenant algorithm.
 
     cost: (square) matrix containing the assignment costs
-    extend_cost: whether or not extend a non-square matrix
-    cost_limit: an upper limit for a cost of a single assignment
+    extend_cost: whether or not extend a non-square matrix [default: False]
+    cost_limit: an upper limit for a cost of a single assignment [default: np.inf]
 
     Returns (lapcost, rowsol, colsol) where:
       lapcost: cost of the assignment
