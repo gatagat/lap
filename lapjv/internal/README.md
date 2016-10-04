@@ -1,17 +1,28 @@
-Linear Assignment Problem
--------------------------
+LAPJV code by Jonker and Volgenant
+==================================
 
-R. Jonker and A. Volgenant (University of Amsterdam)
+An implementation of the LAPJV algorithm [1].
+
+[1] R. Jonker and A. Volgenant (University of Amsterdam)
 "A Shortest Augmenting Path Algorithm for Dense and Sparse Linear Assignment
  Problems", Computing 38, 325-340 (1987)
 
-This code is not the original version from authors' website. To my knowledge,
-there are only two changes:
+Changes
+-------
+
+The code here is not the original version from authors' website. To my
+knowledge, there are three changes:
   1. usage of double precision floating-point numbers for costs, and
   2. a different test for the decrease in the objective that prevents endless
      loop when the optimization gets close to the machine precision (thanks to
      Michael Lewis)
-   
+  3. switch from C++ to c to make compilation simpler (only needed: C++
+     new/delete -> C malloc/free)
+
+
+License
+-------
+
 The legal status of the code is most probably best described by the few
 sentences from the original website:
 
@@ -27,5 +38,3 @@ sentences from the original website:
 
 	For further technical information, please contact A. Volgenant at the
 	University of Amsterdam by email.
-
-Tomas Kazmar, 2012

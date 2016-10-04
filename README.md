@@ -1,9 +1,21 @@
-python-lapjv 0.03 - Python wrapper of LAPJV
-===========================================
+python-lapjv - Python wrapper of LAPJV
+======================================
 
-LAPJV is an algorithm by Jonker and Volgenant to solve the linear assignment
-problem. This repository contains the code by Jonker (lapjv) and a Python
-wrapper (python-lapjv).
+LAPJV is an algorithm by Jonker and Volgenant [1] to solve the linear
+assignment problem. This repository contains the code by Jonker
+(lapjv/internal) and a Python wrapper (lapjv).
+
+[1] R. Jonker and A. Volgenant (University of Amsterdam)
+"A Shortest Augmenting Path Algorithm for Dense and Sparse Linear Assignment
+ Problems", Computing 38, 325-340 (1987)
+
+
+License
+-------
+
+BSD license applies only to the wrapper, the original code cannot be used
+commercially, see lapjv/internal/README.md.
+
 
 Installation
 ------------
