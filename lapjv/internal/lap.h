@@ -13,22 +13,15 @@
 
 #include <stdint.h>
 
-/*************** CONSTANTS  *******************/
+#define BIG 100000
 
-  #define BIG 100000
+typedef int32_t row;
+typedef int32_t col;
+typedef double cost;
 
-/*************** TYPES      *******************/
-
-  typedef int32_t row;
-  typedef row col;
-  typedef double cost;
-
-/*************** FUNCTIONS  *******************/
-
-extern double lap(int dim, cost **assigncost,
-               row *rowsol, col *colsol, cost *u, cost *v);
-
-extern void checklap(int dim, cost **assigncost,
-                     row *rowsol, col *colsol, cost *u, cost *v);
+extern double lap_internal(int dim,
+                           cost **assigncost,
+                           row *rowsol, col *colsol,
+                           cost *u, cost *v);
 
 #endif

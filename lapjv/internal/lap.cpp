@@ -16,16 +16,23 @@
 *
 *************************************************************************/
 
-#include "stdio.h"
-#include "gnrl.h"
+#include <stdio.h>
+
+#if !defined TRUE
+#define	TRUE		1
+#endif
+#if !defined FALSE
+#define FALSE		0
+#endif
+
+typedef int boolean;
+
 #include "lap.h"
 
-double lap(int dim,
-        cost **assigncost,
-        col *rowsol,
-        row *colsol,
-        cost *u,
-        cost *v)
+double lap_internal(int dim,
+                    cost **assigncost,
+                    col *rowsol, row *colsol,
+                    cost *u, cost *v)
 
 // input:
 // dim        - problem size
@@ -291,76 +298,4 @@ double lap(int dim,
   delete[] d;
 
   return lapcost;
-}
-
-void checklap(int dim, cost **assigncost,
-              col *rowsol, row *colsol, cost *u, cost *v)
-{
-  row  i;
-  col  j;
-  cost redcost = 0;
-  boolean *matched;
-  char wait;
-
-  matched = new boolean[dim];
-
-  for (i = 0; i < dim; i++)
-    for (j = 0; j < dim; j++)
-      if ((redcost = assigncost[i][j] - u[i] - v[j]) < 0)
-      {
-        printf("\n");
-        printf("negative reduced cost i %d j %d redcost %f\n", i, j, redcost);
-        printf("\n\ndim %5d - press key\n", dim);
-        scanf("%c", &wait);
-        break;
-      }
-
-  for (i = 0; i < dim; i++)
-    if ((redcost = assigncost[i][rowsol[i]] - u[i] - v[rowsol[i]]) != 0)
-    {
-      printf("\n");
-      printf("non-null reduced cost i %d soli %d redcost %f\n", i, rowsol[i], redcost);
-      printf("\n\ndim %5d - press key\n", dim);
-      scanf("%c", &wait);
-      break;
-    }
-
-  for (j = 0; j < dim; j++)
-    matched[j] = FALSE;
-
-  for (i = 0; i < dim; i++)
-    if (matched[rowsol[i]])
-    {
-      printf("\n");
-      printf("column matched more than once - i %d soli %d\n", i, rowsol[i]);
-      printf("\n\ndim %5d - press key\n", dim);
-      scanf("%c", &wait);
-      break;
-    }
-    else
-      matched[rowsol[i]] = TRUE;
-
-
-  for (i = 0; i < dim; i++)
-    if (colsol[rowsol[i]] != i)
-    {
-      printf("\n");
-      printf("error in row solution i %d soli %d solsoli %d\n", i, rowsol[i], colsol[rowsol[i]]);
-      printf("\n\ndim %5d - press key\n", dim);
-      scanf("%c", &wait);
-      break;
-    }
-
-  for (j = 0; j < dim; j++)
-    if (rowsol[colsol[j]] != j)
-    {
-      printf("\n");
-      printf("error in col solution j %d solj %d solsolj %d\n", j, colsol[j], rowsol[colsol[j]]);
-      printf("\n\ndim %5d - press key\n", dim);
-      scanf("%c", &wait);
-      break;
-    }
-
-  delete[] matched;
-  return;
 }

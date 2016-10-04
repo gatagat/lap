@@ -11,4 +11,4 @@ lap
 
 __version__ = '0.1dev'
 
-from _lapjv import lapjv
+from ._lapjv import lapjv

@@ -8,7 +8,7 @@ from libc.stdlib cimport malloc, free
 from libc.stdint cimport int32_t
 
 cdef extern from "internal/lap.h":
-    double _lap(int dim,
+    double lap_internal(int dim,
         double **assigncost,
         int32_t *rowsol,
         int32_t *colsol,
@@ -65,7 +65,7 @@ def lapjv(cnp.ndarray cost not None, char extend_cost=False, double cost_limit=n
     cdef cnp.ndarray[cnp.double_t, ndim=1, mode='c'] u_c = np.zeros((cost_c.shape[0],), dtype=np.double)
     cdef cnp.ndarray[cnp.double_t, ndim=1, mode='c'] v_c = np.zeros((cost_c.shape[0],), dtype=np.double)
 
-    ret = _lap(cost_c.shape[0], cost_ptr, &rowsol_c[0], &colsol_c[0], &u_c[0], &v_c[0])
+    ret = lap_internal(cost_c.shape[0], cost_ptr, &rowsol_c[0], &colsol_c[0], &u_c[0], &v_c[0])
     free(cost_ptr)
 
     if cost_limit != None or extend_cost:
