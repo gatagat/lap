@@ -33,7 +33,7 @@ import lapjv
 
 VERSION = lapjv.__version__
 
-NUMPY_MIN_VERSION = '1.11.1'
+NUMPY_MIN_VERSION = '1.10.1'
 
 SETUPTOOLS_COMMANDS = set([
     'develop', 'release', 'bdist_egg', 'bdist_rpm',
