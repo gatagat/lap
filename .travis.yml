@@ -1,0 +1,21 @@
+sudo: false
+language: python
+python:
+  - "2.7"
+  - "3.5"
+matrix:
+  include:
+    - os: linux
+      python: 2.7
+    - os: linux
+      python: 3.5
+before_install:
+  - virtualenv -p python ~/venv
+  - source ~/venv/bin/activate
+  - pip install --upgrade pip
+  - pip install --retries 3 -q wheel nose cython numpy
+  - which python; python --version
+  - pip list
+install:
+  - python setup.py build_ext -i
+script: nosetests
