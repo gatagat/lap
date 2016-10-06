@@ -11,7 +11,7 @@
 #ifndef LAP_H
 #define LAP_H
 
-#include <stdint.h>
+#include "int32t.h"
 
 #define BIG 100000
 

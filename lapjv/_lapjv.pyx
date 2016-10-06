@@ -5,7 +5,11 @@ cimport numpy as cnp
 cimport cython
 from libc.stdlib cimport malloc, free
 
-from libc.stdint cimport int32_t
+IF UNAME_SYSNAME == "Windows":
+    cdef extern from "internal/int32t.h" nogil:
+        ctypedef signed int int32_t;
+ELSE:
+    from libc.stdint cimport int32_t
 
 cdef extern from "internal/lap.h":
     double lap_internal(int dim,
