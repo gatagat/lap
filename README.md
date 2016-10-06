@@ -1,3 +1,8 @@
+[![Travis](https://travis-ci.org/gatagat/lapjv.svg?branch=master)](https://travis-ci.org/gatagat/lapjv/)
+[![Appveyor](https://ci.appveyor.com/api/projects/status/github/gatagat/lapjv?branch=master&svg=true)](https://ci.appveyor.com/project/gatagat/lapjv/history)
+![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg)
+![Python 3.5](https://img.shields.io/badge/python-3.5-blue.svg)
+
 python-lapjv - Python wrapper of LAPJV
 ======================================
 
@@ -43,6 +48,6 @@ Python-lapjv requires:
          python setup.py build
          python setup.py install
 
-Tested under Mac OS X 10.11 El Capitan (Python 2.7), Debian 7 (Python 2.7 and 3.5).
+Tested under Linux, OS X, Windows.
 
 Tomas Kazmar, 2012-2016
