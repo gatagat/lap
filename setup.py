@@ -151,15 +151,26 @@ def generate_cython():
     cythonize(wrapper_pyx_file, wrapper_c_file)
 
 
-def get_extension():
-    from distutils.extension import Extension
+def configuration(parent_package='', top_path=None):
+    from numpy.distutils.misc_util import Configuration, get_numpy_include_dirs
+
+    config = Configuration(None, parent_package, top_path)
+
+    config.set_options(
+        ignore_setup_xxx_py=True,
+        assume_default_configuration=True,
+        delegate_options_to_subpackages=True,
+        quiet=True)
+
+    config.add_data_dir('lapjv/tests')
+
     wrapper_pyx_file = get_wrapper_pyx()
     wrapper_c_file = os.path.splitext(wrapper_pyx_file)[0] + '.c'
     lap_c_file = os.path.join(os.path.dirname(wrapper_pyx_file), 'internal', 'lap.c')
-    ext = Extension('lapjv._lapjv',
-        [wrapper_c_file, lap_c_file],
-        include_dirs=[resource_filename('numpy', 'core/include'), 'lapjv/internal'])
-    return ext
+    config.add_extension('lapjv._lapjv', sources=[wrapper_c_file, lap_c_file],
+                         include_dirs=[get_numpy_include_dirs(), 'lapjv/internal'])
+
+    return config
 
 
 def setup_package():
@@ -195,17 +206,16 @@ def setup_package():
                     cmdclass=cmdclass,
                     **extra_setuptools_args)
 
-    try:
-        from setuptools import setup
-    except ImportError:
-        from distutils.core import setup
     if len(sys.argv) == 1 or (
             len(sys.argv) >= 2 and ('--help' in sys.argv[1:] or
                                     sys.argv[1] in ('--help-commands',
                                                     'egg_info',
                                                     '--version',
                                                     'clean'))):
-        pass
+        try:
+            from setuptools import setup
+        except ImportError:
+            from distutils.core import setup
     else:
         numpy_status = get_numpy_status()
         if numpy_status['up_to_date'] is False:
@@ -216,7 +226,8 @@ def setup_package():
                 raise ImportError('lapjv requires numpy, '
                                   'please "pip install numpy".')
 
-        metadata['ext_modules'] = [get_extension()]
+        from numpy.distutils.core import setup
+        metadata['configuration'] = configuration
 
         if len(sys.argv) >= 2 and sys.argv[1] not in 'config':
             print('Generating cython files')
