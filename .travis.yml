@@ -9,13 +9,31 @@ matrix:
       python: 2.7
     - os: linux
       python: 3.5
+    - os: osx
+      osx_image: xcode6.4
+      language: objective-c
+      env: TRAVIS_PYTHON_VERSION=2.7
+    - os: osx
+      osx_image: xcode6.4
+      language: objective-c
+      env: TRAVIS_PYTHON_VERSION=3.5
 before_install:
-  - virtualenv -p python ~/venv
-  - source ~/venv/bin/activate
-  - pip install --upgrade pip
-  - pip install --retries 3 -q wheel nose cython numpy
+  - df -h
+  - date
+  - pwd
+  - uname -a
+  - source tools/travis_section_def.sh
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then source tools/travis_osx_install.sh ; fi
+  - source tools/travis_before_install.sh
   - which python; python --version
-  - pip list
+  - tools/build_versions.py
 install:
+  - section build
+  - python setup.py clean
   - python setup.py build_ext -i
-script: nosetests
+  - section_end build
+script: tools/travis.sh
+notifications:
+  email:
+    on_success: change
+    on_failure: change
