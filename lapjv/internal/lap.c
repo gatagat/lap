@@ -53,6 +53,8 @@ double lap_internal(int dim,
   row i, imin, numfree = 0, prvnumfree, f, i0, k, freerow, *pred, *freerows;
   col j, j1, j2, endofpath, last, low, up, *collist, *matches;
   cost min, h, umin, usubmin, vj1_new, v2, *d;
+  int loopcnt;
+  cost lapcost;
 
   NEW(freerows, row, dim);   // list of unassigned rows.
   NEW(collist, col, dim);    // list of columns to be scanned in various ways.
@@ -105,7 +107,7 @@ double lap_internal(int dim,
       }
 
   // AUGMENTING ROW REDUCTION
-  int loopcnt = 0;           // do-loop to be done twice.
+  loopcnt = 0;           // do-loop to be done twice.
   do
   {
     loopcnt++;
@@ -292,7 +294,7 @@ double lap_internal(int dim,
   }
 
   // calculate optimal cost.
-  cost lapcost = 0;
+  lapcost = 0;
   for (i = 0; i < dim; i++)
   {
     j = rowsol[i];
