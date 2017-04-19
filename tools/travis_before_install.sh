@@ -8,7 +8,7 @@ export TEST_ARGS="-v --ignore-files=^setup.py$ --with-coverage"
 section venv
 virtualenv -p python ~/venv
 source ~/venv/bin/activate
-pip install --upgrade pip
+python -m pip install --upgrade pip
 pip install --retries 3 -q wheel codecov nose cython numpy
 pip list
 section_end venv

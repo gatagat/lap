@@ -3,12 +3,15 @@ language: python
 python:
   - "2.7"
   - "3.5"
+  - "3.6"
 matrix:
   include:
     - os: linux
       python: 2.7
     - os: linux
       python: 3.5
+    - os: linux
+      python: 3.6
     - os: osx
       osx_image: xcode6.4
       language: objective-c
@@ -17,6 +20,10 @@ matrix:
       osx_image: xcode6.4
       language: objective-c
       env: TRAVIS_PYTHON_VERSION=3.5
+    - os: osx
+      osx_image: xcode6.4
+      language: objective-c
+      env: TRAVIS_PYTHON_VERSION=3.6
 before_install:
   - df -h
   - date
@@ -24,6 +31,8 @@ before_install:
   - uname -a
   - source tools/travis_section_def.sh
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then source tools/travis_osx_install.sh ; fi
+  - python -m pip install -U pip
+  - pip install -U virtualenv
   - source tools/travis_before_install.sh
   - which python; python --version
   - tools/build_versions.py

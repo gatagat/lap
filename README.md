@@ -2,6 +2,7 @@
 [![Appveyor](https://ci.appveyor.com/api/projects/status/github/gatagat/lapjv?branch=master&svg=true)](https://ci.appveyor.com/project/gatagat/lapjv/history)
 ![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg)
 ![Python 3.5](https://img.shields.io/badge/python-3.5-blue.svg)
+![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)
 
 python-lapjv - Python wrapper of LAPJV
 ======================================
@@ -29,7 +30,7 @@ Installation
 
 Python-lapjv requires:
 
-  * Python (2.7 or 3.5)
+  * Python (2.7, 3.5, 3.6)
   * NumPy (>=1.10.1)
   * Cython (>=0.21) - to compile the wrapper
 
@@ -50,4 +51,4 @@ Python-lapjv requires:
 
 Tested under Linux, OS X, Windows.
 
-Tomas Kazmar, 2012-2016
+Tomas Kazmar, 2012-2017
