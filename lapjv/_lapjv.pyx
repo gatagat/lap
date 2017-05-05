@@ -1,4 +1,4 @@
-# Tomas Kazmar, 2012, BSD 2-clause license, see LICENSE
+# Tomas Kazmar, 2012-2017, BSD 2-clause license, see LICENSE.
 
 import numpy as np
 cimport numpy as cnp
@@ -6,23 +6,35 @@ cimport cython
 from libc.stdlib cimport malloc, free
 
 IF UNAME_SYSNAME == "Windows":
-    cdef extern from "internal/int32t.h" nogil:
+    cdef extern from "int32t.h" nogil:
         ctypedef signed int int32_t;
 ELSE:
     from libc.stdint cimport int32_t
 
-cdef extern from "internal/lap.h":
-    double lap_internal(
-            int dim,
-            double **assigncost,
-            int32_t *rowsol,
-            int32_t *colsol,
-            double *u,
-            double *v)
+cpdef enum:
+    FP_1 = 1
+    FP_2 = 2
+    FP_DYNAMIC = 3
+
+cdef extern from "lapjv.h" nogil:
+    int lapjv_internal(
+            const int n,
+            double *cost[],
+            int32_t *x,
+            int32_t *y)
+    int lapmod_internal(
+            const int n,
+            double *cc,
+            int32_t *ii,
+            int32_t *kk,
+            int32_t *x,
+            int32_t *y,
+            int fp_version)
 
 
+@cython.boundscheck(False)
 def lapjv(cnp.ndarray cost not None, char extend_cost=False,
-          double cost_limit=np.inf):
+          double cost_limit=np.inf, char return_cost=True):
     '''
     Solve linear assignment problem using Jonker-Volgenant algorithm.
 
@@ -41,7 +53,7 @@ def lapjv(cnp.ndarray cost not None, char extend_cost=False,
     '''
     if cost.ndim != 2:
         raise ValueError('2-dimensional array expected')
-    cdef cnp.ndarray[cnp.double_t, ndim=2, mode='c'] cost_c = \
+    cdef cnp.ndarray[cnp.double_t, ndim=2, mode='c', negative_indices=False] cost_c = \
         np.ascontiguousarray(cost, dtype=np.double)
     cdef cnp.ndarray[cnp.double_t, ndim=2, mode='c'] cost_c_extended
     cdef int N = max(cost_c.shape[0], cost_c.shape[1])
@@ -70,27 +82,65 @@ def lapjv(cnp.ndarray cost not None, char extend_cost=False,
     for i in range(cost_c.shape[0]):
         cost_ptr[i] = &cost_c[i, 0]
 
-    cdef cnp.ndarray[cnp.int32_t, ndim=1, mode='c'] rowsol_c = \
-        np.zeros((cost_c.shape[0],), dtype=np.int32)
-    cdef cnp.ndarray[cnp.int32_t, ndim=1, mode='c'] colsol_c = \
-        np.zeros((cost_c.shape[0],), dtype=np.int32)
-    cdef cnp.ndarray[cnp.double_t, ndim=1, mode='c'] u_c = \
-        np.zeros((cost_c.shape[0],), dtype=np.double)
-    cdef cnp.ndarray[cnp.double_t, ndim=1, mode='c'] v_c = \
-        np.zeros((cost_c.shape[0],), dtype=np.double)
+    cdef cnp.ndarray[cnp.int32_t, ndim=1, mode='c', negative_indices=False] x_c = \
+        np.empty((cost_c.shape[0],), dtype=np.int32)
+    cdef cnp.ndarray[cnp.int32_t, ndim=1, mode='c', negative_indices=False] y_c = \
+        np.empty((cost_c.shape[0],), dtype=np.int32)
 
-    ret = lap_internal(cost_c.shape[0], cost_ptr, &rowsol_c[0], &colsol_c[0],
-            &u_c[0], &v_c[0])
+    cdef int ret = lapjv_internal(cost_c.shape[0], cost_ptr, &x_c[0], &y_c[0])
     free(cost_ptr)
+    if ret != 0:
+        if ret == -1:
+            raise MemoryError('Out of memory.')
+        raise RuntimeError('Unknown error (lapjv_internal returned %d).' % ret)
 
+
+    cdef double opt
     if cost_limit < np.inf or extend_cost:
-        rowsol_c[rowsol_c >= cost.shape[1]] = -1
-        colsol_c[colsol_c >= cost.shape[0]] = -1
-        rowsol_c = rowsol_c[:cost.shape[0]]
-        colsol_c = colsol_c[:cost.shape[1]]
-        return (cost[np.nonzero(rowsol_c != -1)[0],
-                     rowsol_c[rowsol_c != -1]].sum(),
-                rowsol_c,
-                colsol_c)
+        x_c[x_c >= cost.shape[1]] = -1
+        y_c[y_c >= cost.shape[0]] = -1
+        x_c = x_c[:cost.shape[0]]
+        y_c = y_c[:cost.shape[1]]
+        if return_cost:
+            opt = cost_c[np.nonzero(x_c != -1)[0], x_c[x_c != -1]].sum()
+    elif return_cost:
+        opt = cost_c[np.arange(N), x_c].sum()
+
+    if return_cost:
+        return opt, x_c, y_c
     else:
-        return ret, rowsol_c, colsol_c
+        return x_c, y_c
+
+
+@cython.boundscheck(False)
+def _lapmod(
+        const int32_t n,
+        cnp.ndarray cc not None,
+        cnp.ndarray ii not None,
+        cnp.ndarray kk not None,
+        char extend_cost=False,
+        double cost_limit=np.inf,
+        int fp_version=FP_DYNAMIC):
+    '''
+    Solve sparse linear assignment problem using Jonker-Volgenant algorithm.
+    '''
+    cdef cnp.ndarray[cnp.double_t, ndim=1, mode='c', negative_indices=False] cc_c = \
+        np.ascontiguousarray(cc, dtype=np.double)
+    cdef cnp.ndarray[cnp.int32_t, ndim=1, mode='c', negative_indices=False] ii_c = \
+        np.ascontiguousarray(ii, dtype=np.int32)
+    cdef cnp.ndarray[cnp.int32_t, ndim=1, mode='c', negative_indices=False] kk_c = \
+        np.ascontiguousarray(kk, dtype=np.int32)
+    cdef cnp.ndarray[cnp.int32_t, ndim=1, mode='c', negative_indices=False] x_c = \
+        np.empty((n,), dtype=np.int32)
+    cdef cnp.ndarray[cnp.int32_t, ndim=1, mode='c', negative_indices=False] y_c = \
+        np.empty((n,), dtype=np.int32)
+
+    cdef int ret = lapmod_internal(
+                n, &cc_c[0], &ii_c[0], &kk_c[0],
+                &x_c[0], &y_c[0], fp_version)
+    if ret != 0:
+        if ret == -1:
+            raise MemoryError('Out of memory.')
+        raise RuntimeError('Unknown error (lapmod_internal returned %d).' % ret)
+
+    return x_c, y_c

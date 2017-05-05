@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import os
-from pkg_resources import parse_version, resource_filename
+from pkg_resources import parse_version
 import shutil
 import subprocess
 import sys
@@ -16,17 +16,13 @@ builtins.__LAPJV_SETUP__ = True
 DISTNAME = 'python-lapjv'
 DESCRIPTION = 'Python wrapper of LAPJV'
 LONG_DESCRIPTION = """
-**python-lapjv** is a Python wrapper around a linear assignment problem solver
-by Jonker and Volgenant (LAPJV).
-
-The wrapper code is under a 2-clause BSD license, however, the original code is
-under a special restrictive license. Please check the lapjv/interal/README.md
-for details on whether you are allowed to use it.
+**python-lapjv** is a linear assignment problem solver using Jonker-Volgenant
+algorithm for dense (LAPJV) or sparse (LAPMOD) matrices.
 """
 MAINTAINER = 'Tomas Kazmar'
 MAINTAINER_EMAIL = 'tomash.kazmar@seznam.cz'
 URL = 'https://github.com/gatagat/lapjv'
-LICENSE = 'BSD (wrapper) + restrictive license (LAPJV)'
+LICENSE = '2-clause BSD'
 DOWNLOAD_URL = 'http://'
 
 import lapjv
@@ -141,8 +137,7 @@ def get_numpy_status():
 
 
 def get_wrapper_pyx():
-    wrapper_pyx_file = os.path.join('lapjv', '_lapjv.pyx')
-    return wrapper_pyx_file
+    return os.path.join('lapjv', '_lapjv.pyx')
 
 
 def generate_cython():
@@ -166,9 +161,11 @@ def configuration(parent_package='', top_path=None):
 
     wrapper_pyx_file = get_wrapper_pyx()
     wrapper_c_file = os.path.splitext(wrapper_pyx_file)[0] + '.c'
-    lap_c_file = os.path.join(os.path.dirname(wrapper_pyx_file), 'internal', 'lap.c')
-    config.add_extension('lapjv._lapjv', sources=[wrapper_c_file, lap_c_file],
-                         include_dirs=[get_numpy_include_dirs(), 'lapjv/internal'])
+    c_files = [
+            os.path.join(os.path.dirname(wrapper_pyx_file), 'lapjv.c'),
+            os.path.join(os.path.dirname(wrapper_pyx_file), 'lapmod.c')]
+    config.add_extension('lapjv._lapjv', sources=[wrapper_c_file, c_files],
+                         include_dirs=[get_numpy_include_dirs(), 'lapjv'])
 
     return config
 
@@ -195,6 +192,7 @@ def setup_package():
                                  'Programming Language :: Python :: 3',
                                  'Programming Language :: Python :: 2.7',
                                  'Programming Language :: Python :: 3.5',
+                                 'Programming Language :: Python :: 3.6',
                                  'Programming Language :: Cython',
                                  'Operating System :: Microsoft :: Windows',
                                  'Operating System :: POSIX',
