@@ -1,10 +1,10 @@
 from pytest import mark, fixture, raises
 
 import numpy as np
-from sparse_matrix import SparseMatrix
 from lapjv import lapjv, lapmod
 
-from test_utils import (
+from .sparse_matrix import SparseMatrix
+from .test_utils import (
     get_dense_8x8_int,
     get_dense_100x100_int, get_dense_100x100_int_hard, get_sparse_100x100_int,
     get_dense_1kx1k_int, get_dense_1kx1k_int_hard, get_sparse_1kx1k_int,
@@ -239,7 +239,6 @@ def dense_eps():
 @mark.timeout(60)
 def test_eps(dense_eps):
     cost, opt = dense_eps
-    print cost.shape
     ret = lapmod(SparseMatrix.from_dense(cost))
     assert len(ret) == 3
     assert ret[0] == opt

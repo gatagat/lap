@@ -3,7 +3,7 @@ from bisect import bisect_left
 
 # import logging
 
-from _lapjv import _lapmod, FP_1, FP_2, FP_DYNAMIC
+from ._lapjv import _lapmod, FP_1, FP_2, FP_DYNAMIC
 
 LARGE = 1000000
 

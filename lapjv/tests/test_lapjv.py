@@ -4,7 +4,7 @@ import numpy as np
 from sys import maxint
 from lapjv import lapjv
 
-from test_utils import (
+from .test_utils import (
     get_dense_8x8_int,
     get_dense_100x100_int, get_dense_100x100_int_hard, get_sparse_100x100_int,
     get_dense_1kx1k_int, get_dense_1kx1k_int_hard, get_sparse_1kx1k_int,
@@ -263,7 +263,6 @@ def dense_eps():
 @mark.timeout(60)
 def test_eps(dense_eps):
     cost, opt = dense_eps
-    print cost.shape
     ret = lapjv(cost)
     assert len(ret) == 3
     assert ret[0] == opt
