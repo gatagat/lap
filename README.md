@@ -4,12 +4,12 @@
 ![Python 3.5](https://img.shields.io/badge/python-3.5-blue.svg)
 ![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)
 
-python-lapjv - Python wrapper of LAPJV
-======================================
+python-lapjv - LAPJV/LAPMOD implementation
+==========================================
 
 LAPJV is an algorithm by Jonker and Volgenant [1] to solve the linear
-assignment problem. This repository contains the code by Jonker
-(lapjv/internal) and a Python wrapper (lapjv).
+assignment problem.  This repository contains two versions of the algorithm for
+dense (LAPJV) and sparse (LAPMOD) matrices.
 
 [1] R. Jonker and A. Volgenant (University of Amsterdam)
 "A Shortest Augmenting Path Algorithm for Dense and Sparse Linear Assignment
@@ -19,8 +19,7 @@ assignment problem. This repository contains the code by Jonker
 License
 -------
 
-BSD license applies only to the wrapper, the original code cannot be used
-commercially, see [lapjv/internal/README.md](./lapjv/internal/README.md).
+BSD 2-clause.
 
 
 Installation
@@ -33,6 +32,7 @@ Python-lapjv requires:
   * Python (2.7, 3.5, 3.6)
   * NumPy (>=1.10.1)
   * Cython (>=0.21) - to compile the wrapper
+  * py.test - for testing
 
 #### Using pip
 
