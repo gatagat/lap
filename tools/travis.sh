@@ -2,5 +2,5 @@
 set -ex
 
 section test
-nosetests $TEST_ARGS lapjv
+pytest $TEST_ARGS lapjv
 section_end test
