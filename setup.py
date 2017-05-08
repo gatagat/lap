@@ -65,8 +65,8 @@ class CleanCommand(Clean):
         cwd = os.path.abspath(os.path.dirname(__file__))
         remove_c_files = not os.path.exists(os.path.join(cwd, 'PKG-INFO'))
         if remove_c_files:
-            if os.path.exists('lapjv/_lapjv.c'):
-                os.unlink('lapjv/_lapjv.c')
+            if os.path.exists('lapjv/_lapjv.cpp'):
+                os.unlink('lapjv/_lapjv.cpp')
         for dirpath, dirnames, filenames in os.walk('lapjv'):
             for filename in filenames:
                 if any(filename.endswith(suffix) for suffix in
@@ -142,7 +142,7 @@ def get_wrapper_pyx():
 
 def generate_cython():
     wrapper_pyx_file = get_wrapper_pyx()
-    wrapper_c_file = os.path.splitext(wrapper_pyx_file)[0] + '.c'
+    wrapper_c_file = os.path.splitext(wrapper_pyx_file)[0] + '.cpp'
     cythonize(wrapper_pyx_file, wrapper_c_file)
 
 
@@ -160,10 +160,10 @@ def configuration(parent_package='', top_path=None):
     config.add_data_dir('lapjv/tests')
 
     wrapper_pyx_file = get_wrapper_pyx()
-    wrapper_c_file = os.path.splitext(wrapper_pyx_file)[0] + '.c'
+    wrapper_c_file = os.path.splitext(wrapper_pyx_file)[0] + '.cpp'
     c_files = [
-            os.path.join(os.path.dirname(wrapper_pyx_file), 'lapjv.c'),
-            os.path.join(os.path.dirname(wrapper_pyx_file), 'lapmod.c')]
+            os.path.join(os.path.dirname(wrapper_pyx_file), 'lapjv.cpp'),
+            os.path.join(os.path.dirname(wrapper_pyx_file), 'lapmod.cpp')]
     config.add_extension('lapjv._lapjv', sources=[wrapper_c_file, c_files],
                          include_dirs=[get_numpy_include_dirs(), 'lapjv'])
 

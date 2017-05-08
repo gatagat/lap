@@ -591,7 +591,7 @@ index_t _ca_sparse(
     const index_t n, cost_t *cc, index_t *ii, index_t *kk,
     const index_t n_free_rows,
     index_t *free_rows, index_t *x, index_t *y, cost_t *v,
-    fp_t fp_version)
+    int fp_version)
 {
     index_t *pred;
 
@@ -637,7 +637,7 @@ index_t _ca_sparse(
  */
 int lapmod_internal(
     const int n, cost_t *cc, index_t *ii, index_t *kk,
-    index_t *x, index_t *y, fp_t fp_version)
+    index_t *x, index_t *y, int fp_version)
 {
     int ret;
     index_t *free_rows;

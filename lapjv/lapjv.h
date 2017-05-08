@@ -14,6 +14,6 @@ extern index_t lapjv_internal(
 
 extern index_t lapmod_internal(
     int n, cost_t *cc, index_t *ii, index_t *kk,
-    index_t *x, index_t *y, fp_t fp_version);
+    index_t *x, index_t *y, int fp_version);
 
 #endif // LAPJV_H

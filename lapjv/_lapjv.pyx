@@ -135,9 +135,10 @@ def _lapmod(
     cdef cnp.ndarray[cnp.int32_t, ndim=1, mode='c', negative_indices=False] y_c = \
         np.empty((n,), dtype=np.int32)
 
+    cdef int _fp = fp_version
     cdef int ret = lapmod_internal(
                 n, &cc_c[0], &ii_c[0], &kk_c[0],
-                &x_c[0], &y_c[0], fp_version)
+                &x_c[0], &y_c[0], _fp)
     if ret != 0:
         if ret == -1:
             raise MemoryError('Out of memory.')
