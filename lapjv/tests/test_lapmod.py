@@ -3,14 +3,14 @@ from pytest import mark, fixture, raises
 import numpy as np
 from lapjv import lapjv, lapmod
 
-from .sparse_matrix import SparseMatrix
 from .test_utils import (
     get_dense_8x8_int,
     get_dense_100x100_int, get_dense_100x100_int_hard, get_sparse_100x100_int,
     get_dense_1kx1k_int, get_dense_1kx1k_int_hard, get_sparse_1kx1k_int,
     get_sparse_4kx4k_int,
     get_dense_eps,
-    get_platform_maxint
+    get_platform_maxint,
+    sparse_from_dense, sparse_from_masked
 )
 
 
@@ -77,7 +77,7 @@ from .test_utils import (
      (18., [2, 1, 0], [2, 1, 0])),
     ])
 def test_square(cost, expected):
-    ret = lapmod(SparseMatrix.from_dense(cost))
+    ret = lapmod(*sparse_from_dense(cost))
     assert len(ret) == len(expected)
     assert cost[range(cost.shape[0]), ret[1]].sum() == ret[0]
     assert cost[ret[2], range(cost.shape[1])].sum() == ret[0]
@@ -99,7 +99,7 @@ def test_square(cost, expected):
      (11+12+11+22+15, [0, 2, 1, 3, 4], [0, 2, 1, 3, 4])),
     ])
 def test_sparse_square(cost, expected):
-    ret = lapmod(SparseMatrix.from_masked_dense(cost))
+    ret = lapmod(*sparse_from_masked(cost))
     assert len(ret) == len(expected)
     assert cost[range(cost.shape[0]), ret[1]].sum() == ret[0]
     assert cost[ret[2], range(cost.shape[1])].sum() == ret[0]
@@ -122,7 +122,7 @@ def test_infs_unsolvable():
                      [0.,     0.,     0.,     np.inf, np.inf]], dtype=float)
     lapjv_ret = lapjv(cost)
     assert lapjv_ret[0] == np.inf
-    ret = lapmod(SparseMatrix.from_masked_dense(cost))
+    ret = lapmod(*sparse_from_masked(cost))
     assert len(ret) == 3
     assert ret[0] == np.inf
 
@@ -133,7 +133,7 @@ def test_infs_unsolvable():
                      [11.,     14.,     13.,    np.inf, np.inf]], dtype=float)
     lapjv_ret = lapjv(cost)
     assert lapjv_ret[0] == np.inf
-    ret = lapmod(SparseMatrix.from_masked_dense(cost))
+    ret = lapmod(*sparse_from_masked(cost))
     assert len(ret) == 3
     assert ret[0] == np.inf
 
@@ -147,8 +147,8 @@ def test_inf_unique():
     cost_ext[:3, :3] = cost
     cost_ext[3, 3] = 0
     with raises(ValueError):
-        ret = lapmod(SparseMatrix.from_dense(cost_ext))
-    ret = lapmod(SparseMatrix.from_masked_dense(cost_ext))
+        ret = lapmod(*sparse_from_dense(cost_ext))
+    ret = lapmod(*sparse_from_masked(cost_ext))
     assert len(ret) == 3
     assert ret[0] == 3.
     assert np.all(ret[1] == [2, 0, 1, 3])
@@ -162,8 +162,8 @@ def test_inf_col():
                      [np.inf, np.inf, np.inf, 0.,     0.],
                      [0.,     np.inf, 0.,     np.inf, np.inf]], dtype=float)
     with raises(ValueError):
-        ret = lapmod(SparseMatrix.from_dense(cost))
-    ret = lapmod(SparseMatrix.from_masked_dense(cost))
+        ret = lapmod(*sparse_from_dense(cost))
+    ret = lapmod(*sparse_from_masked(cost))
     assert len(ret) == 3
     assert ret[0] == np.inf
 
@@ -176,8 +176,8 @@ def test_inf_row():
                      [np.inf, np.inf, np.inf, 0.,     0.],
                      [0.,     0.,     0., np.inf,  np.inf]], dtype=float)
     with raises(ValueError):
-        ret = lapmod(SparseMatrix.from_dense(cost))
-    ret = lapmod(SparseMatrix.from_masked_dense(cost))
+        ret = lapmod(*sparse_from_dense(cost))
+    ret = lapmod(*sparse_from_masked(cost))
     assert len(ret) == 3
     assert ret[0] == np.inf
 
@@ -186,10 +186,9 @@ def test_all_inf():
     cost = np.empty((5, 5), dtype=float)
     cost[:] = np.inf
     with raises(ValueError):
-        lapmod(SparseMatrix.from_dense(cost))
-    ret = lapmod(SparseMatrix.from_masked_dense(cost))
-    assert len(ret) == 3
-    assert ret[0] == np.inf
+        lapmod(*sparse_from_dense(cost))
+    with raises(ValueError):
+        lapmod(*sparse_from_masked(cost))
 
 
 @fixture
@@ -240,14 +239,14 @@ def dense_eps():
 @mark.timeout(60)
 def test_eps(dense_eps):
     cost, opt = dense_eps
-    ret = lapmod(SparseMatrix.from_dense(cost))
+    ret = lapmod(*sparse_from_dense(cost))
     assert len(ret) == 3
     assert ret[0] == opt
 
 
 def test_dense_100x100_int(dense_100x100_int):
     cost, opt = dense_100x100_int
-    ret = lapmod(SparseMatrix.from_dense(cost))
+    ret = lapmod(*sparse_from_dense(cost))
     assert len(ret) == 3
     assert ret[0] == opt
     lapjv_ret = lapjv(cost)
@@ -256,7 +255,7 @@ def test_dense_100x100_int(dense_100x100_int):
 
 def test_dense_100x100_int_hard(dense_100x100_int_hard):
     cost, opt = dense_100x100_int_hard
-    ret = lapmod(SparseMatrix.from_dense(cost))
+    ret = lapmod(*sparse_from_dense(cost))
     assert len(ret) == 3
     assert ret[0] == opt
     lapjv_ret = lapjv(cost)
@@ -267,7 +266,7 @@ def test_dense_100x100_int_hard(dense_100x100_int_hard):
 # generated - just set the mask threshold low enough
 def test_sparse_100x100_int(sparse_100x100_int):
     cost, mask, opt = sparse_100x100_int
-    ret = lapmod(SparseMatrix.from_masked_dense(cost, mask))
+    ret = lapmod(*sparse_from_masked(cost, mask))
     assert len(ret) == 3
     assert ret[0] == opt
 
@@ -275,7 +274,7 @@ def test_sparse_100x100_int(sparse_100x100_int):
 @mark.timeout(60)
 def test_dense_1kx1k_int(dense_1kx1k_int):
     cost, opt = dense_1kx1k_int
-    ret = lapmod(SparseMatrix.from_dense(cost))
+    ret = lapmod(*sparse_from_dense(cost))
     assert len(ret) == 3
     assert ret[0] == opt
     lapjv_ret = lapjv(cost)
@@ -285,7 +284,7 @@ def test_dense_1kx1k_int(dense_1kx1k_int):
 @mark.timeout(60)
 def test_dense_1kx1k_int_hard(dense_1kx1k_int_hard):
     cost, opt = dense_1kx1k_int_hard
-    ret = lapmod(SparseMatrix.from_dense(cost))
+    ret = lapmod(*sparse_from_dense(cost))
     assert len(ret) == 3
     assert ret[0] == opt
     lapjv_ret = lapjv(cost)
@@ -295,7 +294,7 @@ def test_dense_1kx1k_int_hard(dense_1kx1k_int_hard):
 @mark.timeout(60)
 def test_sparse_1kx1k_int(sparse_1kx1k_int):
     cost, mask, opt = sparse_1kx1k_int
-    ret = lapmod(SparseMatrix.from_masked_dense(cost, mask))
+    ret = lapmod(*sparse_from_masked(cost, mask))
     assert len(ret) == 3
     assert ret[0] == opt
     cost[~mask] = get_platform_maxint()
@@ -306,7 +305,7 @@ def test_sparse_1kx1k_int(sparse_1kx1k_int):
 @mark.timeout(60)
 def test_sparse_4kx4k_int(sparse_4kx4k_int):
     cost, mask, opt = sparse_4kx4k_int
-    ret = lapmod(SparseMatrix.from_masked_dense(cost, mask))
+    ret = lapmod(*sparse_from_masked(cost, mask))
     assert len(ret) == 3
     assert ret[0] == opt
     cost[~mask] = get_platform_maxint()

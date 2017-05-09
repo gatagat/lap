@@ -245,13 +245,13 @@ def _pya(n, cc, ii, kk, n_free_rows, free_rows, x, y, v):
             j, x[i] = x[i], j
 
 
-def check_cost(cost):
-    if cost.shape[0] == 0 or cost.shape[1] == 0:
-        raise ValueError('Cost matrix has zero size.')
-    if cost.shape[0] > cost.shape[1]:
-        raise ValueError('Cost matrix has more rows than columns.')
-    lo = cost.cc.min()
-    hi = cost.cc.max()
+def check_cost(n, cc, ii, kk):
+    if n == 0:
+        raise ValueError('Cost matrix has zero rows.')
+    if len(kk) == 0:
+        raise ValueError('Cost matrix has zero columns.')
+    lo = cc.min()
+    hi = cc.max()
     if lo < 0:
         raise ValueError('Cost matrix values must be non-negative.')
     if hi >= LARGE:
@@ -259,46 +259,53 @@ def check_cost(cost):
                 'Cost matrix values must be less than %s' % LARGE)
 
 
-def get_cost(cost, x0):
+def get_cost(n, cc, ii, kk, x0):
     ret = 0
     for i, j in enumerate(x0):
-        kj = binary_search(cost.kk[cost.start[i]:cost.start[i+1]], j)
+        kj = binary_search(kk[ii[i]:ii[i+1]], j)
         if kj is None:
             return np.inf
-        kj = cost.start[i] + kj
-        ret += cost.cc[kj]
+        kj = ii[i] + kj
+        ret += cc[kj]
     return ret
 
 
-def lapmod(cost, fast=True, return_cost=True, fp_version=FP_DYNAMIC):
+def lapmod(n, cc, ii, kk, fast=True, return_cost=True,
+           fp_version=FP_DYNAMIC):
+    """Solve sparse linear assignment problem using Jonker-Volgenant algorithm.
+
+    n: number of rows of the assignment cost matrix
+    cc: 1D array of all finite elements of the assignement cost matrix
+    ii: 1D array of indices of the row starts in cc. The following must hold:
+            ii[0] = 0 and ii[n+1] = len(cc).
+    kk: 1D array of the column indices so that:
+            cost[i, kk[ii[i] + k]] == cc[ii[i] + k].
+        Indices within one row must be sorted.
+    extend_cost: whether or not extend a non-square matrix [default: False]
+    cost_limit: an upper limit for a cost of a single assignment
+                [default: np.inf]
+    return_cost: whether or not to return the assignment cost
+
+    Returns (opt, x, y) where:
+      opt: cost of the assignment
+      x: vector of columns assigned to rows
+      y: vector of rows assigned to columns
+    or (x, y) if return_cost is not True.
+
+    When extend_cost and/or cost_limit is set, all unmatched entries will be
+    marked by -1 in x/y.
+    """
     # log = logging.getLogger('lapmod')
 
-    assert cost.shape[0] == cost.shape[1]
-    if len(cost.cc) == 0:
-        # log.warning('Cost matrix has no finite elements.')
-        mn = max(*cost.shape)
-        x = np.arange(mn)
-        x[x >= cost.shape[1]] = -1
-        x = x[:cost.shape[0]]
-        y = np.arange(mn)
-        y[y >= cost.shape[0]] = -1
-        y = y[:cost.shape[1]]
-        if return_cost is True:
-            return np.inf, x, y
-        else:
-            return x, y
-
-    check_cost(cost)
-
-    n = cost.shape[0]
+    check_cost(n, cc, ii, kk)
 
     if fast is True:
         # log.debug('[----CR & RT & ARR & augmentation ----]')
-        x, y = _lapmod(n, cost.cc, cost.start, cost.kk, fp_version=fp_version)
+        x, y = _lapmod(n, cc, ii, kk, fp_version=fp_version)
     else:
-        cc = np.ascontiguousarray(cost.cc, dtype=np.float64)
-        ii = np.ascontiguousarray(cost.start, dtype=np.int32)
-        kk = np.ascontiguousarray(cost.kk, dtype=np.int32)
+        cc = np.ascontiguousarray(cc, dtype=np.float64)
+        ii = np.ascontiguousarray(ii, dtype=np.int32)
+        kk = np.ascontiguousarray(kk, dtype=np.int32)
         x = np.empty((n,), dtype=np.int32)
         y = np.empty((n,), dtype=np.int32)
         v = np.empty((n,), dtype=np.float64)
@@ -310,7 +317,7 @@ def lapmod(cost, fast=True, return_cost=True, fp_version=FP_DYNAMIC):
         if n_free_rows == 0:
             # log.info('Reduction solved it.')
             if return_cost is True:
-                return get_cost(cost, x), x, y
+                return get_cost(n, cc, ii, kk, x), x, y
             else:
                 return x, y
         for it in range(2):
@@ -322,13 +329,13 @@ def lapmod(cost, fast=True, return_cost=True, fp_version=FP_DYNAMIC):
             if n_free_rows == 0:
                 # log.info('Augmenting row reduction solved it.')
                 if return_cost is True:
-                    return get_cost(cost, x), x, y
+                    return get_cost(n, cc, ii, kk, x), x, y
                 else:
                     return x, y
         # log.info('[----Augmentation----]')
         _pya(n, cc, ii, kk, n_free_rows, free_rows, x, y, v)
         # log.debug('x, y, v: %s %s %s', x, y, v)
     if return_cost is True:
-        return get_cost(cost, x), x, y
+        return get_cost(n, cc, ii, kk, x), x, y
     else:
         return x, y

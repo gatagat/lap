@@ -38,22 +38,23 @@ FP_DYNAMIC_ = FP_DYNAMIC
 @cython.wraparound(False)
 def lapjv(cnp.ndarray cost not None, char extend_cost=False,
           double cost_limit=np.inf, char return_cost=True):
-    '''
-    Solve linear assignment problem using Jonker-Volgenant algorithm.
+    """Solve linear assignment problem using Jonker-Volgenant algorithm.
 
     cost: (square) matrix containing the assignment costs
     extend_cost: whether or not extend a non-square matrix [default: False]
     cost_limit: an upper limit for a cost of a single assignment
                 [default: np.inf]
+    return_cost: whether or not to return the assignment cost
 
-    Returns (lapcost, rowsol, colsol) where:
-      lapcost: cost of the assignment
-      rowsol:  vector of columns assigned to rows
-      colsol:  vector of rows assigned to columns
+    Returns (opt, x, y) where:
+      opt: cost of the assignment
+      x: vector of columns assigned to rows
+      y: vector of rows assigned to columns
+    or (x, y) if return_cost is not True.
 
     When extend_cost and/or cost_limit is set, all unmatched entries will be
-    marked by -1 in rowsol/colsol.
-    '''
+    marked by -1 in x/y.
+    """
     if cost.ndim != 2:
         raise ValueError('2-dimensional array expected')
     cdef cnp.ndarray[cnp.double_t, ndim=2, mode='c'] cost_c = \
@@ -123,12 +124,8 @@ def _lapmod(
         cnp.ndarray cc not None,
         cnp.ndarray ii not None,
         cnp.ndarray kk not None,
-        char extend_cost=False,
-        double cost_limit=np.inf,
         fp_t fp_version=FP_DYNAMIC):
-    '''
-    Solve sparse linear assignment problem using Jonker-Volgenant algorithm.
-    '''
+    """Internal function called from lapmod(..., fast=True)."""
     cdef cnp.ndarray[cnp.double_t, ndim=1, mode='c'] cc_c = \
         np.ascontiguousarray(cc, dtype=np.double)
     cdef cnp.ndarray[uint_t, ndim=1, mode='c'] ii_c = \

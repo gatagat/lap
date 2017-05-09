@@ -92,7 +92,34 @@ def get_dense_eps():
     return cost, opt
 
 
-def sparse_CS_from_dense(cost):
+def sparse_from_dense(cost):
+    cc = cost.flatten()
+    n_rows = cost.shape[0]
+    n_columns = cost.shape[1]
+    ii = np.empty((n_rows+1,), dtype=int)
+    ii[0] = 0
+    ii[1:] = n_columns
+    ii = np.cumsum(ii)
+    kk = np.tile(np.arange(n_columns, dtype=int), n_rows)
+    return n_rows, cc, ii, kk
+
+
+def sparse_from_masked(cost, mask=None):
+    if mask is None:
+        mask = np.logical_not(np.isinf(cost))
+    cc = cost[mask].flatten()
+    n_rows = cost.shape[0]
+    n_columns = cost.shape[1]
+    ii = np.empty((n_rows+1,), dtype=int)
+    ii[0] = 0
+    ii[1:] = mask.sum(axis=1)
+    ii = np.cumsum(ii)
+    kk = np.tile(np.arange(n_columns, dtype=int), cost.shape[0])
+    kk = kk[mask.flatten()]
+    return n_rows, cc, ii, kk
+
+
+def sparse_from_dense_CS(cost):
     i = np.tile(
             np.atleast_2d(np.arange(cost.shape[0])).T,
             cost.shape[1]).flatten()
@@ -101,7 +128,7 @@ def sparse_CS_from_dense(cost):
     return i, j, cc
 
 
-def sparse_CS_from_mask(cost, mask):
+def sparse_from_masked_CS(cost, mask):
     i = np.tile(
             np.atleast_2d(np.arange(cost.shape[0])).T,
             cost.shape[1])[mask]
