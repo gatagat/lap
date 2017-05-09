@@ -66,8 +66,7 @@ test_script:
   # installed library.
   - "cd C:\\"
 
-  # Run unit tests with pytest
-  - "python -c \"import pytest; pytest.main(['lapjv'])\""
+  - "python -c \"import pytest; import os; from lapjv.tests import __file__ as d; d = os.path.dirname(d); pytest.main([d])\""
 
 artifacts:
   # Archive the generated wheel package in the ci.appveyor.com build report.
