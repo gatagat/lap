@@ -10,6 +10,7 @@ from .test_utils import (
     get_dense_1kx1k_int, get_dense_1kx1k_int_hard, get_sparse_1kx1k_int,
     get_sparse_4kx4k_int,
     get_dense_eps,
+    get_platform_maxint
 )
 
 
@@ -293,23 +294,21 @@ def test_dense_1kx1k_int_hard(dense_1kx1k_int_hard):
 
 @mark.timeout(60)
 def test_sparse_1kx1k_int(sparse_1kx1k_int):
-    import sys
     cost, mask, opt = sparse_1kx1k_int
     ret = lapmod(SparseMatrix.from_masked_dense(cost, mask))
     assert len(ret) == 3
     assert ret[0] == opt
-    cost[~mask] = sys.maxint
+    cost[~mask] = get_platform_maxint()
     lapjv_ret = lapjv(cost)
     assert ret[0] == lapjv_ret[0]
 
 
 @mark.timeout(60)
 def test_sparse_4kx4k_int(sparse_4kx4k_int):
-    import sys
     cost, mask, opt = sparse_4kx4k_int
     ret = lapmod(SparseMatrix.from_masked_dense(cost, mask))
     assert len(ret) == 3
     assert ret[0] == opt
-    cost[~mask] = sys.maxint
+    cost[~mask] = get_platform_maxint()
     lapjv_ret = lapjv(cost)
     assert ret[0] == lapjv_ret[0]
