@@ -15,7 +15,7 @@ int_t _ccrrt_dense(const uint_t n, cost_t *cost[],
     for (uint_t i = 0; i < n; i++) {
         x[i] = -1;
         v[i] = LARGE;
-        y[i] = -1;
+        y[i] = 0;
     }
     for (uint_t i = 0; i < n; i++) {
         for (uint_t j = 0; j < n; j++) {
@@ -24,14 +24,15 @@ int_t _ccrrt_dense(const uint_t n, cost_t *cost[],
                 v[j] = c;
                 y[j] = i;
             }
-            PRINTF("i=%zu, k=%zu, j=%d, c[i,j]=%f, v[j]=%f y[j]=%d\n", i, k, j, c, v[j], y[j]);
+            PRINTF("i=%d, j=%d, c[i,j]=%f, v[j]=%f y[j]=%d\n", i, j, c, v[j], y[j]);
         }
     }
     PRINT_COST_ARRAY(v, n);
+    PRINT_INDEX_ARRAY(y, n);
     NEW(unique, boolean, n);
     memset(unique, TRUE, n);
     {
-        int j = n;
+        int_t j = n;
         do {
             j--;
             const int_t i = y[j];
@@ -170,7 +171,7 @@ int_t _scan_dense(const uint_t n, cost_t *cost[],
         const int_t i = y[j];
         const cost_t mind = d[j];
         h = cost[i][j] - v[j] - mind;
-        PRINTF("i=%d j=%d kj=%d h=%f\n", i, j, kj, h);
+        PRINTF("i=%d j=%d h=%f\n", i, j, h);
         // For all columns in TODO
         for (uint_t k = hi; k < n; k++) {
             j = cols[k];
