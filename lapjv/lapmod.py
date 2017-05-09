@@ -3,9 +3,7 @@ from bisect import bisect_left
 
 # import logging
 
-from ._lapjv import _lapmod, FP_1, FP_2, FP_DYNAMIC
-
-LARGE = 1000000
+from ._lapjv import _lapmod, FP_DYNAMIC_ as FP_DYNAMIC, LARGE_ as LARGE
 
 
 def _pycrrt(n, cc, ii, kk, free_rows, x, y, v):
