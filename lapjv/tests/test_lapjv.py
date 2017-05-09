@@ -1,7 +1,6 @@
 from pytest import mark, fixture, raises
 
 import numpy as np
-from sys import maxint
 from lapjv import lapjv
 
 from .test_utils import (
@@ -10,6 +9,7 @@ from .test_utils import (
     get_dense_1kx1k_int, get_dense_1kx1k_int_hard, get_sparse_1kx1k_int,
     get_sparse_4kx4k_int,
     get_dense_eps,
+    get_platform_maxint
 )
 
 
@@ -286,7 +286,7 @@ def test_dense_100x100_int_hard(dense_100x100_int_hard):
 # generated - just set the mask threshold low enough
 def test_sparse_100x100_int(sparse_100x100_int):
     cost, mask, opt = sparse_100x100_int
-    cost[~mask] = maxint
+    cost[~mask] = get_platform_maxint()
     ret = lapjv(cost)
     assert len(ret) == 3
     assert ret[0] == opt
@@ -311,7 +311,7 @@ def test_dense_1kx1k_int_hard(dense_1kx1k_int_hard):
 @mark.timeout(60)
 def test_sparse_1kx1k_int(sparse_1kx1k_int):
     cost, mask, opt = sparse_1kx1k_int
-    cost[~mask] = maxint
+    cost[~mask] = get_platform_maxint()
     ret = lapjv(cost)
     assert len(ret) == 3
     assert ret[0] == opt
@@ -320,7 +320,7 @@ def test_sparse_1kx1k_int(sparse_1kx1k_int):
 @mark.timeout(60)
 def test_sparse_4kx4k_int(sparse_4kx4k_int):
     cost, mask, opt = sparse_4kx4k_int
-    cost[~mask] = maxint
+    cost[~mask] = get_platform_maxint()
     ret = lapjv(cost)
     assert len(ret) == 3
     assert ret[0] == opt

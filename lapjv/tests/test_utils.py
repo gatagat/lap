@@ -112,3 +112,8 @@ def sparse_CS_from_mask(cost, mask):
 
 def get_cost_CS(cost, x):
     return cost[np.arange(cost.shape[0]), x].sum()
+
+
+def get_platform_maxint():
+    import struct
+    return 2 ** (struct.Struct('i').size * 8 - 1) - 1
