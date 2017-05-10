@@ -1,6 +1,7 @@
 import numpy as np
 import os
 from gzip import GzipFile
+from scipy.stats import scoreatpercentile
 
 
 def make_hard(cost, lo, hi):
@@ -25,60 +26,100 @@ def get_dense_8x8_int():
     return cost, opt
 
 
+def get_dense_int(sz, rng, hard=True, seed=1299821):
+    np.random.seed(seed)
+    cost = np.random.randint(1, rng+1, size=(sz, sz))
+    if hard is True:
+        cost = make_hard(cost, 0, rng)
+    return cost
+
+
+def get_sparse_int(sz, rng, sparsity, hard=True, seed=1299821):
+    np.random.seed(seed)
+    cost = np.random.randint(1, rng+1, size=(sz, sz))
+    if hard is True:
+        cost = make_hard(cost, 0, rng)
+    mask = np.random.rand(sz, sz)
+    thresh = scoreatpercentile(
+            mask.flat, max(0, (sparsity - sz/float(sz*sz)) * 100.))
+    mask = mask < thresh
+    # Make sure there exists a solution.
+    row = np.random.permutation(sz)
+    col = np.random.permutation(sz)
+    mask[row, col] = True
+    return cost, mask
+
+
+def get_nnz_int(sz, nnz, rng=100, seed=1299821):
+    np.random.seed(seed)
+    cc = np.random.randint(1, rng+1, size=(sz*nnz,))
+    ii = np.empty((sz + 1,), dtype=np.int32)
+    ii[0] = 0
+    ii[1:] = nnz
+    ii = np.cumsum(ii)
+    kk = np.empty((sz, nnz), dtype=np.int32)
+    # Make sure there exists a solution.
+    kk[:, 0] = np.random.permutation(sz)
+    for row in range(sz):
+        p = np.random.permutation(sz)[:nnz]
+        if kk[row, 0] in p:
+            kk[row, :] = p
+        else:
+            kk[row, 1:] = p[:-1]
+    # Column indices must be sorted within each row.
+    kk = np.sort(kk, axis=1).flatten()
+    assert len(cc) == sz * nnz
+    assert len(kk)
+    assert np.all(kk >= 0)
+    assert np.all(kk < sz)
+    return cc, ii, kk
+
+
 def get_dense_100x100_int():
-    np.random.seed(1299821)
-    cost = np.random.randint(1, 101, size=(100, 100))
+    cost = get_dense_int(100, 100, hard=False, seed=1299821)
     opt = 198.
     return cost, opt
 
 
 def get_dense_100x100_int_hard():
-    cost = get_dense_100x100_int()[0]
-    cost = make_hard(cost, 1, 101)
-    opt = 11599.
+    cost = get_dense_int(100, 100, hard=True, seed=1299821)
+    opt = 11399.
     return cost, opt
 
 
 def get_sparse_100x100_int():
-    cost = get_dense_100x100_int()[0]
-    np.random.seed(963245)
-    mask = np.random.rand(cost.shape[0], cost.shape[1]) > 0.04
-    opt = 3970.
+    cost, mask = get_sparse_int(100, 100, 0.04, seed=1299821)
+    opt = 11406
     return cost, np.logical_not(mask), opt
 
 
 def get_dense_1kx1k_int():
-    np.random.seed(1299821)
-    cost = np.random.randint(1, 101, size=(1000, 1000))
+    cost = get_dense_int(1000, 100, hard=False, seed=1299821)
     opt = 1000.
     return cost, opt
 
 
 def get_dense_1kx1k_int_hard():
-    cost = get_dense_1kx1k_int()[0]
-    cost = make_hard(cost, 1, 101)
-    opt = 103078.0
+    cost = get_dense_int(1000, 100, hard=True, seed=1299821)
+    opt = 101078.0
     return cost, opt
 
 
 def get_sparse_1kx1k_int():
-    cost = get_dense_1kx1k_int()[0]
-    mask = np.random.rand(cost.shape[0], cost.shape[1]) > 0.01
-    opt = 17031.
+    cost, mask = get_sparse_int(1000, 100, 0.01, seed=1299821)
+    opt = 101078
     return cost, np.logical_not(mask), opt
 
 
 def get_dense_4kx4k_int():
-    np.random.seed(1299821)
-    cost = np.random.randint(1, 101, size=(4000, 4000))
+    cost = get_dense_int(4000, 100, hard=False, seed=1299821)
     opt = 1000.
     return cost, opt
 
 
 def get_sparse_4kx4k_int():
-    cost = get_dense_4kx4k_int()[0]
-    mask = np.random.rand(cost.shape[0], cost.shape[1]) > 0.004
-    opt = 43147.
+    cost, mask = get_sparse_int(4000, 100, 0.004, seed=1299821)
+    opt = 402541
     return cost, np.logical_not(mask), opt
 
 

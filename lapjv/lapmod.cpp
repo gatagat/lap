@@ -531,10 +531,26 @@ int_t find_path_sparse_dynamic(
 {
     const uint_t n_i = ii[start_i+1] - ii[start_i];
     // XXX: wouldnt it be better to decide for the whole matrix?
-    if (n_i > n / 2) {
+    if (n_i > 0.25 * n) {
         return find_path_sparse_1(n, cc, ii, kk, start_i, y, v, pred);
     } else {
         return find_path_sparse_2(n, cc, ii, kk, start_i, y, v, pred);
+    }
+}
+
+
+typedef int_t (*fp_function_t)(
+        const uint_t, cost_t *, uint_t *, uint_t *, const int_t, int_t *, cost_t *, int_t *);
+
+fp_function_t get_better_find_path(const uint_t n, uint_t *ii)
+{
+    const double sparsity = ii[n] / (double)(n * n);
+    if (sparsity > 0.25) {
+        PRINTF("Using find_path_sparse_1 for sparsity=%f\n", sparsity);
+        return find_path_sparse_1;
+    } else {
+        PRINTF("Using find_path_sparse_2 for sparsity=%f\n", sparsity);
+        return find_path_sparse_2;
     }
 }
 
@@ -551,11 +567,11 @@ int_t _ca_sparse(
 
     NEW(pred, int_t, n);
 
-    int_t (*fp)(const uint_t, cost_t *, uint_t *, uint_t *, const int_t, int_t *, cost_t *, int_t *);
+    fp_function_t fp;
     switch (fp_version) {
         case FP_1: fp = find_path_sparse_1; break;
         case FP_2: fp = find_path_sparse_2; break;
-        case FP_DYNAMIC: fp = find_path_sparse_dynamic; break;
+        case FP_DYNAMIC: fp = get_better_find_path(n, ii); break;
         default: return -2;
     }
 
