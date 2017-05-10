@@ -197,7 +197,7 @@ function main () {
     InstallMiniconda $env:PYTHON_VERSION $env:PYTHON_ARCH $env:PYTHON
     InstallMinicondaPip $env:PYTHON
     UpdateConda $env:PYTHON
-    InstallCondaPackages $env:PYTHON "numpy cython wheel pytest pytest-timeout msvc_runtime"
+    InstallCondaPackages $env:PYTHON "numpy cython wheel scipy pytest pytest-timeout msvc_runtime"
 }
 
 main

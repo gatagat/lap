@@ -42,7 +42,7 @@ Python-lapjv requires:
   * Python (2.7, 3.5, 3.6)
   * NumPy (>=1.10.1)
   * Cython (>=0.21) - to compile the wrapper
-  * pytest and pytest-timeout - for testing
+  * SciPy, pytest, pytest-timeout - only for testing
 
 #### Using pip
 

@@ -9,7 +9,7 @@ section venv
 virtualenv -p python ~/venv
 source ~/venv/bin/activate
 python -m pip install --upgrade pip
-pip install --retries 3 -q wheel pytest pytest-timeout cython numpy
+pip install --retries 3 -q wheel pytest pytest-timeout cython numpy scipy
 pip list
 section_end venv
 
