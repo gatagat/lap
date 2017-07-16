@@ -80,6 +80,7 @@ int_t _carr_sparse(
 {
     uint_t current = 0;
     int_t new_free_rows = 0;
+    uint_t rr_cnt = 0;
     PRINT_INDEX_ARRAY(x, n);
     PRINT_INDEX_ARRAY(y, n);
     PRINT_COST_ARRAY(v, n);
@@ -91,6 +92,7 @@ int_t _carr_sparse(
         boolean v1_lowers;
 
         PRINTF("current = %d\n", current);
+        rr_cnt++;
         const int_t free_i = free_rows[current++];
         if (ii[free_i+1] - ii[free_i] > 0) {
             const uint_t k = ii[free_i];
@@ -118,26 +120,31 @@ int_t _carr_sparse(
                 }
             }
         }
-        PRINTF("%d = %f %d = %f\n", j1, v1, j2, v2);
         i0 = y[j1];
         v1_new = v[j1] - (v2 - v1);
         v1_lowers = v1_new < v[j1];
-        PRINTF("%d %d 1=%d,%f 2=%d,%f %f %d\n", free_i, i0, j1, v1, j2, v2, v1_new, v1_lowers);
-        if (v1_lowers) {
-            v[j1] = v1_new;
-        } else if (i0 >= 0 && j2 >= 0) {
-            j1 = j2;
-            i0 = y[j2];
-        }
-        x[free_i] = j1;
-        y[j1] = free_i;
-        if (i0 >= 0) {
+        PRINTF("%d %d 1=%d,%f 2=%d,%f v1'=%f(%d,%g) \n", free_i, i0, j1, v1, j2, v2, v1_new, v1_lowers, v[j1] - v1_new);
+        if (rr_cnt < current * n) {
             if (v1_lowers) {
-                free_rows[--current] = i0;
-            } else {
+                v[j1] = v1_new;
+            } else if (i0 >= 0 && j2 >= 0) {
+                j1 = j2;
+                i0 = y[j2];
+            }
+            if (i0 >= 0) {
+                if (v1_lowers) {
+                    free_rows[--current] = i0;
+                } else {
+                    free_rows[new_free_rows++] = i0;
+                }
+            }
+        } else {
+            if (i0 >= 0) {
                 free_rows[new_free_rows++] = i0;
             }
         }
+        x[free_i] = j1;
+        y[j1] = free_i;
     }
     return new_free_rows;
 }
