@@ -518,11 +518,12 @@ int_t find_path_sparse_2(
         }
     }
 
-    FREE(scan);
-    FREE(d);
     FREE(done);
     FREE(added);
+    FREE(ready);
+    FREE(scan);
     FREE(todo);
+    FREE(d);
 
     return final_j;
 }
