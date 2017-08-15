@@ -4,7 +4,7 @@
 ![Python 3.5](https://img.shields.io/badge/python-3.5-blue.svg)
 ![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)
 
-python-lapjv - LAPJV/LAPMOD implementation
+python-lap - LAPJV/LAPMOD implementation
 ==========================================
 
 LAPJV is an algorithm by Jonker and Volgenant to solve the linear assignment
@@ -37,7 +37,7 @@ Installation
 
 #### Dependencies
 
-Python-lapjv requires:
+python-lap requires:
 
   * Python (2.7, 3.5, 3.6)
   * NumPy (>=1.10.1)

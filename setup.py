@@ -11,12 +11,12 @@ if sys.version_info[0] < 3:
     import __builtin__ as builtins
 else:
     import builtins
-builtins.__LAPJV_SETUP__ = True
+builtins.__LAP_SETUP__ = True
 
-DISTNAME = 'python-lapjv'
+DISTNAME = 'python-lap'
 DESCRIPTION = 'Python wrapper of LAPJV'
 LONG_DESCRIPTION = """
-**python-lapjv** is a linear assignment problem solver using Jonker-Volgenant
+**python-lap** is a linear assignment problem solver using Jonker-Volgenant
 algorithm for dense (LAPJV) or sparse (LAPMOD) matrices.
 """
 MAINTAINER = 'Tomas Kazmar'
@@ -25,9 +25,9 @@ URL = 'https://github.com/gatagat/lapjv'
 LICENSE = '2-clause BSD'
 DOWNLOAD_URL = 'http://'
 
-import lapjv
+import lap
 
-VERSION = lapjv.__version__
+VERSION = lap.__version__
 
 NUMPY_MIN_VERSION = '1.10.1'
 
@@ -65,9 +65,9 @@ class CleanCommand(Clean):
         cwd = os.path.abspath(os.path.dirname(__file__))
         remove_c_files = not os.path.exists(os.path.join(cwd, 'PKG-INFO'))
         if remove_c_files:
-            if os.path.exists('lapjv/_lapjv.cpp'):
-                os.unlink('lapjv/_lapjv.cpp')
-        for dirpath, dirnames, filenames in os.walk('lapjv'):
+            if os.path.exists('lap/_lapjv.cpp'):
+                os.unlink('lap/_lapjv.cpp')
+        for dirpath, dirnames, filenames in os.walk('lap'):
             for filename in filenames:
                 if any(filename.endswith(suffix) for suffix in
                        (".so", ".pyd", ".dll", ".pyc")):
@@ -137,7 +137,7 @@ def get_numpy_status():
 
 
 def get_wrapper_pyx():
-    return os.path.join('lapjv', '_lapjv.pyx')
+    return os.path.join('lap', '_lapjv.pyx')
 
 
 def generate_cython():
@@ -157,15 +157,15 @@ def configuration(parent_package='', top_path=None):
         delegate_options_to_subpackages=True,
         quiet=True)
 
-    config.add_data_dir('lapjv/tests')
+    config.add_data_dir('lap/tests')
 
     wrapper_pyx_file = get_wrapper_pyx()
     wrapper_c_file = os.path.splitext(wrapper_pyx_file)[0] + '.cpp'
     c_files = [
             os.path.join(os.path.dirname(wrapper_pyx_file), 'lapjv.cpp'),
             os.path.join(os.path.dirname(wrapper_pyx_file), 'lapmod.cpp')]
-    config.add_extension('lapjv._lapjv', sources=[wrapper_c_file, c_files],
-                         include_dirs=[get_numpy_include_dirs(), 'lapjv'])
+    config.add_extension('lap._lapjv', sources=[wrapper_c_file, c_files],
+                         include_dirs=[get_numpy_include_dirs(), 'lap'])
 
     return config
 
@@ -176,7 +176,7 @@ def setup_package():
                     maintainer_email=MAINTAINER_EMAIL,
                     description=DESCRIPTION,
                     license=LICENSE,
-                    packages=['lapjv'],
+                    packages=['lap'],
                     url=URL,
                     version=VERSION,
                     download_url=DOWNLOAD_URL,
@@ -221,7 +221,7 @@ def setup_package():
                 raise ImportError('Installed numpy is too old, '
                                   'please "pip install -U numpy".')
             else:
-                raise ImportError('lapjv requires numpy, '
+                raise ImportError('lap requires numpy, '
                                   'please "pip install numpy".')
 
         from numpy.distutils.core import setup

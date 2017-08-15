@@ -1,8 +1,8 @@
 from pytest import mark
 from joblib import Memory
 
-from lapjv import lapmod, FP_1, FP_2, FP_DYNAMIC
-from lapjv.tests.test_utils import get_nnz_int
+from lap import lapmod, FP_1, FP_2, FP_DYNAMIC
+from lap.tests.test_utils import get_nnz_int
 
 max_time_per_benchmark = 20
 
