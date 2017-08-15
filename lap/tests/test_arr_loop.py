@@ -1,7 +1,7 @@
 from pytest import approx
 
 import numpy as np
-from lapjv import lapmod, lapjv
+from lap import lapmod, lapjv
 
 
 def prepare_sparse_cost(shape, cc, ii, jj, cost_limit):

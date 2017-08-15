@@ -2,10 +2,10 @@ from pytest import mark
 from joblib import Memory
 
 import numpy as np
-from lapjv import lapjv, lapmod
-from lapjv.lapmod import get_cost
+from lap import lapjv, lapmod
+from lap.lapmod import get_cost
 try:
-    from lapjv_old import lapjv as lapjv_old
+    from lap_old import lapjv as lapjv_old
 except ImportError:
     print(
           '''If you get here, you do not have the old lapjv to compare to.
@@ -20,7 +20,7 @@ except ImportError:
     lapjv_old = None
 from centrosome.lapjv import lapjv as lapjv_centrosome
 
-from lapjv.tests.test_utils import (
+from lap.tests.test_utils import (
     sparse_from_masked,
     sparse_from_masked_CS,
     get_sparse_int,
