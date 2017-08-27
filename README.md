@@ -1,24 +1,23 @@
-[![Travis](https://travis-ci.org/gatagat/lapjv.svg?branch=master)](https://travis-ci.org/gatagat/lapjv/)
-[![Appveyor](https://ci.appveyor.com/api/projects/status/github/gatagat/lapjv?branch=master&svg=true)](https://ci.appveyor.com/project/gatagat/lapjv/history)
+[![Travis](https://travis-ci.org/gatagat/lap.svg?branch=master)](https://travis-ci.org/gatagat/lap/)
+[![Appveyor](https://ci.appveyor.com/api/projects/status/github/gatagat/lap?branch=master&svg=true)](https://ci.appveyor.com/project/gatagat/lap/history)
 ![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg)
 ![Python 3.5](https://img.shields.io/badge/python-3.5-blue.svg)
 ![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)
 
-python-lap - LAPJV/LAPMOD implementation
-==========================================
+lap: Linear Assignment Problem solver
+=====================================
 
-LAPJV is an algorithm by Jonker and Volgenant to solve the linear assignment
-problem.  This repository contains two versions of the algorithm for dense
-(LAPJV [1]) and sparse (LAPMOD [2]) matrices.
+Lap implements algorithms to solve a [linear assignment
+problem](https://en.wikipedia.org/wiki/Assignment_problem). As of now,
+there are two algorithms due to Jonker and Volgenant: LAPJV [1] for dense cost
+matrices and LAPMOD [2] for sparse cost matrices.
 
-*News*: The newly added LAPMOD algorithm was implemented based on the papers [1,2] and the public
-domain Pascal implementation provided by A. Volgenant [3]. The original LAPJV
-code ([branch old](/gatagat/lapjv/tree/old)) was completely replaced by a version derived from the new
-LAPMOD code. As a result the new LAPJV code is faster and as far as I can tell
-there should be no restrictions on using it for commercial purposes.
+Both algorithms were implemented based on the papers [1,2] and the public
+domain Pascal implementation provided by A. Volgenant [3].
 
-In my tests the LAPMOD implementation seems to be faster than the LAPJV implementation for matrices with a
-side of more than ~5000 and with less than 50% finite coefficients.
+In my tests the LAPMOD implementation seems to be faster than the LAPJV
+implementation for matrices with a side of more than ~5000 and with less than
+50% finite coefficients.
 
 [1] R. Jonker and A. Volgenant, "A Shortest Augmenting Path Algorithm for Dense
 and Sparse Linear Assignment Problems", Computing 38, 325-340 (1987)<br>
@@ -37,7 +36,7 @@ Installation
 
 #### Dependencies
 
-python-lap requires:
+lap requires:
 
   * Python (2.7, 3.5, 3.6)
   * NumPy (>=1.10.1)
@@ -46,13 +45,13 @@ python-lap requires:
 
 #### Using pip
 
-    pip install git+git://github.com/gatagat/lapjv.git
+    pip install git+git://github.com/gatagat/lap.git
 
 #### Install from source
 
   1. Clone
 
-         git clone https://github.com/gatagat/lapjv.git
+         git clone https://github.com/gatagat/lap.git
 
   2. Under the root of the repo
 
