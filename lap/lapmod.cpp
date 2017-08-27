@@ -91,8 +91,8 @@ int_t _carr_sparse(
         cost_t v1, v2, v1_new;
         boolean v1_lowers;
 
-        PRINTF("current = %d\n", current);
         rr_cnt++;
+        PRINTF("current = %d rr_cnt = %d\n", current, rr_cnt);
         const int_t free_i = free_rows[current++];
         if (ii[free_i+1] - ii[free_i] > 0) {
             const uint_t k = ii[free_i];
@@ -139,6 +139,7 @@ int_t _carr_sparse(
                 }
             }
         } else {
+            PRINTF("rr_cnt=%d >= %d (current=%d * n=%d)\n", rr_cnt, current * n, current, n);
             if (i0 >= 0) {
                 free_rows[new_free_rows++] = i0;
             }
