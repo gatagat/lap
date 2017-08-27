@@ -1,4 +1,4 @@
-"""LAPJV
+"""LAP
 ``python-lap`` is a linear assignment problem solver using Jonker-Volgenant
 algorithm for dense (LAPJV) or sparse (LAPMOD) matrices.
 
@@ -20,7 +20,7 @@ try:
 except NameError:
     __LAP_SETUP__ = False
 if __LAP_SETUP__:
-    sys.stderr.write('Partial import of lapjv during the build process.\n')
+    sys.stderr.write('Partial import of lap during the build process.\n')
 else:
     from ._lapjv import (
             lapjv,
