@@ -34,6 +34,7 @@ def prepare_sparse_cost(shape, cc, ii, jj, cost_limit):
     order = np.lexsort((jj_, ii_))
     cc_ = cc_[order]
     kk_ = jj_[order]
+    ii_ = ii_.astype(np.intp)
     ii_ = np.bincount(ii_, minlength=shape[0]-1)
     ii_ = np.r_[[0], np.cumsum(ii_)]
     ii_ = ii_.astype(np.uint32)
