@@ -1,5 +1,5 @@
 # AppVeyor.com is a Continuous Integration service to build and run tests under
-# Windows
+# Windows.
 #
 # Taken from the skimage project (https://github.com/scikit-image/scikit-image)
 
