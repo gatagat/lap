@@ -1,0 +1,10 @@
+include MANIFEST.in
+include README.md
+include setup.cfg
+include setup.py
+include LICENSE
+include README.md
+recursive-include  lap *.pyx *.pxd *.pxi *.py *.c *.cpp *.h *.md
+include lap/tests/*.gz
+global-exclude *~
+global-exclude *.pyc

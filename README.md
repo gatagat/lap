@@ -24,12 +24,6 @@ and Sparse Linear Assignment Problems", Computing 38, 325-340 (1987)<br>
 Approach", Computer Ops Res. 23, 917-932 (1996)<br>
 [3] http://www.assignmentproblems.com/LAPJV.htm
 
-License
--------
-
-BSD 2-clause.
-
-
 Installation
 ------------
 
@@ -59,4 +53,10 @@ lap requires:
 
 Tested under Linux, OS X, Windows.
 
-Tomas Kazmar, 2012-2017
+
+License
+-------
+
+Released under the 2-clause BSD license, see `LICENSE`.
+
+Copyright (C) 2012-2017, Tomas Kazmar

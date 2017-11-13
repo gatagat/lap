@@ -14,7 +14,7 @@ else:
 builtins.__LAP_SETUP__ = True
 
 DISTNAME = 'lap'
-DESCRIPTION = 'Python wrapper of LAPJV'
+DESCRIPTION = 'Linear Assignment Problem solver (LAPJV/LAPMOD).'
 LONG_DESCRIPTION = """
 **lap** is a linear assignment problem solver using Jonker-Volgenant
 algorithm for dense (LAPJV) or sparse (LAPMOD) matrices.
