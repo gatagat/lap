@@ -13,17 +13,17 @@ else:
     import builtins
 builtins.__LAP_SETUP__ = True
 
-DISTNAME = 'python-lap'
+DISTNAME = 'lap'
 DESCRIPTION = 'Python wrapper of LAPJV'
 LONG_DESCRIPTION = """
-**python-lap** is a linear assignment problem solver using Jonker-Volgenant
+**lap** is a linear assignment problem solver using Jonker-Volgenant
 algorithm for dense (LAPJV) or sparse (LAPMOD) matrices.
 """
 MAINTAINER = 'Tomas Kazmar'
 MAINTAINER_EMAIL = 'tomash.kazmar@seznam.cz'
-URL = 'https://github.com/gatagat/lapjv'
-LICENSE = '2-clause BSD'
-DOWNLOAD_URL = 'http://'
+URL = 'https://github.com/gatagat/lap'
+LICENSE = 'BSD (2-clause)'
+DOWNLOAD_URL = URL
 
 import lap
 
@@ -191,7 +191,6 @@ def setup_package():
                                  'Programming Language :: Python :: 2',
                                  'Programming Language :: Python :: 3',
                                  'Programming Language :: Python :: 2.7',
-                                 'Programming Language :: Python :: 3.5',
                                  'Programming Language :: Python :: 3.6',
                                  'Programming Language :: Cython',
                                  'Operating System :: Microsoft :: Windows',

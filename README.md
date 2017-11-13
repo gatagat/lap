@@ -1,19 +1,18 @@
 [![Travis](https://travis-ci.org/gatagat/lap.svg?branch=master)](https://travis-ci.org/gatagat/lap/)
 [![Appveyor](https://ci.appveyor.com/api/projects/status/github/gatagat/lap?branch=master&svg=true)](https://ci.appveyor.com/project/gatagat/lap/history)
 ![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg)
-![Python 3.5](https://img.shields.io/badge/python-3.5-blue.svg)
 ![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)
 
 lap: Linear Assignment Problem solver
 =====================================
 
-Lap implements algorithms to solve a [linear assignment
-problem](https://en.wikipedia.org/wiki/Assignment_problem). As of now,
-there are two algorithms due to Jonker and Volgenant: LAPJV [1] for dense cost
-matrices and LAPMOD [2] for sparse cost matrices.
+**lap** is a [linear assignment
+problem](https://en.wikipedia.org/wiki/Assignment_problem) solver using
+Jonker-Volgenant algorithm for dense (LAPJV [1]) or sparse (LAPMOD [2])
+matrices.
 
-Both algorithms were implemented based on the papers [1,2] and the public
-domain Pascal implementation provided by A. Volgenant [3].
+Both algorithms are implemented from scratch based solely on the papers [1,2]
+and the public domain Pascal implementation provided by A. Volgenant [3].
 
 In my tests the LAPMOD implementation seems to be faster than the LAPJV
 implementation for matrices with a side of more than ~5000 and with less than
@@ -38,7 +37,7 @@ Installation
 
 lap requires:
 
-  * Python (2.7, 3.5, 3.6)
+  * Python (2.7, 3.6)
   * NumPy (>=1.10.1)
   * Cython (>=0.21) - to compile the wrapper
   * SciPy, pytest, pytest-timeout - only for testing

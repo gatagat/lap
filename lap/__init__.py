@@ -1,5 +1,5 @@
 """LAP
-``python-lap`` is a linear assignment problem solver using Jonker-Volgenant
+``lap`` is a linear assignment problem solver using Jonker-Volgenant
 algorithm for dense (LAPJV) or sparse (LAPMOD) matrices.
 
 Functions
@@ -13,7 +13,7 @@ lapmod
 
 import sys
 
-__version__ = '0.2.dev0'
+__version__ = '0.3.dev0'
 
 try:
     __LAP_SETUP__

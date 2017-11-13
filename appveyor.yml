@@ -19,14 +19,6 @@ environment:
       PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "64"
 
-    - PYTHON: "C:\\Python35-conda32"
-      PYTHON_VERSION: "3.5"
-      PYTHON_ARCH: "32"
-
-    - PYTHON: "C:\\Python35-conda64"
-      PYTHON_VERSION: "3.5"
-      PYTHON_ARCH: "64"
-
     - PYTHON: "C:\\Python36-conda32"
       PYTHON_VERSION: "3.6"
       PYTHON_ARCH: "32"
@@ -56,7 +48,7 @@ install:
   - ps: "ls dist"
 
   # Install the generated wheel package to test it
-  - "pip install --pre --no-index --find-links dist/ python-lap"
+  - "pip install --pre --no-index --find-links dist/ lap"
 
 # Not a .NET project, we build lapjv in the install step instead
 build: false
