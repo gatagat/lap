@@ -29,4 +29,4 @@ And follow https://help.github.com/articles/creating-releases/
 
 7. Finally, upload to the live pypi server:
 
-    twine upload --repository testpypi dist/*
+    twine upload dist/*
