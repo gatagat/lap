@@ -1,56 +1,40 @@
 # AppVeyor.com is a Continuous Integration service to build and run tests under
-# Windows.
+# Windows
 #
 # Taken from the skimage project (https://github.com/scikit-image/scikit-image)
 
 environment:
-  global:
-    # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
-    # /E:ON and /V:ON options are not enabled in the batch script intepreter
-    # See: http://stackoverflow.com/a/13751649/163740
-    CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\tools\\run_with_env.cmd"
-
   matrix:
-    - PYTHON: "C:\\Python27-conda32"
-      PYTHON_VERSION: "2.7"
-      PYTHON_ARCH: "32"
+    - PYTHON: C:\Python27
+    - PYTHON: C:\Python27-x64
+    - PYTHON: C:\Python36
+    - PYTHON: C:\Python36-x64
 
-    - PYTHON: "C:\\Python27-conda64"
-      PYTHON_VERSION: "2.7"
-      PYTHON_ARCH: "64"
-
-    - PYTHON: "C:\\Python36-conda32"
-      PYTHON_VERSION: "3.6"
-      PYTHON_ARCH: "32"
-
-    - PYTHON: "C:\\Python36-conda64"
-      PYTHON_VERSION: "3.6"
-      PYTHON_ARCH: "64"
+matrix:
+  fast_finish: true
 
 install:
   - ECHO "Filesystem root:"
   - ps: "ls \"C:/\""
-    
-  # Install Python and all the required packages.
-  - "powershell ./tools/install.ps1"
 
-  # Prepend newly installed Python to the PATH of this build
-  # (this cannot be done from inside the powershell script as it would require
-  # to restart the parent CMD process).
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  - "python -m pip install -U pip"
 
   # Check that we have the expected version and architecture for Python
   - "python --version"
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
+  - "pip --version"
 
   # Install the build and runtime dependencies of the project.
-  - "%CMD_IN_ENV% python setup.py bdist_wheel bdist_wininst"
+  - pip install --retries 3 -q wheel pytest pytest-timeout cython numpy scipy
+  - pip list
+  - python setup.py bdist_wheel bdist_wininst
   - ps: "ls dist"
 
   # Install the generated wheel package to test it
   - "pip install --pre --no-index --find-links dist/ lap"
 
-# Not a .NET project, we build lapjv in the install step instead
+# Not a .NET project, we build lap in the install step instead
 build: false
 
 test_script:
@@ -58,6 +42,7 @@ test_script:
   # installed library.
   - "cd C:\\"
 
+  # Run unit tests with pytest
   - "python -c \"import pytest; import os; from lap.tests import __file__ as d; d = os.path.dirname(d); pytest.main([d])\""
 
 artifacts:
