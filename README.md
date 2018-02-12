@@ -36,10 +36,16 @@ lap requires:
   * Cython (>=0.21) - to compile the wrapper
   * SciPy, pytest, pytest-timeout - only for testing
 
-#### Using pip
+#### Install using pip
+
+You can install the lastest release of lap from PyPI (recommended):
+
+    pip install lap
+    
+Alternatively, you can install lap directly from the repository:
 
     pip install git+git://github.com/gatagat/lap.git
-
+    
 #### Install from source
 
   1. Clone
