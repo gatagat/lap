@@ -38,7 +38,7 @@ lap requires:
 
 #### Install using pip
 
-You can install the lastest release of lap from PyPI (recommended):
+You can install the latest release of lap from PyPI (recommended):
 
     pip install lap
     
@@ -59,6 +59,32 @@ Alternatively, you can install lap directly from the repository:
 
 Tested under Linux, OS X, Windows.
 
+### Usage
+
+```
+cost, x, y = lap.lapjv(C)
+```
+
+The function `lapjv(C)` returns the assignment cost (`cost`) and two arrays, `x, y`. If cost matrix `C` has shape N x M, then `x` is a size-N array specifying to which column is row is assigned, and `y` is a size-M array specifying to which row each column is assigned. For example, an output of `x = [1, 0]` indicates that row 0 is assigned to column 1 and row 1 is assigned to column 0. Similarly, an output of `x = [2, 1, 0]` indicates that row 0 is assigned to column 2, row 1 is assigned to column 1, and row 2 is assigned to column 0.
+
+Note that this function *does not* return the assignment matrix (as done by scipy's [`linear_sum_assignment`](https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.optimize.linear_sum_assignment.html) and lapsolver's [`solve dense`](https://github.com/cheind/py-lapsolver)). The assignment matrix can be constructed from `x` as follows:
+```
+A = np.zeros((N, M))
+for i in range(N):
+    A[i, x[i]] = 1
+```
+Equivalently, we could construct the assignment matrix from `y`:
+```
+A = np.zeros((N, M))
+for j in range(M):
+    A[y[j], j] = 1
+```
+
+Finally, note that the outputs are redundant: we can construct `x` from `y`, and vise versa:
+```
+x = [np.where(y == i)[0][0] for i in range(N)]
+y = [np.where(x == j)[0][0] for j in range(M)]
+```
 
 License
 -------
