@@ -40,17 +40,17 @@ def lapjv(cnp.ndarray cost not None, char extend_cost=False,
           double cost_limit=np.inf, char return_cost=True):
     """Solve linear assignment problem using Jonker-Volgenant algorithm.
 
-    cost: (square) matrix containing the assignment costs
+    cost: an N x N matrix containing the assignment costs. Entry cost[i, j] is
+      the cost of assigning row i to column j.
     extend_cost: whether or not extend a non-square matrix [default: False]
     cost_limit: an upper limit for a cost of a single assignment
                 [default: np.inf]
     return_cost: whether or not to return the assignment cost
 
     Returns (opt, x, y) where:
-      opt: cost of the assignment
-      x: vector of columns assigned to rows
-      y: vector of rows assigned to columns
-    or (x, y) if return_cost is not True.
+      opt: cost of the assignment, not returned if return_cost is False.
+      x: a size-N array specifying to which column each row is assigned.
+      y: a size-N array specifying to which row each column is assigned.
 
     When extend_cost and/or cost_limit is set, all unmatched entries will be
     marked by -1 in x/y.
