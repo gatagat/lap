@@ -25,8 +25,6 @@ before_install:
   - uname -a
   - source tools/travis_section_def.sh
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then source tools/travis_osx_install.sh ; fi
-  - python -m pip install -U pip
-  - pip install -U virtualenv
   - source tools/travis_before_install.sh
   - which python; python --version
   - tools/build_versions.py
