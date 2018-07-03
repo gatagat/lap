@@ -5,32 +5,37 @@ export PIP_DEFAULT_TIMEOUT=60
 
 export TEST_ARGS="-v"
 
-HAVE_VENV=$(python <<EOL
-try:
-	import venv
-	print('1')
-except ImportError:
-	pass
-EOL
-)
-
-section install_pip_venv
-python -m pip install -U pip
-if [ ! "$HAVE_VENV" ]; then
-	pip install -U virtualenv
-fi
-section_end install_pip_venv
-
-section venv
-if [ "$HAVE_VENV" ]; then
-	python -m venv ~/venv
+if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+	section setup_osx_venv
+	git clone https://github.com/matthew-brett/multibuild ~/multibuild
+	source ~/multibuild/osx_utils.sh
+	get_macpython_environment $TRAVIS_PYTHON_VERSION ~/venv
+	section_end setup_osx_venv
 else
-	virtualenv -p python ~/venv
+	section setup_linux_venv
+	python -m pip install -U pip
+	HAVE_VENV=$(python <<-EOL
+	try:
+		import venv
+		print('1')
+	except ImportError:
+		pass
+	EOL
+	)
+	if [ "$HAVE_VENV" ]; then
+		python -m venv ~/venv
+	else
+		pip install -U virtualenv
+		virtualenv -p python ~/venv
+	fi
+	source ~/venv/bin/activate
+	section_end setup_linux_venv
 fi
-source ~/venv/bin/activate
+
+section install_requirements
 python -m pip install -U pip
 pip install --retries 3 -q wheel pytest pytest-timeout cython numpy scipy
 pip list
-section_end venv
+section_end install_requirements
 
 set +ex

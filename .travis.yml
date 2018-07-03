@@ -24,7 +24,6 @@ before_install:
   - pwd
   - uname -a
   - source tools/travis_section_def.sh
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then source tools/travis_osx_install.sh ; fi
   - source tools/travis_before_install.sh
   - which python; python --version
   - tools/build_versions.py
