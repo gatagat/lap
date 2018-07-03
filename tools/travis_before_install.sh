@@ -5,17 +5,24 @@ export PIP_DEFAULT_TIMEOUT=60
 
 export TEST_ARGS="-v"
 
+HAVE_VENV=$(python <<EOL
+try:
+	import venv
+	print('1')
+except ImportError:
+	pass
+EOL
+)
+
 section install_pip_venv
 python -m pip install -U pip
-if pyver_ge $TRAVIS_PYTHON_VERSION 3.3; then
-	true  # There is the venv module.
-else
+if [ ! "$HAVE_VENV" ]; then
 	pip install -U virtualenv
 fi
 section_end install_pip_venv
 
 section venv
-if pyver_ge $TRAVIS_PYTHON_VERSION 3.3; then
+if [ "$HAVE_VENV" ]; then
 	python -m venv -p python ~/venv
 else
 	virtualenv -p python ~/venv
