@@ -26,7 +26,7 @@ else
 	if [ "$HAVE_VENV" ]; then
 		python -m venv ~/venv
 	else
-		pip install -U virtualenv
+		python -m pip install -U virtualenv
 		virtualenv -p python ~/venv
 	fi
 	section_end setup_linux_venv
@@ -35,9 +35,9 @@ fi
 section install_requirements
 source ~/venv/bin/activate
 python -m pip install -U pip
-pip install --retries 3 wheel
-pip install --retries 3 pytest pytest-timeout cython numpy scipy
-pip list
+python -m pip install --retries 3 wheel
+python -m pip install --retries 3 pytest pytest-timeout cython numpy scipy
+python -m pip list
 section_end install_requirements
 
 set +ex
