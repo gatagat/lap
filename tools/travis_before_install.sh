@@ -23,7 +23,7 @@ section_end install_pip_venv
 
 section venv
 if [ "$HAVE_VENV" ]; then
-	python -m venv -p python ~/venv
+	python -m venv ~/venv
 else
 	virtualenv -p python ~/venv
 fi
