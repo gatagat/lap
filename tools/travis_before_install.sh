@@ -14,13 +14,14 @@ if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
 else
 	section setup_linux_venv
 	python -m pip install -U pip
-	HAVE_VENV=$(python <<-EOL
-	try:
-		import venv
-		print('1')
-	except ImportError:
-		pass
-	EOL
+	HAVE_VENV=$(
+		python <<-EOL
+		try:
+		    import venv
+		    print('1')
+		except ImportError:
+		    pass
+		EOL
 	)
 	if [ "$HAVE_VENV" ]; then
 		python -m venv ~/venv
