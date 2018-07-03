@@ -13,7 +13,7 @@ lapmod
 
 import sys
 
-__version__ = '0.4dev'
+__version__ = '0.4.0'
 
 try:
     __LAP_SETUP__

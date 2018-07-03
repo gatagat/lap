@@ -18,7 +18,7 @@
 
     pip install pytest
     pip install scipy
-    pytest test/lib/python?.?/site-packages/lap/
+    pytest $VIRTUAL_ENV/lib/python*/site-packages/lap/
 
 6. Tag and release on github:
 
