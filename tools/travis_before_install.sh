@@ -29,13 +29,14 @@ else
 		pip install -U virtualenv
 		virtualenv -p python ~/venv
 	fi
-	source ~/venv/bin/activate
 	section_end setup_linux_venv
 fi
 
 section install_requirements
+source ~/venv/bin/activate
 python -m pip install -U pip
-pip install --retries 3 -q wheel pytest pytest-timeout cython numpy scipy
+pip install --retries 3 wheel
+pip install --retries 3 pytest pytest-timeout cython numpy scipy
 pip list
 section_end install_requirements
 
