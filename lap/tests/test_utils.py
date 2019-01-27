@@ -1,7 +1,6 @@
 import numpy as np
 import os
 from gzip import GzipFile
-from scipy.stats import scoreatpercentile
 
 
 def make_hard(cost, lo, hi):
@@ -40,7 +39,7 @@ def get_sparse_int(sz, rng, sparsity, hard=True, seed=1299821):
     if hard is True:
         cost = make_hard(cost, 0, rng)
     mask = np.random.rand(sz, sz)
-    thresh = scoreatpercentile(
+    thresh = np.percentile(
             mask.flat, max(0, (sparsity - sz/float(sz*sz)) * 100.))
     mask = mask < thresh
     # Make sure there exists a solution.
