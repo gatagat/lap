@@ -28,14 +28,16 @@ Approach", Computer Ops Res. 23, 917-932 (1996)<br>
 Installation
 ------------
 
-#### Dependencies
+#### Runtime dependencies
 
-lap requires:
+Running lap requires:
 
   * Python (2.7, 3.6, 3.7)
   * NumPy (>=1.10.1)
-  * Cython (>=0.21) - to compile the wrapper
-  * SciPy, pytest, pytest-timeout - only for testing
+  
+In addition to above, running the tests requires:
+
+  * SciPy, pytest, pytest-timeout
 
 #### Install using pip
 
@@ -49,7 +51,9 @@ Alternatively, you can install lap directly from the repository:
     
 #### Install from source
 
-  1. Clone
+  1. Install a C++ compiler (e.g., g++)
+  2. Install Cython (>=0.21)
+  3. Clone
 
          git clone https://github.com/gatagat/lap.git
 
