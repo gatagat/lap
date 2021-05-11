@@ -53,12 +53,13 @@ Alternatively, you can install lap directly from the repository:
 #### Install from source
 
   1. Install a C++ compiler (e.g., g++)
-  2. Install Cython (>=0.21)
-  3. Clone
+  2. Python headers (e.g., python-dev package on Debian/Ubuntu)
+  3. Install Cython (>=0.21)
+  4. Clone
 
          git clone https://github.com/gatagat/lap.git
 
-  2. Under the root of the repo
+  5. Under the root of the repo
 
          python setup.py build
          python setup.py install
