@@ -4,12 +4,18 @@ language: python
 python:
   - "2.7"
   - "3.7"
+  - "3.8"
+  - "3.9"
 matrix:
   include:
     - os: linux
       python: 2.7
     - os: linux
       python: 3.7
+    - os: linux
+      python: 3.8
+    - os: linux
+      python: 3.9
     - os: osx
       osx_image: xcode7.3
       language: objective-c
@@ -18,6 +24,14 @@ matrix:
       osx_image: xcode7.3
       language: objective-c
       env: TRAVIS_PYTHON_VERSION=3.7
+    - os: osx
+      osx_image: xcode7.3
+      language: objective-c
+      env: TRAVIS_PYTHON_VERSION=3.8
+    - os: osx
+      osx_image: xcode7.3
+      language: objective-c
+      env: TRAVIS_PYTHON_VERSION=3.9
 before_install:
   - df -h
   - date
