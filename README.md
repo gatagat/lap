@@ -42,7 +42,8 @@ In addition to above, running the tests requires:
 
 #### Install using pip
 
-You can install the latest release of lap from PyPI (recommended):
+You can install the latest release of lap from PyPI (recommended):  
+You need python header installed(for example: in Ubuntu and python3.8 use command ```apt install python3.8-dev``` to install)
 
     pip install lap
     
