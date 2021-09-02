@@ -43,7 +43,7 @@ if SETUPTOOLS_COMMANDS.intersection(sys.argv):
     extra_setuptools_args = dict(
         zip_safe=False,  # the package can run out of an .egg file
         include_package_data=True,
-        extras_require={
+        install_requires={
             'alldeps': (
                 'numpy >= {0}'.format(NUMPY_MIN_VERSION),
             ),
