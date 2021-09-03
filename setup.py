@@ -43,6 +43,9 @@ if SETUPTOOLS_COMMANDS.intersection(sys.argv):
     extra_setuptools_args = dict(
         zip_safe=False,  # the package can run out of an .egg file
         include_package_data=True,
+        install_requires=[
+            'numpy >= {0}'.format(NUMPY_MIN_VERSION),
+        ],
         extras_require={
             'alldeps': (
                 'numpy >= {0}'.format(NUMPY_MIN_VERSION),
@@ -201,10 +204,34 @@ def setup_package():
                     cmdclass=cmdclass,
                     **extra_setuptools_args)
 
-    try:
-        from setuptools import setup
-    except ImportError:
-        from distutils.core import setup
+    if len(sys.argv) == 1 or (
+            len(sys.argv) >= 2 and ('--help' in sys.argv[1:] or
+                                    sys.argv[1] in ('--help-commands',
+                                                    'egg_info',
+                                                    '--version',
+                                                    'clean'))):
+        try:
+            from setuptools import setup
+        except ImportError:
+            from distutils.core import setup
+    else:
+        numpy_status = get_numpy_status()
+        if numpy_status['up_to_date'] is False:
+            if numpy_status['version']:
+                raise ImportError('Installed numpy is too old, '
+                                  'please "pip install -U numpy".')
+            else:
+                raise ImportError('lap requires numpy, '
+                                  'please "pip install numpy".')
+
+        from numpy.distutils.core import setup
+        metadata['configuration'] = configuration
+
+        if len(sys.argv) >= 2 and sys.argv[1] not in 'config':
+            print('Generating cython files')
+            cwd = os.path.abspath(os.path.dirname(__file__))
+            if not os.path.exists(os.path.join(cwd, 'PKG-INFO')):
+                generate_cython()
 
     setup(**metadata)
 
