@@ -45,6 +45,7 @@ if SETUPTOOLS_COMMANDS.intersection(sys.argv):
         include_package_data=True,
         install_requires=[
             'numpy >= {0}'.format(NUMPY_MIN_VERSION),
+            'Cython >=0.29.13<1.0.0',
         ],
         extras_require={
             'alldeps': (
