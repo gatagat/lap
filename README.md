@@ -46,6 +46,12 @@ You can install the latest release of lap from PyPI (recommended):
 
     pip install lap
     
+for Windows user，if pip install fail，you can [check if you install correct MSVC](https://stackoverflow.com/a/68553226) by following command
+    
+    python -c "import sys; print(sys.version)"
+
+and [check MSVC version](https://en.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B)
+    
 Alternatively, you can install lap directly from the repository:
 
     pip install git+git://github.com/gatagat/lap.git
