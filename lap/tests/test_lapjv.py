@@ -39,6 +39,18 @@ def test_lapjv_extension():
     assert np.all(ret[2] == [-1, 0, 1, -1])
 
 
+def test_lapjv_extension_negative():
+    # Optimal solution is 2 + 2 = 4 using edges (0, 0), (1, 1).
+    cost = np.array([[2, 4, 6, 8], [1, 2, 4, 8]])
+    # Shift costs to lie in range [-30, -20].
+    # Minimal cost is now 4 - 30 * 2 = -56.
+    cost -= 30
+    ret = lapjv(cost, extend_cost=True)
+    np.testing.assert_almost_equal(ret[0], -56)
+    np.testing.assert_equal(ret[1], [0, 1])
+    np.testing.assert_equal(ret[2], [0, 1, -1, -1])
+
+
 def test_lapjv_noextension():
     cost = get_dense_8x8_int()[0]
     c = np.r_[cost[:2, :4],

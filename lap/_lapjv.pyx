@@ -88,7 +88,7 @@ def lapjv(cnp.ndarray cost not None, char extend_cost=False,
         if cost_limit < np.inf:
             cost_c_extended[:] = cost_limit / 2.
         else:
-            cost_c_extended[:] = cost_c.max() + 1
+            cost_c_extended[:] = max(0, cost_c.max()) + 1
         cost_c_extended[n_rows:, n_cols:] = 0
         cost_c_extended[:n_rows, :n_cols] = cost_c
         cost_c = cost_c_extended
