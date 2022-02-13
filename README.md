@@ -35,28 +35,24 @@ Running lap requires:
 
   * Python (2.7, 3.7, 3.8, 3.9)
   * NumPy (>=1.10.1)
-  
+
 In addition to above, running the tests requires:
 
   * SciPy, pytest, pytest-timeout
 
 #### Install using pip
 
-You can install the latest release of lap from PyPI (recommended):  
-You need python header installed(for example: in Ubuntu and python3.8 use command ```apt install python3.8-dev``` to install)
+You can install the latest release of lap from PyPI (recommended):
 
     pip install lap
-    
-for Windows user，if pip install fail，you can [check if you install correct MSVC](https://stackoverflow.com/a/68553226) by following command
-    
-    python -c "import sys; print(sys.version)"
 
-and [check MSVC version](https://en.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B)
-    
 Alternatively, you can install lap directly from the repository:
 
     pip install git+git://github.com/gatagat/lap.git
-    
+
+In some cases installing from PyPI results in building the package, in these
+cases make sure to check "Install from source" below.
+
 #### Install from source
 
   1. Install a C++ compiler (e.g., g++)
@@ -70,6 +66,11 @@ Alternatively, you can install lap directly from the repository:
 
          python setup.py build
          python setup.py install
+
+On Windows, the build may fail if there is a mismatch between the MSVC compiler
+version used for the build and the version used to build Python itself. For
+more information see this [stackoverflow
+answer](https://stackoverflow.com/a/68553226).
 
 Tested under Linux, OS X, Windows.
 
