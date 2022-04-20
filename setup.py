@@ -180,6 +180,7 @@ def setup_package():
                     url=URL,
                     version=VERSION,
                     download_url=DOWNLOAD_URL,
+                    install_requires=open('requirements.txt').read().splitlines(),
                     long_description=LONG_DESCRIPTION,
                     classifiers=['Development Status :: 4 - Beta',
                                  'Environment :: Console',
