@@ -6,6 +6,7 @@ import shutil
 import subprocess
 import sys
 import traceback
+import re
 
 if sys.version_info[0] < 3:
     import __builtin__ as builtins
@@ -25,9 +26,13 @@ URL = 'https://github.com/gatagat/lap'
 LICENSE = 'BSD (2-clause)'
 DOWNLOAD_URL = URL
 
-import lap
+with open("lap/__init__.py", "r") as f:
+    version = re.search(
+        r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
+        f.read(), re.MULTILINE
+    ).group(1)
 
-VERSION = lap.__version__
+VERSION = version
 
 NUMPY_MIN_VERSION = '1.10.1'
 
@@ -43,6 +48,7 @@ if SETUPTOOLS_COMMANDS.intersection(sys.argv):
     extra_setuptools_args = dict(
         zip_safe=False,  # the package can run out of an .egg file
         include_package_data=True,
+        install_requires=[f'numpy>={NUMPY_MIN_VERSION}'],
         extras_require={
             'alldeps': (
                 'numpy >= {0}'.format(NUMPY_MIN_VERSION),
