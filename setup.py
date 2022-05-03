@@ -25,9 +25,7 @@ URL = 'https://github.com/gatagat/lap'
 LICENSE = 'BSD (2-clause)'
 DOWNLOAD_URL = URL
 
-import lap
-
-VERSION = lap.__version__
+VERSION = "0.5dev"
 
 NUMPY_MIN_VERSION = '1.10.1'
 
