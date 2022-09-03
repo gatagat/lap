@@ -1,0 +1,11 @@
+[project]
+name = "lap"
+authors = [{name = "Tomas Kazmar", email = "tomash.kazmar@seznam.cz"}]
+readme = "README.md"
+version = "0.5dev"
+description = "Linear Assignment Problem solver (LAPJV/LAPMOD)"
+license = {file = "LICENSE"}
+
+[build-system]
+requires = ["setuptools", "numpy", "cython"]
+build-backend = "setuptools.build_meta"
