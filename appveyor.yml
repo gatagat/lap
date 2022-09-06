@@ -22,32 +22,29 @@ install:
   - ps: "ls \"C:/\""
 
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-  - "python -m pip install -U pip"
+  - "python -m pip install -U pip build"
 
   # Check that we have the expected version and architecture for Python
   - "python --version"
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
-  - "pip --version"
+  - "python -m pip --version"
+  - "python -m build --version"
+  - "python -m pip list"
 
   # Install the build and runtime dependencies of the project.
-  - pip install --retries 3 -q wheel pytest pytest-timeout cython numpy scipy
-  - pip list
-  - python setup.py bdist_wheel bdist_wininst
+  - python -m build --sdist --wheel
   - ps: "ls dist"
 
   # Install the generated wheel package to test it
-  - "pip install --pre --no-index --find-links dist/ lap"
+  - "python -m pip install --pre --no-index --find-links dist/ lap"
 
 # Not a .NET project, we build lap in the install step instead
 build: false
 
 test_script:
-  # Change to a non-source folder to make sure we run the tests on the
-  # installed library.
-  - "cd C:\\"
-
   # Run unit tests with pytest
-  - "python -c \"import pytest; import os; from lap.tests import __file__ as d; d = os.path.dirname(d); pytest.main([d])\""
+  - "python -m pip install pytest pytest-timeout"
+  - "python -m pytest
 
 artifacts:
   # Archive the generated wheel package in the ci.appveyor.com build report.
