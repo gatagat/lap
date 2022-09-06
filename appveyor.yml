@@ -44,7 +44,7 @@ build: false
 test_script:
   # Run unit tests with pytest
   - "python -m pip install pytest pytest-timeout"
-  - "python -m pytest
+  - "python -m pytest"
 
 artifacts:
   # Archive the generated wheel package in the ci.appveyor.com build report.
