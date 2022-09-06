@@ -31,6 +31,4 @@ if __name__ == "__main__":
             ),
         ],
         cmdclass={"build_ext": build_ext_lap},
-        install_requires=["numpy"],
-        setup_requires=["numpy"],
     )
