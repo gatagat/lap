@@ -3,15 +3,6 @@ from pytest import mark, fixture, raises
 import numpy as np
 from lap import lapjv
 
-from .test_utils import (
-    get_dense_8x8_int,
-    get_dense_100x100_int, get_dense_100x100_int_hard, get_sparse_100x100_int,
-    get_dense_1kx1k_int, get_dense_1kx1k_int_hard, get_sparse_1kx1k_int,
-    get_sparse_4kx4k_int,
-    get_dense_eps,
-    get_platform_maxint
-)
-
 
 def test_lapjv_empty():
     with raises(ValueError):
@@ -23,24 +14,24 @@ def test_lapjv_non_square_fail():
         lapjv(np.zeros((3, 2)))
 
 
-def test_lapjv_non_contigous():
-    cost = get_dense_8x8_int()[0]
+def test_lapjv_non_contigous(dense_8x8_int):
+    cost = dense_8x8_int[0]
     ret = lapjv(cost[:3, :3])
     assert ret[0] == 8.0
     assert np.all(ret[1] == [1, 2, 0])
     assert np.all(ret[2] == [2, 0, 1])
 
 
-def test_lapjv_extension():
-    cost = get_dense_8x8_int()[0]
+def test_lapjv_extension(dense_8x8_int):
+    cost = dense_8x8_int[0]
     ret = lapjv(cost[:2, :4], extend_cost=True)
     assert ret[0] == 3.0
     assert np.all(ret[1] == [1, 2])
     assert np.all(ret[2] == [-1, 0, 1, -1])
 
 
-def test_lapjv_noextension():
-    cost = get_dense_8x8_int()[0]
+def test_lapjv_noextension(dense_8x8_int):
+    cost = dense_8x8_int[0]
     c = np.r_[cost[:2, :4],
               [[1001, 1001, 1001, 2001], [2001, 1001, 1001, 1001]]]
     ret = lapjv(c, extend_cost=False)
@@ -49,8 +40,8 @@ def test_lapjv_noextension():
     assert np.all(ret[2] == [2, 0, 1, 3])
 
 
-def test_lapjv_cost_limit():
-    cost = get_dense_8x8_int()[0]
+def test_lapjv_cost_limit(dense_8x8_int):
+    cost = dense_8x8_int[0]
     ret = lapjv(cost[:3, :3], cost_limit=4.99)
     assert ret[0] == 3.0
     assert np.all(ret[1] == [1, 2, -1])
@@ -215,51 +206,6 @@ def test_all_inf():
     assert ret[0] == np.inf
 
 
-@fixture
-def dense_8x8_int():
-    return get_dense_8x8_int()
-
-
-@fixture
-def dense_100x100_int():
-    return get_dense_100x100_int()
-
-
-@fixture
-def dense_100x100_int_hard():
-    return get_dense_100x100_int_hard()
-
-
-@fixture
-def sparse_100x100_int():
-    return get_sparse_100x100_int()
-
-
-@fixture
-def dense_1kx1k_int():
-    return get_dense_1kx1k_int()
-
-
-@fixture
-def dense_1kx1k_int_hard():
-    return get_dense_1kx1k_int_hard()
-
-
-@fixture
-def sparse_1kx1k_int():
-    return get_sparse_1kx1k_int()
-
-
-@fixture
-def sparse_4kx4k_int():
-    return get_sparse_4kx4k_int()
-
-
-@fixture
-def dense_eps():
-    return get_dense_eps()
-
-
 @mark.timeout(60)
 def test_eps(dense_eps):
     cost, opt = dense_eps
@@ -284,9 +230,9 @@ def test_dense_100x100_int_hard(dense_100x100_int_hard):
 
 # TODO: too sparse unsolvable matrices cause sometimne IndexError, easily
 # generated - just set the mask threshold low enough
-def test_sparse_100x100_int(sparse_100x100_int):
+def test_sparse_100x100_int(sparse_100x100_int, platform_maxint):
     cost, mask, opt = sparse_100x100_int
-    cost[~mask] = get_platform_maxint()
+    cost[~mask] = platform_maxint
     ret = lapjv(cost)
     assert len(ret) == 3
     assert ret[0] == opt
@@ -309,18 +255,18 @@ def test_dense_1kx1k_int_hard(dense_1kx1k_int_hard):
 
 
 @mark.timeout(60)
-def test_sparse_1kx1k_int(sparse_1kx1k_int):
+def test_sparse_1kx1k_int(sparse_1kx1k_int, platform_maxint):
     cost, mask, opt = sparse_1kx1k_int
-    cost[~mask] = get_platform_maxint()
+    cost[~mask] = platform_maxint
     ret = lapjv(cost)
     assert len(ret) == 3
     assert ret[0] == opt
 
 
 @mark.timeout(60)
-def test_sparse_4kx4k_int(sparse_4kx4k_int):
+def test_sparse_4kx4k_int(sparse_4kx4k_int, platform_maxint):
     cost, mask, opt = sparse_4kx4k_int
-    cost[~mask] = get_platform_maxint()
+    cost[~mask] = platform_maxint
     ret = lapjv(cost)
     assert len(ret) == 3
     assert ret[0] == opt

@@ -1,5 +1,6 @@
 import numpy as np
 import os
+import pytest
 from gzip import GzipFile
 
 
@@ -12,7 +13,8 @@ def make_hard(cost, lo, hi):
     return hard
 
 
-def get_dense_8x8_int():
+@pytest.fixture
+def dense_8x8_int():
     cost = np.array([[1000, 2, 11, 10, 8, 7, 6, 5],
                      [6, 1000, 1, 8, 8, 4, 6, 7],
                      [5, 12, 1000, 11, 8, 12, 3, 11],
@@ -74,56 +76,65 @@ def get_nnz_int(sz, nnz, rng=100, seed=1299821):
     return cc, ii, kk
 
 
-def get_dense_100x100_int():
+@pytest.fixture
+def dense_100x100_int():
     cost = get_dense_int(100, 100, hard=False, seed=1299821)
     opt = 198.
     return cost, opt
 
 
-def get_dense_100x100_int_hard():
+@pytest.fixture
+def dense_100x100_int_hard():
     cost = get_dense_int(100, 100, hard=True, seed=1299821)
     opt = 11399.
     return cost, opt
 
 
-def get_sparse_100x100_int():
+@pytest.fixture
+def sparse_100x100_int():
     cost, mask = get_sparse_int(100, 100, 0.04, seed=1299821)
     opt = 11406
     return cost, np.logical_not(mask), opt
 
 
-def get_dense_1kx1k_int():
+@pytest.fixture
+def dense_1kx1k_int():
     cost = get_dense_int(1000, 100, hard=False, seed=1299821)
     opt = 1000.
     return cost, opt
 
 
-def get_dense_1kx1k_int_hard():
+@pytest.fixture
+def dense_1kx1k_int_hard():
     cost = get_dense_int(1000, 100, hard=True, seed=1299821)
     opt = 101078.0
     return cost, opt
 
 
-def get_sparse_1kx1k_int():
+@pytest.fixture
+def sparse_1kx1k_int():
     cost, mask = get_sparse_int(1000, 100, 0.01, seed=1299821)
     opt = 101078
     return cost, np.logical_not(mask), opt
 
 
-def get_dense_4kx4k_int():
+@pytest.fixture
+def dense_4kx4k_int():
     cost = get_dense_int(4000, 100, hard=False, seed=1299821)
     opt = 1000.
     return cost, opt
 
 
-def get_sparse_4kx4k_int():
+@pytest.fixture
+def sparse_4kx4k_int():
     cost, mask = get_sparse_int(4000, 100, 0.004, seed=1299821)
     opt = 402541
     return cost, np.logical_not(mask), opt
 
 
 # Thanks to Michael Lewis for providing this cost matrix.
-def get_dense_eps():
+@pytest.fixture
+def dense_eps():
     from pytest import approx
     datadir = os.path.abspath(os.path.dirname(__file__))
     filename = os.path.join(datadir, 'cost_eps.csv.gz')
@@ -132,31 +143,37 @@ def get_dense_eps():
     return cost, opt
 
 
-def sparse_from_dense(cost):
-    cc = cost.flatten()
-    n_rows = cost.shape[0]
-    n_columns = cost.shape[1]
-    ii = np.empty((n_rows+1,), dtype=int)
-    ii[0] = 0
-    ii[1:] = n_columns
-    ii = np.cumsum(ii)
-    kk = np.tile(np.arange(n_columns, dtype=int), n_rows)
-    return n_rows, cc, ii, kk
+@pytest.fixture
+def sparse_from_dense():
+    def inner(cost):
+        cc = cost.flatten()
+        n_rows = cost.shape[0]
+        n_columns = cost.shape[1]
+        ii = np.empty((n_rows+1,), dtype=int)
+        ii[0] = 0
+        ii[1:] = n_columns
+        ii = np.cumsum(ii)
+        kk = np.tile(np.arange(n_columns, dtype=int), n_rows)
+        return n_rows, cc, ii, kk
+    return inner
 
 
-def sparse_from_masked(cost, mask=None):
-    if mask is None:
-        mask = np.logical_not(np.isinf(cost))
-    cc = cost[mask].flatten()
-    n_rows = cost.shape[0]
-    n_columns = cost.shape[1]
-    ii = np.empty((n_rows+1,), dtype=int)
-    ii[0] = 0
-    ii[1:] = mask.sum(axis=1)
-    ii = np.cumsum(ii)
-    kk = np.tile(np.arange(n_columns, dtype=int), cost.shape[0])
-    kk = kk[mask.flatten()]
-    return n_rows, cc, ii, kk
+@pytest.fixture
+def sparse_from_masked():
+    def inner(cost, mask=None):
+        if mask is None:
+            mask = np.logical_not(np.isinf(cost))
+        cc = cost[mask].flatten()
+        n_rows = cost.shape[0]
+        n_columns = cost.shape[1]
+        ii = np.empty((n_rows+1,), dtype=int)
+        ii[0] = 0
+        ii[1:] = mask.sum(axis=1)
+        ii = np.cumsum(ii)
+        kk = np.tile(np.arange(n_columns, dtype=int), cost.shape[0])
+        kk = kk[mask.flatten()]
+        return n_rows, cc, ii, kk
+    return inner
 
 
 def sparse_from_dense_CS(cost):
@@ -181,6 +198,7 @@ def get_cost_CS(cost, x):
     return cost[np.arange(cost.shape[0]), x].sum()
 
 
-def get_platform_maxint():
+@pytest.fixture
+def platform_maxint():
     import struct
     return 2 ** (struct.Struct('i').size * 8 - 1) - 1
