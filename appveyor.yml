@@ -3,6 +3,7 @@
 #
 # Adapted from the skimage project (https://github.com/scikit-image/scikit-image)
 
+image: Visual Studio 2019
 environment:
   matrix:
     - PYTHON: C:\Python38
@@ -30,24 +31,18 @@ install:
   - "python -m pip --version"
   - "python -m build --version"
   - "python -m pip list"
-
-  # Install the build and runtime dependencies of the project.
-  - python -m build --sdist --wheel
+  - "python -m build --sdist --wheel"
   - ps: "ls dist"
-
-  # Install the generated wheel package to test it
-  - "python -m pip install --pre --no-index --find-links dist/ lap"
+  - "python -m pip install --pre --find-links dist/ lap"
 
 # Not a .NET project, we build lap in the install step instead
 build: false
 
 test_script:
-  # Run unit tests with pytest
   - "python -m pip install pytest pytest-timeout"
   - "python -m pytest"
 
 artifacts:
-  # Archive the generated wheel package in the ci.appveyor.com build report.
   - path: dist\*
 
 #on_success:
