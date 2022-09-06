@@ -2,7 +2,7 @@
 name = "lap"
 description = "Linear Assignment Problem solver (LAPJV/LAPMOD)"
 readme = "README.md"
-#requires-python = ">=3.8"
+requires-python = ">=3.8"
 keywords = ["lapjv", "lapmod", "linear assignment problem"]
 authors = [{name = "Tomas Kazmar", email = "tomash.kazmar@seznam.cz"}]
 version = "0.5dev"
