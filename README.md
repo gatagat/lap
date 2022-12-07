@@ -1,9 +1,6 @@
 [![Travis](https://travis-ci.org/gatagat/lap.svg?branch=master)](https://travis-ci.org/gatagat/lap/)
 [![Appveyor](https://ci.appveyor.com/api/projects/status/github/gatagat/lap?branch=master&svg=true)](https://ci.appveyor.com/project/gatagat/lap/history)
-![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg)
-![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)
-![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)
-![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)
+![Python dependencies](https://img.shields.io/pypi/pyversions/lap.svg)
 
 lap: Linear Assignment Problem solver
 =====================================
