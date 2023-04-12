@@ -7,12 +7,6 @@ import subprocess
 import sys
 import traceback
 
-if sys.version_info[0] < 3:
-    import __builtin__ as builtins
-else:
-    import builtins
-builtins.__LAP_SETUP__ = True
-
 DISTNAME = 'lap'
 DESCRIPTION = 'Linear Assignment Problem solver (LAPJV/LAPMOD).'
 LONG_DESCRIPTION = """
@@ -24,10 +18,6 @@ MAINTAINER_EMAIL = 'tomash.kazmar@seznam.cz'
 URL = 'https://github.com/gatagat/lap'
 LICENSE = 'BSD (2-clause)'
 DOWNLOAD_URL = URL
-
-import lap
-
-VERSION = lap.__version__
 
 NUMPY_MIN_VERSION = '1.10.1'
 
@@ -170,6 +160,13 @@ def configuration(parent_package='', top_path=None):
     return config
 
 
+def get_lap_version():
+    """get version w/o importing lap"""
+    locals = {}
+    exec(open("lap/version.py").read(), None, locals)
+    return locals["lap_version"]
+
+
 def setup_package():
     metadata = dict(name=DISTNAME,
                     maintainer=MAINTAINER,
@@ -178,7 +175,7 @@ def setup_package():
                     license=LICENSE,
                     packages=['lap'],
                     url=URL,
-                    version=VERSION,
+                    version=get_lap_version(),
                     download_url=DOWNLOAD_URL,
                     long_description=LONG_DESCRIPTION,
                     classifiers=['Development Status :: 4 - Beta',
@@ -199,7 +196,6 @@ def setup_package():
                                  'Operating System :: MacOS',
                                 ],
                     cmdclass=cmdclass,
-                    setup_requires=['cython', f'numpy>={NUMPY_MIN_VERSION}'],
                     install_requires=['cython', f'numpy>={NUMPY_MIN_VERSION}'],
                     **extra_setuptools_args)
 
