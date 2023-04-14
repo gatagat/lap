@@ -196,7 +196,7 @@ def setup_package():
                                  'Operating System :: MacOS',
                                 ],
                     cmdclass=cmdclass,
-                    install_requires=['cython', f'numpy>={NUMPY_MIN_VERSION}'],
+                    install_requires=['cython', 'numpy >= {0}'.format(NUMPY_MIN_VERSION)],
                     **extra_setuptools_args)
 
     if len(sys.argv) == 1 or (
