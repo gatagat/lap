@@ -1,0 +1,55 @@
+# CircleCI docs:
+# https://circleci.com/docs/2.1/configuration-reference
+# https://circleci.com/developer/orbs/orb/circleci/python
+# https://circleci.com/docs/2.0/executor-types/
+# https://circleci.com/developer/images/image/cimg/python
+# https://circleci.com/docs/2.0/configuration-reference/#jobs
+# https://circleci.com/docs/2.0/configuration-reference/#workflows
+#
+version: 2.1
+
+orbs:
+  python: circleci/python@1.5.0
+
+jobs:
+  test:
+    docker:
+      - image: cimg/python:3.10.2
+    steps:
+      - checkout  # alternative would be a step with: - run: git clone -b "$CIRCLE_BRANCH" "$CIRCLE_REPOSITORY_URL"
+      - run:
+          name: Check setup
+          command: |
+            pwd
+            ls
+            whoami
+            ls ~
+            uname -a
+            ls /etc/apt || true
+            which python
+            python --version
+            which python3.10
+            python3.10 --version
+      - run:
+          name: Create virtual environment
+          command: |
+            python3.10 -m venv venv 
+            . ./venv/bin/activate
+      - run:
+          name: Install the package
+          command: pip install .
+      - run:
+          name: Freeze requirements
+          command: pip freeze > test-requirements.txt
+      - store_artifacts:
+          path: test-requirements.txt
+          destination: test-requirements.txt
+      - run:
+          name: Run tests
+          command: pytest
+
+
+workflows:
+  testing:
+    jobs:
+      - test
