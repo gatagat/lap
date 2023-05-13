@@ -28,7 +28,8 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["build", "wheel", "cython", "pytest", "pytest-timeout"]
+dev = ["build", "wheel", "cython"]
+test = ["pytest", "pytest-timeout"]
 
 [build-system]
 requires = ["setuptools", "numpy"]

@@ -26,10 +26,12 @@ jobs:
             ls ~
             uname -a
             ls /etc/apt || true
+            cat /etc/apt/sources.list || true
             which python
             python --version
             which python3.10
             python3.10 --version
+            pyenv --help || true
       - run:
           name: Create virtual environment
           command: |
@@ -37,13 +39,12 @@ jobs:
             . ./venv/bin/activate
       - run:
           name: Install the package
-          command: pip install .
+          command: pip install .[test]
       - run:
           name: Freeze requirements
           command: pip freeze > test-requirements.txt
       - store_artifacts:
           path: test-requirements.txt
-          destination: test-requirements.txt
       - run:
           name: Run tests
           command: pytest
