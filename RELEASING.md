@@ -16,7 +16,7 @@
 
 5. Make sure stuff works there:
 
-    pip install pytest
+    pip install pytest pytest-timeout
     pip install scipy
     pytest $VIRTUAL_ENV/lib/python*/site-packages/lap/
 
