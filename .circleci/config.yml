@@ -33,21 +33,27 @@ jobs:
             python3.10 --version
             pyenv --help || true
       - run:
-          name: Create virtual environment
-          command: |
-            python3.10 -m venv venv 
-            . ./venv/bin/activate
+        name: Install tox
+        command: python -m pip install tox
       - run:
-          name: Install the package
-          command: pip install .[test]
-      - run:
-          name: Freeze requirements
-          command: pip freeze > test-requirements.txt
-      - store_artifacts:
-          path: test-requirements.txt
-      - run:
-          name: Run tests
-          command: pytest
+        name: Run tox
+        comand: python -m tox
+      #- run:
+      #    name: Create virtual environment
+      #    command: |
+      #      python3.10 -m venv venv
+      #      . ./venv/bin/activate
+      #- run:
+      #    name: Install the package
+      #    command: pip install .[test]
+      #- run:
+      #    name: Freeze requirements
+      #    command: pip freeze > test-requirements.txt
+      #- store_artifacts:
+      #    path: test-requirements.txt
+      #- run:
+      #    name: Run tests
+      #    command: pytest
 
 
 workflows:

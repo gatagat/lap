@@ -3,7 +3,7 @@ include README.md
 include setup.cfg
 include setup.py
 include LICENSE
-recursive-include  lap *.pyx *.pxd *.pxi *.py *.c *.cpp *.h *.md
-include lap/tests/*.gz
+recursive-include src/lap *.pyx *.pxd *.pxi *.py *.c *.cpp *.h *.md
+include tests/*
 global-exclude *~
 global-exclude *.pyc

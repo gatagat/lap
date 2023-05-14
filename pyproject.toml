@@ -23,12 +23,10 @@ classifiers = [
 	"Operating System :: Unix",
 	"Operating System :: MacOS",
 ]
-dependencies = [
-	"numpy",
-]
+dependencies = ["numpy"]
 
 [project.optional-dependencies]
-dev = ["build", "wheel", "cython"]
+dev = ["build", "wheel", "cython", "tox"]
 test = ["pytest", "pytest-timeout"]
 
 [build-system]
@@ -40,3 +38,13 @@ build-backend = "setuptools.build_meta"
 addopts = [
     "--import-mode=importlib",
 ]
+
+[tool.tox]
+legacy_tox_ini = """
+  [tox]
+    min_version = 4.0
+
+    [testenv]
+    extras = test
+    commands = pytest
+"""
