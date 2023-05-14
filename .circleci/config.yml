@@ -33,11 +33,11 @@ jobs:
             python3.10 --version
             pyenv --help || true
       - run:
-        name: Install tox
-        command: python -m pip install tox
+          name: Install tox
+          command: python -m pip install tox
       - run:
-        name: Run tox
-        comand: python -m tox
+          name: Run tox
+          command: python -m tox
 
 workflows:
   testing:
