@@ -13,11 +13,6 @@ jobs:
       - image: ubuntu:jammy
     steps:
       - run:
-          name: Clone repo
-          command: |
-            apt-get install -y git
-            git clone -b "$CIRCLE_BRANCH" "$CIRCLE_REPOSITORY_URL"
-      - run:
           name: Check setup
           command: |
             pwd
@@ -27,6 +22,12 @@ jobs:
             uname -a
             which python
             python --version
+      - run:
+          name: Clone repo
+          command: |
+            apt-get update
+            apt-get install -y git
+            git clone -b "$CIRCLE_BRANCH" "$CIRCLE_REPOSITORY_URL"
       - run:
           name: Install tested Python versions
           command: ./tools/install_pythons.sh
