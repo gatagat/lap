@@ -22,12 +22,14 @@ jobs:
             uname -a || true
             which python || true
             python --version || true
-      - run:
-          name: Clone repo
-          command: |
-            apt-get update
-            apt-get install -y git
-            git clone -b "$CIRCLE_BRANCH" "$CIRCLE_REPOSITORY_URL"
+      - checkout
+      # Not-working alternative below:
+      #- run:
+      #    name: Clone repo
+      #    command: |
+      #      apt-get update
+      #      apt-get install -y git
+      #      git clone -b "$CIRCLE_BRANCH" "$CIRCLE_REPOSITORY_URL"
       - run:
           name: Install tested Python versions
           command: ./tools/install_pythons.sh
