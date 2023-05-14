@@ -19,9 +19,9 @@ jobs:
             ls
             whoami
             ls ~
-            uname -a
-            which python
-            python --version
+            uname -a || true
+            which python || true
+            python --version || true
       - run:
           name: Clone repo
           command: |
