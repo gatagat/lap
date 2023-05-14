@@ -32,9 +32,14 @@ jobs:
             which python3.10
             python3.10 --version
             pyenv --help || true
+            pyenv install --list
+            pyenv versions
       - run:
           name: Install tested Python versions
-          command: pyenv local 3.8 3.9 3.10 3.11
+          command: |
+            pyenv install --skip-existing 3.8 3.9 3.10 3.11
+            pyenv versions
+            pyenv local 3.8 3.9 3.10 3.11
       - run:
           name: Install tox
           command: python -m pip install tox tox-pyenv
