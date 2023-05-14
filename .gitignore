@@ -2,3 +2,5 @@ dist
 build
 python_lapjv.egg-info
 MANIFEST
+.tox
+src/lap.egg-info

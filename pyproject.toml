@@ -48,5 +48,5 @@ legacy_tox_ini = """
 
     [testenv]
     extras = test
-    commands = pytest
+    commands = python -m pytest
 """
