@@ -14,7 +14,9 @@ jobs:
     steps:
       - run:
           name: Clone repo
-          command: git clone -b "$CIRCLE_BRANCH" "$CIRCLE_REPOSITORY_URL"
+          command: |
+            apt-get install -y git
+            git clone -b "$CIRCLE_BRANCH" "$CIRCLE_REPOSITORY_URL"
       - run:
           name: Check setup
           command: |
