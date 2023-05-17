@@ -34,11 +34,15 @@ jobs:
           name: Install tested Python versions
           command: bash -x ./tools/install_pythons.sh
       - run:
-          name: Install tox
-          command: python -m pip install tox tox-pyenv
+          name: Create a virtual environment
+          command: |
+            python3 -m venv ~/venv-tox
+            source ~/venv-tox/bin/activate
+            python -m pip -U pip setuptools
+            python -m pip install tox tox-pyenv
       - run:
           name: Run tox
-          command: python -m tox
+          command: python3 -m tox
 
 workflows:
   testing:
