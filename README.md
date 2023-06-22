@@ -1,3 +1,7 @@
+[![Build and Upload Wheel Windows](https://github.com/rathaROG/lapx/actions/workflows/build_win.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/build_win.yaml)
+[![Build and Upload Wheel Linux](https://github.com/rathaROG/lapx/actions/workflows/build_linux.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/build_linux.yaml)
+[![Build and Upload Wheel macOS](https://github.com/rathaROG/lapx/actions/workflows/build_mac.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/build_mac.yaml)
+
 # Linear Assignment Problem Solver
 
 * `lapx` is a customized edition of Tomas Kazmar's [`gatagat/lap`](https://github.com/gatagat/lap).
@@ -8,7 +12,9 @@
 
 ## Windows ✅ | Linux ✅ | macOS ✅
 
-* Build passed on all [Windows](https://github.com/rathaROG/lapx/actions/workflows/build_win.yaml)/[Linux](https://github.com/rathaROG/lapx/actions/workflows/build_linux.yaml)/[macOS](https://github.com/rathaROG/lapx/actions/workflows/build_mac.yaml) with Python 3.8/3.9/3.10/3.11 ✅
+* Build passed on all [Windows](https://github.com/rathaROG/lapx/actions/runs/5350963308)/[Linux](https://github.com/rathaROG/lapx/actions/runs/5350961768)/[macOS](https://github.com/rathaROG/lapx/actions/runs/5350962752) with Python 3.9/3.10/3.11 ✅
+
+* Download [Python Wheels from releases](https://github.com/rathaROG/lapx/releases), or
 
 * Clone and build directly on your machine:
 
@@ -22,7 +28,7 @@
   cd dist
   ```
 
-* Or install from GitHub directly:
+* Or directly install from GitHub:
 
   ```
   python -m pip install --upgrade pip
