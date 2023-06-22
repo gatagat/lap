@@ -1,5 +1,9 @@
 # Tomas Kazmar, 2012-2017, BSD 2-clause license, see LICENSE.
 
+# Updated 2023/06/22 by rathaROG
+# Force compiling with Python 3 
+# cython: language_level=3
+
 import numpy as np
 cimport numpy as cnp
 cimport cython
