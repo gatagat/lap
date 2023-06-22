@@ -1,0 +1,25 @@
+name: Test Build Linux
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11"]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install "setuptools>=67.2.0"
+          pip install wheel build
+      - name: Build
+        run: |
+          python -m build --wheel --no-isolation
+      - name: Direct GitHub install
+        run: |
+          pip install git+https://github.com/rathaROG/lapx.git

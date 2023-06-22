@@ -1,9 +1,41 @@
-[![Travis](https://travis-ci.org/gatagat/lap.svg?branch=master)](https://travis-ci.org/gatagat/lap/)
-[![Appveyor](https://ci.appveyor.com/api/projects/status/github/gatagat/lap?branch=master&svg=true)](https://ci.appveyor.com/project/gatagat/lap/history)
-![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg)
-![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)
-![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)
-![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)
+# Linear Assignment Problem Solver
+
+* `lapx` is a customized edition of Tomas Kazmar's [`gatagat/lap`](https://github.com/gatagat/lap).
+* License: BSD-2-Clause, see [`LICENSE`](LICENSE).
+* Source credit: Tomas Kazmar @[`gatagat`](https://github.com/gatagat).
+* `pypi.org` source code: [lap05-0.5.1.tar.gz](https://files.pythonhosted.org/packages/05/71/5531017a60f5028c87ce34514f2b55d35a2999f6c6e587d1f56e6ee78b10/lap05-0.5.1.tar.gz)
+
+
+## Windows ✅ | Linux ✅ | macOS ✅
+
+* Build passed on all Windows/Linux/macOS with Python 3.9/3.10/3.11 ✅
+
+* Clone and build directly on your machine:
+
+  ```
+  git clone https://github.com/rathaROG/lapx.git
+  cd lapx
+  python -m pip install --upgrade pip
+  pip install "setuptools>=67.2.0"
+  pip install wheel build
+  python -m build --wheel --no-isolation
+  cd dist
+  ```
+
+* Or install from GitHub directly:
+
+  ```
+  python -m pip install --upgrade pip
+  pip install "setuptools>=67.2.0"
+  pip install wheel build
+  pip install git+https://github.com/rathaROG/lapx.git
+  ```
+
+<br />
+
+<details><summary><ins>Click here to show more ...</ins></summary>
+
+<br />
 
 lap: Linear Assignment Problem solver
 =====================================
@@ -26,53 +58,6 @@ and Sparse Linear Assignment Problems", Computing 38, 325-340 (1987)<br>
 Approach", Computer Ops Res. 23, 917-932 (1996)<br>
 [3] http://www.assignmentproblems.com/LAPJV.htm
 
-Installation
-------------
-
-#### Runtime dependencies
-
-Running lap requires:
-
-  * Python (2.7, 3.7, 3.8, 3.9)
-  * NumPy (>=1.10.1)
-
-In addition to above, running the tests requires:
-
-  * SciPy, pytest, pytest-timeout
-
-#### Install using pip
-
-You can install the latest release of lap from PyPI (recommended):
-
-    pip install lap
-
-Alternatively, you can install lap directly from the repository:
-
-    pip install git+git://github.com/gatagat/lap.git
-
-In some cases installing from PyPI results in building the package, in these
-cases make sure to check "Install from source" below.
-
-#### Install from source
-
-  1. Install a C++ compiler (e.g., g++)
-  2. Python headers (e.g., python-dev package on Debian/Ubuntu)
-  3. Install Cython (>=0.21)
-  4. Clone
-
-         git clone https://github.com/gatagat/lap.git
-
-  5. Under the root of the repo
-
-         python setup.py build
-         python setup.py install
-
-On Windows, the build may fail if there is a mismatch between the MSVC compiler
-version used for the build and the version used to build Python itself. For
-more information see this [stackoverflow
-answer](https://stackoverflow.com/a/68553226).
-
-Tested under Linux, OS X, Windows.
 
 ### Usage
 
@@ -101,9 +86,4 @@ x = [np.where(y == i)[0][0] for i in range(N)]
 y = [np.where(x == j)[0][0] for j in range(M)]
 ```
 
-License
--------
-
-Released under the 2-clause BSD license, see `LICENSE`.
-
-Copyright (C) 2012-2017, Tomas Kazmar
+</details>
