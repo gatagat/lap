@@ -8,7 +8,7 @@
 
 ## Windows ✅ | Linux ✅ | macOS ✅
 
-* Build passed on all Windows/Linux/macOS with Python 3.9/3.10/3.11 ✅
+* Build passed on all [Windows](https://github.com/rathaROG/lapx/actions/workflows/build_win.yaml)/[Linux](https://github.com/rathaROG/lapx/actions/workflows/build_linux.yaml)/[macOS](https://github.com/rathaROG/lapx/actions/workflows/build_mac.yaml) with Python 3.8/3.9/3.10/3.11 ✅
 
 * Clone and build directly on your machine:
 

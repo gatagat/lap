@@ -1,8 +1,8 @@
-name: Test Build Linux
+name: Build and Upload Wheel macOS
 on: [push, workflow_dispatch]
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build_and_test:
+    runs-on: macos-latest
     strategy:
       matrix:
         python-version: ["3.9", "3.10", "3.11"]
@@ -20,6 +20,10 @@ jobs:
       - name: Build
         run: |
           python -m build --wheel --no-isolation
-      - name: Direct GitHub install
-        run: |
-          pip install git+https://github.com/rathaROG/lapx.git
+      - name: Archive dist
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-whl-macos
+          path: |
+            dist
+            !dist/**/*.md
