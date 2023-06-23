@@ -1,11 +1,11 @@
-name: Test Build Windows
+name: Build and Upload Wheel Linux
 on: [push, workflow_dispatch]
 jobs:
-  build:
-    runs-on: windows-latest
+  build_and_test:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.10", "3.11"]
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
@@ -20,6 +20,10 @@ jobs:
       - name: Build
         run: |
           python -m build --wheel --no-isolation
-      - name: Direct GitHub install
-        run: |
-          pip install git+https://github.com/rathaROG/lapx.git
+      - name: Archive dist
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-whl-linux
+          path: |
+            dist
+            !dist/**/*.md
