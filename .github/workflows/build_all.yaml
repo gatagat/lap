@@ -1,11 +1,17 @@
-name: Build and Upload Wheel macOS
-on: [push, workflow_dispatch]
+name: Windows/Linux/macOS + Python [3.7-3.11] .
+on:
+  push:
+    tags:
+      - "v*"
 jobs:
-  build_and_test:
-    runs-on: macos-latest
+  build_and_archive:
+    name: "${{ matrix.os }} Python ${{ matrix.python-version }}"
+    runs-on: "${{ matrix.os }}"
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10", "3.11"]
+        os: ["windows-latest", "ubuntu-latest", "macos-latest"]
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
@@ -19,11 +25,11 @@ jobs:
           pip install wheel build
       - name: Build
         run: |
-          python -m build --wheel --no-isolation
-      - name: Archive dist
+          python -m build --wheel
+      - name: Archive Wheels in dist/*.whl
         uses: actions/upload-artifact@v3
         with:
-          name: dist-whl-macos
+          name: dist-wheels-all
           path: |
             dist
             !dist/**/*.md
