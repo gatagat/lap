@@ -11,10 +11,7 @@ from setuptools.extension import Extension
 
 DESCRIPTION = "Customized Tomas Kazmar's lap, Linear Assignment Problem solver (LAPJV/LAPMOD)."
 LICENSE = 'BSD-2-Clause'
-LONG_DESCRIPTION = """
-**lap** is a linear assignment problem solver using Jonker-Volgenant
-algorithm for dense (LAPJV) or sparse (LAPMOD) matrices.
-"""
+LONG_DESCRIPTION = open("README.md", encoding="utf-8").read()
 
 ###################################################################
 
@@ -95,7 +92,7 @@ def main_setup():
         version=get_version_string(),
         description=DESCRIPTION,
         long_description=LONG_DESCRIPTION,
-        long_description_content_type="text/plain",
+        long_description_content_type="text/markdown",
         author='rathaROG',
         url='https://github.com/rathaROG/lapx',
         license=LICENSE,
