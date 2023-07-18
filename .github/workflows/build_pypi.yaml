@@ -1,4 +1,4 @@
-name: Build `tar.gz` PyPI
+name: Build PyPI
 on:
   push:
     tags:
