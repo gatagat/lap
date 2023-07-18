@@ -1,10 +1,7 @@
-name: Windows/Linux/macOS + Python [3.7-3.11] .
-on:
-  push:
-    tags:
-      - "v*"
+name: Build and Test
+on: [workflow_dispatch]
 jobs:
-  build_and_archive:
+  build_and_test:
     name: "${{ matrix.os }} + python ${{ matrix.python-version }}"
     runs-on: "${{ matrix.os }}"
     strategy:
@@ -26,6 +23,13 @@ jobs:
       - name: Build
         run: |
           python -m build --wheel
+      - name: Test GitHub direct install
+        run: |
+          pip install git+https://github.com/rathaROG/lapx.git@2-publish-wheels
+      - name: Run simple_test.py
+        run: |
+          cd .githubtest
+          python simple_test.py
       - name: Archive Wheels in dist/*.whl
         uses: actions/upload-artifact@v3
         with:

@@ -85,7 +85,7 @@ def main_setup():
     package_data = {}
     tests_package = package_path + ".tests"
     packages = [package_path, tests_package]
-    for p in packages: package_data = {p: ["*"]}
+    for p in packages: package_data.update({p: ["*"]})
 
     setup(
         name=package_name,
