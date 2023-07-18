@@ -5,28 +5,22 @@
 
 * `lapx` is a customized edition of Tomas Kazmar's [`gatagat/lap`](https://github.com/gatagat/lap).
 * License: BSD-2-Clause, see [`LICENSE`](LICENSE).
-* Source credit: Tomas Kazmar @[`gatagat`](https://github.com/gatagat).
-* `pypi.org` source code: [lap05-0.5.1.tar.gz](https://files.pythonhosted.org/packages/05/71/5531017a60f5028c87ce34514f2b55d35a2999f6c6e587d1f56e6ee78b10/lap05-0.5.1.tar.gz)
+* Source code and credit: [lap05-0.5.1.tar.gz](https://files.pythonhosted.org/packages/05/71/5531017a60f5028c87ce34514f2b55d35a2999f6c6e587d1f56e6ee78b10/lap05-0.5.1.tar.gz) @[`gatagat`](https://github.com/gatagat) @[`remram44`](https://github.com/gatagat/lap/issues/34#issue-1114097201).
 
 
 ## Windows ✅ | Linux ✅ | macOS ✅
 
 * Build passed on all [Windows/Linux/macOS](https://github.com/rathaROG/lapx/actions/workflows/build_all.yaml) with Python 3.7/3.8/3.9/3.10/3.11 ✅
 
-* Install from PyPI:
+* Install `tar.gz` or wheels from [GitHub releases](https://github.com/rathaROG/lapx/releases) or [PyPI](https://pypi.org/project/lapx/):
 
   ```
   pip install lapx
   ```
 
-* Or download [`tar.gz` or Wheels from releases](https://github.com/rathaROG/lapx/releases)
-
-* Or directly install from GitHub:
+* Or directly install from GitHub repo:
 
   ```
-  python -m pip install --upgrade pip
-  pip install "setuptools>=67.2.0"
-  pip install wheel build
   pip install git+https://github.com/rathaROG/lapx.git
   ```
 
@@ -54,7 +48,7 @@ print(lap.lapjv(np.random.rand(2, 1), extend_cost=True))
 
 <br />
 
-<details><summary><ins>Click here to show more ...</ins></summary>
+<details><summary>Click here to show more...</summary>
 
 <br />
 
