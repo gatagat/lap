@@ -22,16 +22,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install "setuptools>=67.2.0"
           pip install wheel build
-      - name: Build
+      - name: Test build from source
         run: |
           python -m build --wheel
       - name: Test direct install from GitHub main
         run: |
           pip install git+https://github.com/rathaROG/lapx.git
-      - name: Run simple_test.py
+      - name: Run test_simple.py
         run: |
           cd .githubtest
-          python simple_test.py
+          python test_simple.py
       - name: Archive wheels
         uses: actions/upload-artifact@v3
         with:

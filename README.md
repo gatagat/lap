@@ -1,4 +1,5 @@
-[![Test Simple](https://github.com/rathaROG/lapx/actions/workflows/test.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/test.yaml)
+[![Test Simple](https://github.com/rathaROG/lapx/actions/workflows/test_simple.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/test_simple.yaml)
+[![Benchmark](https://github.com/rathaROG/lapx/actions/workflows/benchmark.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/benchmark.yaml)
 [![Test PyPI Build](https://github.com/rathaROG/lapx/actions/workflows/prepublish.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/prepublish.yaml)
 [![Publish to PyPI](https://github.com/rathaROG/lapx/actions/workflows/publish.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/publish.yaml)
 
@@ -6,9 +7,8 @@
 
 `lapx` basically is Tomas Kazmar's [`gatagat/lap`](https://github.com/gatagat/lap) with support for all Windows/Linux/macOS and Python 3.7/3.8/3.9/3.10/3.11.
 
-* License: BSD-2-Clause, see [`LICENSE`](LICENSE)
-* Based source code : [lap05-0.5.1.tar.gz](https://files.pythonhosted.org/packages/05/71/5531017a60f5028c87ce34514f2b55d35a2999f6c6e587d1f56e6ee78b10/lap05-0.5.1.tar.gz)
-* Credits: @[`gatagat`](https://github.com/gatagat) @[`remram44`](https://github.com/gatagat/lap/issues/34#issue-1114097201)
+* Based on: [[ed04ab7752]](https://github.com/gatagat/lap/tree/ed04ab7752c7c9688ddcbae534633f34ce04361f)
+* License: BSD-2-Clause, see [`LICENSE`](LICENSE) @[`gatagat`](https://github.com/gatagat)
 
 ## Installation: Windows ✅ | Linux ✅ | macOS ✅
 
@@ -18,13 +18,13 @@
   pip install lapx
   ```
 
-* Or install `.tar.gz` or `.whl` from [GitHub releases](https://github.com/rathaROG/lapx/releases) or install from GitHub repo:
+* Or install `.tar.gz` or `.whl` from [GitHub releases](https://github.com/rathaROG/lapx/releases) or install from GitHub repo directly:
 
   ```
   pip install git+https://github.com/rathaROG/lapx.git
   ```
 
-* Or clone and build directly on your machine:
+* Or clone and build on your local machine:
 
   ```
   git clone https://github.com/rathaROG/lapx.git
@@ -38,13 +38,14 @@
 
 ## Usage 🧪
 
-Note: Use `import lap` to import since `lapx` is just the name for package distribution. 
+* `lapx` is just the name for package distribution.
+* The same as `lap`, use `import lap` to import; for example:
 
-```
-import lap
-import numpy as np
-print(lap.lapjv(np.random.rand(2, 1), extend_cost=True))
-```
+  ```
+  import lap
+  import numpy as np
+  print(lap.lapjv(np.random.rand(4, 5), extend_cost=True))
+  ```
 
 <br />
 
