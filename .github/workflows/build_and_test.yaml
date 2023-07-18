@@ -23,14 +23,14 @@ jobs:
       - name: Build
         run: |
           python -m build --wheel
-      - name: Test GitHub direct install
+      - name: Test direct install from GitHub main
         run: |
-          pip install git+https://github.com/rathaROG/lapx.git@2-publish-wheels
+          pip install git+https://github.com/rathaROG/lapx.git
       - name: Run simple_test.py
         run: |
           cd .githubtest
           python simple_test.py
-      - name: Archive Wheels in dist/*.whl
+      - name: Archive wheels
         uses: actions/upload-artifact@v3
         with:
           name: dist-wheels-all

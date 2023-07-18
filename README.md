@@ -1,5 +1,5 @@
-[![Windows/Linux/macOS + Python [3.7-3.11] .](https://github.com/rathaROG/lapx/actions/workflows/build_all.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/build_all.yaml)
-[![Build `tar.gz` PyPI](https://github.com/rathaROG/lapx/actions/workflows/build_pypi.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/build_pypi.yaml)
+[![Build and Test](https://github.com/rathaROG/lapx/actions/workflows/build_and_test.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/build_and_test.yaml)
+[![Build PyPI](https://github.com/rathaROG/lapx/actions/workflows/build_pypi.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/build_pypi.yaml)
 
 # Linear Assignment Problem Solver
 
@@ -10,7 +10,7 @@
 
 ## Windows ✅ | Linux ✅ | macOS ✅
 
-* Build passed on all [Windows/Linux/macOS](https://github.com/rathaROG/lapx/actions/workflows/build_all.yaml) with Python 3.7/3.8/3.9/3.10/3.11 ✅
+* Build passed on all [Windows/Linux/macOS](https://github.com/rathaROG/lapx/actions/workflows/build_and_test.yaml) with Python 3.7/3.8/3.9/3.10/3.11 ✅
 
 * Install `tar.gz` or wheels from [GitHub releases](https://github.com/rathaROG/lapx/releases) or [PyPI](https://pypi.org/project/lapx/):
 
