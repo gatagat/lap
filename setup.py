@@ -1,6 +1,6 @@
 # # # # # # # # # # # # # # # # # # # # # #
 #    Rewrote on 2023/06/24 by rathaROG    #
-#    Updated on 2023/07/19 by rathaROG    #
+#    Updated on 2023/07/23 by rathaROG    #
 # # # # # # # # # # # # # # # # # # # # # #
 
 
@@ -18,7 +18,7 @@ LONG_DESCRIPTION = open("README.md", encoding="utf-8").read()
 
 package_name = 'lapx'
 package_path = 'lap'
-_lapjv = "_lapjv_src"
+_lapjv_src = "_lapjv_src"
 requirments_txt = "requirements.txt"
 
 ###################################################################
@@ -31,7 +31,11 @@ def get_version_string():
                 delim = '"' if '"' in line else "'"
                 return line.split(delim)[1]
 
-def numpy_include():
+def read_requirments():
+    with open(requirments_txt) as requirments_file:
+        return [line for line in requirments_file.read().splitlines()]
+
+def include_numpy():
     import numpy as np
     try:
         numpy_include = np.get_include()
@@ -51,34 +55,34 @@ def compile_cpp(cython_file):
     else: return cpp_file
 
 class ExportCythonCommand(distutils.cmd.Command):
-    description = 'Export _lapjv binary'
+    description = 'Export _lapjv binary from source.'
     def run(self):
         super().run()
         import os
         import shutil
         this_dir = os.path.dirname(os.path.realpath(__file__))
         lap = os.path.join(this_dir, "lap")
-        _lapjv = os.path.join(this_dir, "_lapjv_src")
-        for file in  os.listdir(_lapjv):
+        _lapjv_src = os.path.join(this_dir, "_lapjv_src")
+        for file in  os.listdir(_lapjv_src):
             if file[-2:].lower() in "soyd":
-                shutil.copy2(os.path.join(_lapjv, file), lap)
+                shutil.copy2(os.path.join(_lapjv_src, file), lap)
                 break
 
 def main_setup():
-    """Use modern setup() 
+    """Use modern setup() by setuptools
     """
     import os
     from Cython.Build import cythonize
-    _lapjvpyx = os.path.join(_lapjv, '_lapjv.pyx')
+    _lapjvpyx = os.path.join(_lapjv_src, '_lapjv.pyx')
     _lapjvcpp = compile_cpp(_lapjvpyx)
-    lapjvcpp = os.path.join(_lapjv, 'lapjv.cpp')
-    lapmodcpp = os.path.join(_lapjv, 'lapmod.cpp')
+    lapjvcpp = os.path.join(_lapjv_src, 'lapjv.cpp')
+    lapmodcpp = os.path.join(_lapjv_src, 'lapmod.cpp')
 
     ext_modules = [
         Extension(
             name='lap._lapjv',
             sources=[_lapjvcpp, lapjvcpp, lapmodcpp],
-            include_dirs=[numpy_include(), package_path],
+            include_dirs=[include_numpy(), _lapjv_src, package_path],
         )
     ]
 
@@ -99,7 +103,7 @@ def main_setup():
         packages=packages,
         package_data=package_data,
         include_package_data=True,
-        keywords=['Linear Assignment', 'LAPJV', 'LAPMOD', 'lap', 'lap05'],
+        keywords=['Linear Assignment', 'LAPJV', 'LAPMOD', 'lap'],
         install_requires=read_requirments(),
         classifiers=['Development Status :: 4 - Beta',
                      'Environment :: Console',
@@ -124,10 +128,6 @@ def main_setup():
         ext_modules=cythonize(ext_modules),
         cmdclass={'cmdexport': ExportCythonCommand,},
     )
-
-def read_requirments():
-    with open(requirments_txt) as input_tmp_file:
-        return [line for line in input_tmp_file.read().splitlines()]
 
 if __name__ == "__main__":
     """
