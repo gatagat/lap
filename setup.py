@@ -1,5 +1,6 @@
 # # # # # # # # # # # # # # # # # # # # # #
-#    Rewrite on 2023/06/24 by rathaROG    #
+#    Rewrote on 2023/06/24 by rathaROG    #
+#    Updated on 2023/07/19 by rathaROG    #
 # # # # # # # # # # # # # # # # # # # # # #
 
 
@@ -9,7 +10,7 @@ from setuptools.extension import Extension
 
 ###################################################################
 
-DESCRIPTION = "Customized Tomas Kazmar's lap, Linear Assignment Problem solver (LAPJV/LAPMOD)."
+DESCRIPTION = "Linear Assignment Problem solver (LAPJV/LAPMOD)."
 LICENSE = 'BSD-2-Clause'
 LONG_DESCRIPTION = open("README.md", encoding="utf-8").read()
 
@@ -66,7 +67,6 @@ class ExportCythonCommand(distutils.cmd.Command):
 def main_setup():
     """Use modern setup() 
     """
-
     import os
     from Cython.Build import cythonize
     _lapjvpyx = os.path.join(_lapjv, '_lapjv.pyx')
@@ -122,7 +122,7 @@ def main_setup():
                      'Operating System :: Unix',
                      'Operating System :: MacOS',],
         ext_modules=cythonize(ext_modules),
-        cmdclass={'ccythonize': ExportCythonCommand,},
+        cmdclass={'cmdexport': ExportCythonCommand,},
     )
 
 def read_requirments():

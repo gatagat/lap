@@ -1,24 +1,24 @@
-[![Build and Test](https://github.com/rathaROG/lapx/actions/workflows/build_and_test.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/build_and_test.yaml)
-[![Build PyPI](https://github.com/rathaROG/lapx/actions/workflows/build_pypi.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/build_pypi.yaml)
+[![Test Simple](https://github.com/rathaROG/lapx/actions/workflows/test.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/test.yaml)
+[![Test PyPI Build](https://github.com/rathaROG/lapx/actions/workflows/prepublish.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/prepublish.yaml)
+[![Publish to PyPI](https://github.com/rathaROG/lapx/actions/workflows/publish.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/publish.yaml)
 
 # Linear Assignment Problem Solver
 
-* `lapx` is a customized edition of Tomas Kazmar's [`gatagat/lap`](https://github.com/gatagat/lap).
-* License: BSD-2-Clause, see [`LICENSE`](LICENSE).
-* Source code and credit: [lap05-0.5.1.tar.gz](https://files.pythonhosted.org/packages/05/71/5531017a60f5028c87ce34514f2b55d35a2999f6c6e587d1f56e6ee78b10/lap05-0.5.1.tar.gz) @[`gatagat`](https://github.com/gatagat) @[`remram44`](https://github.com/gatagat/lap/issues/34#issue-1114097201).
+`lapx` basically is Tomas Kazmar's [`gatagat/lap`](https://github.com/gatagat/lap) with support for all Windows/Linux/macOS and Python 3.7/3.8/3.9/3.10/3.11.
 
+* License: BSD-2-Clause, see [`LICENSE`](LICENSE)
+* Based source code : [lap05-0.5.1.tar.gz](https://files.pythonhosted.org/packages/05/71/5531017a60f5028c87ce34514f2b55d35a2999f6c6e587d1f56e6ee78b10/lap05-0.5.1.tar.gz)
+* Credits: @[`gatagat`](https://github.com/gatagat) @[`remram44`](https://github.com/gatagat/lap/issues/34#issue-1114097201)
 
-## Windows ✅ | Linux ✅ | macOS ✅
+## Installation: Windows ✅ | Linux ✅ | macOS ✅
 
-* Build passed on all [Windows/Linux/macOS](https://github.com/rathaROG/lapx/actions/workflows/build_and_test.yaml) with Python 3.7/3.8/3.9/3.10/3.11 ✅
-
-* Install `tar.gz` or wheels from [GitHub releases](https://github.com/rathaROG/lapx/releases) or [PyPI](https://pypi.org/project/lapx/):
+* Install from [PyPI](https://pypi.org/project/lapx/):
 
   ```
   pip install lapx
   ```
 
-* Or directly install from GitHub repo:
+* Or install `.tar.gz` or `.whl` from [GitHub releases](https://github.com/rathaROG/lapx/releases) or install from GitHub repo:
 
   ```
   pip install git+https://github.com/rathaROG/lapx.git
