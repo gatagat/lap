@@ -1,5 +1,7 @@
-name: Build and Test
+name: Test Simple
+
 on: [workflow_dispatch]
+
 jobs:
   build_and_test:
     name: "${{ matrix.os }} + python ${{ matrix.python-version }}"
@@ -33,7 +35,6 @@ jobs:
       - name: Archive wheels
         uses: actions/upload-artifact@v3
         with:
-          name: dist-wheels-all
+          name: test-wheels
           path: |
-            dist
-            !dist/**/*.md
+            dist/*.whl

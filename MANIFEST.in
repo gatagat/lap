@@ -5,3 +5,5 @@ recursive-include lap/tests *
 exclude lap/_lapjv.cpp
 global-exclude */__pycache__
 global-exclude *.pyc
+prune .github
+prune .githubtest
