@@ -18,13 +18,13 @@
   pip install lapx
   ```
 
-* Or install `.tar.gz` or `.whl` from [GitHub releases](https://github.com/rathaROG/lapx/releases) or install from GitHub repo directly:
+* Or install from GitHub repo directly (Require C++ compiler):
 
   ```
   pip install git+https://github.com/rathaROG/lapx.git
   ```
 
-* Or clone and build on your local machine:
+* Or clone and build on your local machine (Require C++ compiler):
 
   ```
   git clone https://github.com/rathaROG/lapx.git
