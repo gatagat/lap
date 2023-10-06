@@ -19,7 +19,7 @@ LONG_DESCRIPTION = open("README.md", encoding="utf-8").read()
 package_name = 'lapx'
 package_path = 'lap'
 _lapjv_src = "_lapjv_src"
-requirments_txt = "requirements.txt"
+requirements_txt = "requirements.txt"
 
 ###################################################################
 
@@ -31,9 +31,9 @@ def get_version_string():
                 delim = '"' if '"' in line else "'"
                 return line.split(delim)[1]
 
-def read_requirments():
-    with open(requirments_txt) as requirments_file:
-        return [line for line in requirments_file.read().splitlines()]
+def read_requirements():
+    with open(requirements_txt) as requirements_file:
+        return [line for line in requirements_file.read().splitlines()]
 
 def include_numpy():
     import numpy as np
@@ -104,7 +104,7 @@ def main_setup():
         package_data=package_data,
         include_package_data=True,
         keywords=['Linear Assignment', 'LAPJV', 'LAPMOD', 'lap'],
-        install_requires=read_requirments(),
+        install_requires=read_requirements(),
         classifiers=['Development Status :: 4 - Beta',
                      'Environment :: Console',
                      'Intended Audience :: Developers',
@@ -117,6 +117,11 @@ def main_setup():
                      'Programming Language :: Python :: 3.9',
                      'Programming Language :: Python :: 3.10',
                      'Programming Language :: Python :: 3.11',
+                     'Programming Language :: Python :: 3.12',
+                     'Topic :: Education',
+                     'Topic :: Education :: Testing',
+                     'Topic :: Scientific/Engineering',
+                     'Topic :: Scientific/Engineering :: Mathematics',
                      'Topic :: Software Development',
                      'Topic :: Scientific/Engineering',
                      'Topic :: Scientific/Engineering :: Artificial Intelligence',
