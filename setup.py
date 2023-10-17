@@ -13,45 +13,6 @@ else:
     import builtins
 builtins.__LAP_SETUP__ = True
 
-DISTNAME = 'lap'
-DESCRIPTION = 'Linear Assignment Problem solver (LAPJV/LAPMOD).'
-LONG_DESCRIPTION = """
-**lap** is a linear assignment problem solver using Jonker-Volgenant
-algorithm for dense (LAPJV) or sparse (LAPMOD) matrices.
-"""
-MAINTAINER = 'Tomas Kazmar'
-MAINTAINER_EMAIL = 'tomash.kazmar@seznam.cz'
-URL = 'https://github.com/gatagat/lap'
-LICENSE = 'BSD (2-clause)'
-DOWNLOAD_URL = URL
-
-import lap
-
-VERSION = lap.__version__
-
-NUMPY_MIN_VERSION = '1.10.1'
-
-SETUPTOOLS_COMMANDS = set([
-    'develop', 'release', 'bdist_egg', 'bdist_rpm',
-    'bdist_wininst', 'install_egg_info', 'build_sphinx',
-    'egg_info', 'easy_install', 'upload', 'bdist_wheel',
-    '--single-version-externally-managed',
-])
-if SETUPTOOLS_COMMANDS.intersection(sys.argv):
-    import setuptools
-
-    extra_setuptools_args = dict(
-        zip_safe=False,  # the package can run out of an .egg file
-        include_package_data=True,
-        extras_require={
-            'alldeps': (
-                'numpy >= {0}'.format(NUMPY_MIN_VERSION),
-            ),
-        },
-    )
-else:
-    extra_setuptools_args = dict()
-
 from distutils.command.clean import clean as Clean
 
 class CleanCommand(Clean):
@@ -116,26 +77,6 @@ def cythonize(cython_file, gen_file):
         raise OSError('Cython needs to be installed')
 
 
-def get_numpy_status():
-    """
-    Returns a dictionary containing a boolean specifying whether NumPy
-    is up-to-date, along with the version string (empty string if
-    not installed).
-    """
-    numpy_status = {}
-    try:
-        import numpy
-        numpy_version = numpy.__version__
-        numpy_status['up_to_date'] = parse_version(
-            numpy_version) >= parse_version(NUMPY_MIN_VERSION)
-        numpy_status['version'] = numpy_version
-    except ImportError:
-        traceback.print_exc()
-        numpy_status['up_to_date'] = False
-        numpy_status['version'] = ""
-    return numpy_status
-
-
 def get_wrapper_pyx():
     return os.path.join('lap', '_lapjv.pyx')
 
@@ -171,35 +112,10 @@ def configuration(parent_package='', top_path=None):
 
 
 def setup_package():
-    metadata = dict(name=DISTNAME,
-                    maintainer=MAINTAINER,
-                    maintainer_email=MAINTAINER_EMAIL,
-                    description=DESCRIPTION,
-                    license=LICENSE,
-                    packages=['lap'],
-                    url=URL,
-                    version=VERSION,
-                    download_url=DOWNLOAD_URL,
-                    long_description=LONG_DESCRIPTION,
-                    classifiers=['Development Status :: 4 - Beta',
-                                 'Environment :: Console',
-                                 'Intended Audience :: Science/Research',
-                                 'Intended Audience :: Developers',
-                                 'Programming Language :: C',
-                                 'Programming Language :: Python',
-                                 'Programming Language :: Python :: 2',
-                                 'Programming Language :: Python :: 3',
-                                 'Programming Language :: Python :: 2.7',
-                                 'Programming Language :: Python :: 3.7',
-                                 'Programming Language :: Python :: 3.8',
-                                 'Programming Language :: Python :: 3.9',
-                                 'Operating System :: Microsoft :: Windows',
-                                 'Operating System :: POSIX',
-                                 'Operating System :: Unix',
-                                 'Operating System :: MacOS',
-                                ],
-                    cmdclass=cmdclass,
-                    **extra_setuptools_args)
+    metadata = dict(
+        packages=['lap'],
+        cmdclass=cmdclass,
+    )
 
     if len(sys.argv) == 1 or (
             len(sys.argv) >= 2 and ('--help' in sys.argv[1:] or
@@ -212,15 +128,6 @@ def setup_package():
         except ImportError:
             from distutils.core import setup
     else:
-        numpy_status = get_numpy_status()
-        if numpy_status['up_to_date'] is False:
-            if numpy_status['version']:
-                raise ImportError('Installed numpy is too old, '
-                                  'please "pip install -U numpy".')
-            else:
-                raise ImportError('lap requires numpy, '
-                                  'please "pip install numpy".')
-
         from numpy.distutils.core import setup
         metadata['configuration'] = configuration
 
