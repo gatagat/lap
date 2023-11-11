@@ -25,9 +25,16 @@ URL = 'https://github.com/gatagat/lap'
 LICENSE = 'BSD (2-clause)'
 DOWNLOAD_URL = URL
 
-import lap
 
-VERSION = lap.__version__
+# get version statically
+with open(os.path.join('lap', '__init__.py')) as f:
+    for line in f:
+        if line.startswith('__version__'):
+            VERSION = line.rsplit('=', 1)[1].strip().strip("'")
+            break
+    else:
+        raise ValueError('`__version__` not found in `lap/__init__.py`')
+
 
 NUMPY_MIN_VERSION = '1.10.1'
 

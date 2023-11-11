@@ -1,7 +1,8 @@
 1. Set version in lap/__init__.py to X.Y.Z
 2. Create a source distribution:
 
-    python setup.py sdist
+    pip install build
+    python -m build --sdist
 
 3. Upload it to the test server (this requires setting up ~/.pypirc):
 
@@ -11,7 +12,6 @@
 
     virtualenv test
     . test/bin/activate
-    pip install numpy
     pip install --index-url https://test.pypi.org/simple/ lap
 
 5. Make sure stuff works there:
