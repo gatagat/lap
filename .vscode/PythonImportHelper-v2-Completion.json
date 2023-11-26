@@ -1,0 +1,1819 @@
+[
+    {
+        "label": "Memory",
+        "importPath": "joblib",
+        "description": "joblib",
+        "isExtraImport": true,
+        "detail": "joblib",
+        "documentation": {}
+    },
+    {
+        "label": "Memory",
+        "importPath": "joblib",
+        "description": "joblib",
+        "isExtraImport": true,
+        "detail": "joblib",
+        "documentation": {}
+    },
+    {
+        "label": "Memory",
+        "importPath": "joblib",
+        "description": "joblib",
+        "isExtraImport": true,
+        "detail": "joblib",
+        "documentation": {}
+    },
+    {
+        "label": "Memory",
+        "importPath": "joblib",
+        "description": "joblib",
+        "isExtraImport": true,
+        "detail": "joblib",
+        "documentation": {}
+    },
+    {
+        "label": "Memory",
+        "importPath": "joblib",
+        "description": "joblib",
+        "isExtraImport": true,
+        "detail": "joblib",
+        "documentation": {}
+    },
+    {
+        "label": "mark",
+        "importPath": "pytest",
+        "description": "pytest",
+        "isExtraImport": true,
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "mark",
+        "importPath": "pytest",
+        "description": "pytest",
+        "isExtraImport": true,
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "mark",
+        "importPath": "pytest",
+        "description": "pytest",
+        "isExtraImport": true,
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "mark",
+        "importPath": "pytest",
+        "description": "pytest",
+        "isExtraImport": true,
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "mark",
+        "importPath": "pytest",
+        "description": "pytest",
+        "isExtraImport": true,
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "approx",
+        "importPath": "pytest",
+        "description": "pytest",
+        "isExtraImport": true,
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "fixture",
+        "importPath": "pytest",
+        "description": "pytest",
+        "isExtraImport": true,
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "mark",
+        "importPath": "pytest",
+        "description": "pytest",
+        "isExtraImport": true,
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "raises",
+        "importPath": "pytest",
+        "description": "pytest",
+        "isExtraImport": true,
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "fixture",
+        "importPath": "pytest",
+        "description": "pytest",
+        "isExtraImport": true,
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "mark",
+        "importPath": "pytest",
+        "description": "pytest",
+        "isExtraImport": true,
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "raises",
+        "importPath": "pytest",
+        "description": "pytest",
+        "isExtraImport": true,
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "lapjv",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "lapmod",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "FP_1",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "FP_2",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "FP_DYNAMIC",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "lapmod",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "lapjv",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "lapmod",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "lapjv",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "lapmod",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "lapjv",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "lapmod",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "lapjv",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "lapmod",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "lapjv",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "lapjv",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "lapmod",
+        "importPath": "lap",
+        "description": "lap",
+        "isExtraImport": true,
+        "detail": "lap",
+        "documentation": {}
+    },
+    {
+        "label": "get_cost",
+        "importPath": "lap.lapmod",
+        "description": "lap.lapmod",
+        "isExtraImport": true,
+        "detail": "lap.lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "get_cost",
+        "importPath": "lap.lapmod",
+        "description": "lap.lapmod",
+        "isExtraImport": true,
+        "detail": "lap.lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "get_cost",
+        "importPath": "lap.lapmod",
+        "description": "lap.lapmod",
+        "isExtraImport": true,
+        "detail": "lap.lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "lapjv",
+        "importPath": "centrosome.lapjv",
+        "description": "centrosome.lapjv",
+        "isExtraImport": true,
+        "detail": "centrosome.lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "lapjv",
+        "importPath": "centrosome.lapjv",
+        "description": "centrosome.lapjv",
+        "isExtraImport": true,
+        "detail": "centrosome.lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "lapjv",
+        "importPath": "centrosome.lapjv",
+        "description": "centrosome.lapjv",
+        "isExtraImport": true,
+        "detail": "centrosome.lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "lapjv",
+        "importPath": "centrosome.lapjv",
+        "description": "centrosome.lapjv",
+        "isExtraImport": true,
+        "detail": "centrosome.lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "get_cost_CS",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_dense_int",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_from_dense",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_from_dense_CS",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_nnz_int",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_platform_maxint",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_sparse_int",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_from_masked",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_from_masked_CS",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_cost_CS",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_dense_int",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_from_dense",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_from_dense_CS",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_platform_maxint",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_sparse_int",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_from_masked",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_from_masked_CS",
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "isExtraImport": true,
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "LinearAssignment",
+        "importPath": "pymatgen.optimization.linear_assignment",
+        "description": "pymatgen.optimization.linear_assignment",
+        "isExtraImport": true,
+        "detail": "pymatgen.optimization.linear_assignment",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "GzipFile",
+        "importPath": "gzip",
+        "description": "gzip",
+        "isExtraImport": true,
+        "detail": "gzip",
+        "documentation": {}
+    },
+    {
+        "label": "bisect_left",
+        "importPath": "bisect",
+        "description": "bisect",
+        "isExtraImport": true,
+        "detail": "bisect",
+        "documentation": {}
+    },
+    {
+        "label": "Cython",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "Cython",
+        "description": "Cython",
+        "detail": "Cython",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "traceback",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "traceback",
+        "description": "traceback",
+        "detail": "traceback",
+        "documentation": {}
+    },
+    {
+        "label": "parse_version",
+        "importPath": "pkg_resources",
+        "description": "pkg_resources",
+        "isExtraImport": true,
+        "detail": "pkg_resources",
+        "documentation": {}
+    },
+    {
+        "label": "clean",
+        "importPath": "distutils.command.clean",
+        "description": "distutils.command.clean",
+        "isExtraImport": true,
+        "detail": "distutils.command.clean",
+        "documentation": {}
+    },
+    {
+        "label": "LooseVersion",
+        "importPath": "distutils.version",
+        "description": "distutils.version",
+        "isExtraImport": true,
+        "detail": "distutils.version",
+        "documentation": {}
+    },
+    {
+        "label": "get_hard_data",
+        "kind": 2,
+        "importPath": "bench.matrix_dense_hard",
+        "description": "bench.matrix_dense_hard",
+        "peekOfCode": "def get_hard_data(sz, rng, seed):\n    cost = get_dense_int(sz, 100, hard=True, seed=seed)\n    opt = lapjv(cost)[0]\n    return cost, opt\nif lapjv_old is not None:\n    @mark.timeout(max_time_per_benchmark)\n    @mark.parametrize(\n        \"sz,rng,seed\", [(sz, rng, seed) for sz in szs for rng in rngs for seed in seeds]\n    )\n    def test_JV_old(benchmark, sz, rng, seed):",
+        "detail": "bench.matrix_dense_hard",
+        "documentation": {}
+    },
+    {
+        "label": "test_JV",
+        "kind": 2,
+        "importPath": "bench.matrix_dense_hard",
+        "description": "bench.matrix_dense_hard",
+        "peekOfCode": "def test_JV(benchmark, sz, rng, seed):\n    cost, opt = get_hard_data(sz, rng, seed)\n    ret = benchmark(lapjv, cost, return_cost=False)\n    assert cost[range(cost.shape[0]), ret[0]].sum() == opt\n@mark.timeout(max_time_per_benchmark)\n@mark.parametrize(\"sz,rng,seed\", [(sz, rng, seed) for sz in szs for rng in rngs for seed in seeds])\ndef test_MOD_c(benchmark, sz, rng, seed):\n    cost, opt = get_hard_data(sz, rng, seed)\n    _, cc, ii, kk = sparse_from_dense(cost)\n    ret = benchmark(lapmod, sz, cc, ii, kk, fast=True, return_cost=False)",
+        "detail": "bench.matrix_dense_hard",
+        "documentation": {}
+    },
+    {
+        "label": "test_MOD_c",
+        "kind": 2,
+        "importPath": "bench.matrix_dense_hard",
+        "description": "bench.matrix_dense_hard",
+        "peekOfCode": "def test_MOD_c(benchmark, sz, rng, seed):\n    cost, opt = get_hard_data(sz, rng, seed)\n    _, cc, ii, kk = sparse_from_dense(cost)\n    ret = benchmark(lapmod, sz, cc, ii, kk, fast=True, return_cost=False)\n    assert get_cost(sz, cc, ii, kk, ret[0]) == opt\n@mark.timeout(max_time_per_benchmark)\n@mark.parametrize(\"sz,rng,seed\", [(sz, rng, seed) for sz in szs for rng in rngs for seed in seeds])\ndef test_CSCY(benchmark, sz, rng, seed):\n    cost, opt = get_hard_data(sz, rng, seed)\n    i, j, cc = sparse_from_dense_CS(cost)",
+        "detail": "bench.matrix_dense_hard",
+        "documentation": {}
+    },
+    {
+        "label": "test_CSCY",
+        "kind": 2,
+        "importPath": "bench.matrix_dense_hard",
+        "description": "bench.matrix_dense_hard",
+        "peekOfCode": "def test_CSCY(benchmark, sz, rng, seed):\n    cost, opt = get_hard_data(sz, rng, seed)\n    i, j, cc = sparse_from_dense_CS(cost)\n    ret = benchmark(lapjv_centrosome, i, j, cc)\n    assert get_cost_CS(cost, ret[0]) == opt",
+        "detail": "bench.matrix_dense_hard",
+        "documentation": {}
+    },
+    {
+        "label": "max_time_per_benchmark",
+        "kind": 5,
+        "importPath": "bench.matrix_dense_hard",
+        "description": "bench.matrix_dense_hard",
+        "peekOfCode": "max_time_per_benchmark = 20\nszs = [10, 100, 200, 500, 1000, 2000, 5000]\nrngs = [100, 1000, 10000, 100000]\nseeds = [1299821, 15485867, 32452867, 49979693]\ncachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_hard_data(sz, rng, seed):\n    cost = get_dense_int(sz, 100, hard=True, seed=seed)\n    opt = lapjv(cost)[0]",
+        "detail": "bench.matrix_dense_hard",
+        "documentation": {}
+    },
+    {
+        "label": "szs",
+        "kind": 5,
+        "importPath": "bench.matrix_dense_hard",
+        "description": "bench.matrix_dense_hard",
+        "peekOfCode": "szs = [10, 100, 200, 500, 1000, 2000, 5000]\nrngs = [100, 1000, 10000, 100000]\nseeds = [1299821, 15485867, 32452867, 49979693]\ncachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_hard_data(sz, rng, seed):\n    cost = get_dense_int(sz, 100, hard=True, seed=seed)\n    opt = lapjv(cost)[0]\n    return cost, opt",
+        "detail": "bench.matrix_dense_hard",
+        "documentation": {}
+    },
+    {
+        "label": "rngs",
+        "kind": 5,
+        "importPath": "bench.matrix_dense_hard",
+        "description": "bench.matrix_dense_hard",
+        "peekOfCode": "rngs = [100, 1000, 10000, 100000]\nseeds = [1299821, 15485867, 32452867, 49979693]\ncachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_hard_data(sz, rng, seed):\n    cost = get_dense_int(sz, 100, hard=True, seed=seed)\n    opt = lapjv(cost)[0]\n    return cost, opt\nif lapjv_old is not None:",
+        "detail": "bench.matrix_dense_hard",
+        "documentation": {}
+    },
+    {
+        "label": "seeds",
+        "kind": 5,
+        "importPath": "bench.matrix_dense_hard",
+        "description": "bench.matrix_dense_hard",
+        "peekOfCode": "seeds = [1299821, 15485867, 32452867, 49979693]\ncachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_hard_data(sz, rng, seed):\n    cost = get_dense_int(sz, 100, hard=True, seed=seed)\n    opt = lapjv(cost)[0]\n    return cost, opt\nif lapjv_old is not None:\n    @mark.timeout(max_time_per_benchmark)",
+        "detail": "bench.matrix_dense_hard",
+        "documentation": {}
+    },
+    {
+        "label": "cachedir",
+        "kind": 5,
+        "importPath": "bench.matrix_dense_hard",
+        "description": "bench.matrix_dense_hard",
+        "peekOfCode": "cachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_hard_data(sz, rng, seed):\n    cost = get_dense_int(sz, 100, hard=True, seed=seed)\n    opt = lapjv(cost)[0]\n    return cost, opt\nif lapjv_old is not None:\n    @mark.timeout(max_time_per_benchmark)\n    @mark.parametrize(",
+        "detail": "bench.matrix_dense_hard",
+        "documentation": {}
+    },
+    {
+        "label": "memory",
+        "kind": 5,
+        "importPath": "bench.matrix_dense_hard",
+        "description": "bench.matrix_dense_hard",
+        "peekOfCode": "memory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_hard_data(sz, rng, seed):\n    cost = get_dense_int(sz, 100, hard=True, seed=seed)\n    opt = lapjv(cost)[0]\n    return cost, opt\nif lapjv_old is not None:\n    @mark.timeout(max_time_per_benchmark)\n    @mark.parametrize(\n        \"sz,rng,seed\", [(sz, rng, seed) for sz in szs for rng in rngs for seed in seeds]",
+        "detail": "bench.matrix_dense_hard",
+        "documentation": {}
+    },
+    {
+        "label": "get_data",
+        "kind": 2,
+        "importPath": "bench.matrix_nnz",
+        "description": "bench.matrix_nnz",
+        "peekOfCode": "def get_data(sz, nnz, seed, rng=100):\n    return get_nnz_int(sz, nnz, rng=rng, seed=seed)\n@mark.timeout(max_time_per_benchmark)\n@mark.parametrize(\"sz,nnz,seed\", [(sz, nnz, seed) for sz in szs for nnz in nnzs for seed in seeds])\ndef test_MOD_c_3(benchmark, sz, nnz, seed):\n    cc, ii, kk = get_data(sz, nnz, seed)\n    benchmark(lapmod, sz, cc, ii, kk, fast=True, return_cost=False, fp_version=FP_DYNAMIC)\n@mark.timeout(max_time_per_benchmark)\n@mark.parametrize(\"sz,nnz,seed\", [(sz, nnz, seed) for sz in szs for nnz in nnzs for seed in seeds])\ndef test_MOD_c_1(benchmark, sz, nnz, seed):",
+        "detail": "bench.matrix_nnz",
+        "documentation": {}
+    },
+    {
+        "label": "test_MOD_c_3",
+        "kind": 2,
+        "importPath": "bench.matrix_nnz",
+        "description": "bench.matrix_nnz",
+        "peekOfCode": "def test_MOD_c_3(benchmark, sz, nnz, seed):\n    cc, ii, kk = get_data(sz, nnz, seed)\n    benchmark(lapmod, sz, cc, ii, kk, fast=True, return_cost=False, fp_version=FP_DYNAMIC)\n@mark.timeout(max_time_per_benchmark)\n@mark.parametrize(\"sz,nnz,seed\", [(sz, nnz, seed) for sz in szs for nnz in nnzs for seed in seeds])\ndef test_MOD_c_1(benchmark, sz, nnz, seed):\n    cc, ii, kk = get_data(sz, nnz, seed)\n    benchmark(lapmod, sz, cc, ii, kk, fast=True, return_cost=False, fp_version=FP_1)\n@mark.timeout(max_time_per_benchmark)\n@mark.parametrize(\"sz,nnz,seed\", [(sz, nnz, seed) for sz in szs for nnz in nnzs for seed in seeds])",
+        "detail": "bench.matrix_nnz",
+        "documentation": {}
+    },
+    {
+        "label": "test_MOD_c_1",
+        "kind": 2,
+        "importPath": "bench.matrix_nnz",
+        "description": "bench.matrix_nnz",
+        "peekOfCode": "def test_MOD_c_1(benchmark, sz, nnz, seed):\n    cc, ii, kk = get_data(sz, nnz, seed)\n    benchmark(lapmod, sz, cc, ii, kk, fast=True, return_cost=False, fp_version=FP_1)\n@mark.timeout(max_time_per_benchmark)\n@mark.parametrize(\"sz,nnz,seed\", [(sz, nnz, seed) for sz in szs for nnz in nnzs for seed in seeds])\ndef test_MOD_c_2(benchmark, sz, nnz, seed):\n    cc, ii, kk = get_data(sz, nnz, seed)\n    benchmark(lapmod, sz, cc, ii, kk, fast=True, return_cost=False, fp_version=FP_2)",
+        "detail": "bench.matrix_nnz",
+        "documentation": {}
+    },
+    {
+        "label": "test_MOD_c_2",
+        "kind": 2,
+        "importPath": "bench.matrix_nnz",
+        "description": "bench.matrix_nnz",
+        "peekOfCode": "def test_MOD_c_2(benchmark, sz, nnz, seed):\n    cc, ii, kk = get_data(sz, nnz, seed)\n    benchmark(lapmod, sz, cc, ii, kk, fast=True, return_cost=False, fp_version=FP_2)",
+        "detail": "bench.matrix_nnz",
+        "documentation": {}
+    },
+    {
+        "label": "max_time_per_benchmark",
+        "kind": 5,
+        "importPath": "bench.matrix_nnz",
+        "description": "bench.matrix_nnz",
+        "peekOfCode": "max_time_per_benchmark = 20\nszs = [5000]\nnnzs = [10, 100, 500, 1000, 1500, 2000, 3000, 4000]\nseeds = [1299821, 15485867, 32452867, 49979693]\ncachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(sz, nnz, seed, rng=100):\n    return get_nnz_int(sz, nnz, rng=rng, seed=seed)\n@mark.timeout(max_time_per_benchmark)",
+        "detail": "bench.matrix_nnz",
+        "documentation": {}
+    },
+    {
+        "label": "szs",
+        "kind": 5,
+        "importPath": "bench.matrix_nnz",
+        "description": "bench.matrix_nnz",
+        "peekOfCode": "szs = [5000]\nnnzs = [10, 100, 500, 1000, 1500, 2000, 3000, 4000]\nseeds = [1299821, 15485867, 32452867, 49979693]\ncachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(sz, nnz, seed, rng=100):\n    return get_nnz_int(sz, nnz, rng=rng, seed=seed)\n@mark.timeout(max_time_per_benchmark)\n@mark.parametrize(\"sz,nnz,seed\", [(sz, nnz, seed) for sz in szs for nnz in nnzs for seed in seeds])",
+        "detail": "bench.matrix_nnz",
+        "documentation": {}
+    },
+    {
+        "label": "nnzs",
+        "kind": 5,
+        "importPath": "bench.matrix_nnz",
+        "description": "bench.matrix_nnz",
+        "peekOfCode": "nnzs = [10, 100, 500, 1000, 1500, 2000, 3000, 4000]\nseeds = [1299821, 15485867, 32452867, 49979693]\ncachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(sz, nnz, seed, rng=100):\n    return get_nnz_int(sz, nnz, rng=rng, seed=seed)\n@mark.timeout(max_time_per_benchmark)\n@mark.parametrize(\"sz,nnz,seed\", [(sz, nnz, seed) for sz in szs for nnz in nnzs for seed in seeds])\ndef test_MOD_c_3(benchmark, sz, nnz, seed):",
+        "detail": "bench.matrix_nnz",
+        "documentation": {}
+    },
+    {
+        "label": "seeds",
+        "kind": 5,
+        "importPath": "bench.matrix_nnz",
+        "description": "bench.matrix_nnz",
+        "peekOfCode": "seeds = [1299821, 15485867, 32452867, 49979693]\ncachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(sz, nnz, seed, rng=100):\n    return get_nnz_int(sz, nnz, rng=rng, seed=seed)\n@mark.timeout(max_time_per_benchmark)\n@mark.parametrize(\"sz,nnz,seed\", [(sz, nnz, seed) for sz in szs for nnz in nnzs for seed in seeds])\ndef test_MOD_c_3(benchmark, sz, nnz, seed):\n    cc, ii, kk = get_data(sz, nnz, seed)",
+        "detail": "bench.matrix_nnz",
+        "documentation": {}
+    },
+    {
+        "label": "cachedir",
+        "kind": 5,
+        "importPath": "bench.matrix_nnz",
+        "description": "bench.matrix_nnz",
+        "peekOfCode": "cachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(sz, nnz, seed, rng=100):\n    return get_nnz_int(sz, nnz, rng=rng, seed=seed)\n@mark.timeout(max_time_per_benchmark)\n@mark.parametrize(\"sz,nnz,seed\", [(sz, nnz, seed) for sz in szs for nnz in nnzs for seed in seeds])\ndef test_MOD_c_3(benchmark, sz, nnz, seed):\n    cc, ii, kk = get_data(sz, nnz, seed)\n    benchmark(lapmod, sz, cc, ii, kk, fast=True, return_cost=False, fp_version=FP_DYNAMIC)",
+        "detail": "bench.matrix_nnz",
+        "documentation": {}
+    },
+    {
+        "label": "memory",
+        "kind": 5,
+        "importPath": "bench.matrix_nnz",
+        "description": "bench.matrix_nnz",
+        "peekOfCode": "memory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(sz, nnz, seed, rng=100):\n    return get_nnz_int(sz, nnz, rng=rng, seed=seed)\n@mark.timeout(max_time_per_benchmark)\n@mark.parametrize(\"sz,nnz,seed\", [(sz, nnz, seed) for sz in szs for nnz in nnzs for seed in seeds])\ndef test_MOD_c_3(benchmark, sz, nnz, seed):\n    cc, ii, kk = get_data(sz, nnz, seed)\n    benchmark(lapmod, sz, cc, ii, kk, fast=True, return_cost=False, fp_version=FP_DYNAMIC)\n@mark.timeout(max_time_per_benchmark)",
+        "detail": "bench.matrix_nnz",
+        "documentation": {}
+    },
+    {
+        "label": "get_data",
+        "kind": 2,
+        "importPath": "bench.matrix_sparse",
+        "description": "bench.matrix_sparse",
+        "peekOfCode": "def get_data(sz, sparsity, seed, rng=100):\n    cost, mask = get_sparse_int(sz, rng, sparsity, hard=False, seed=seed)\n    print(\"Requested sparsity {:f} generated {:f}\".format(sparsity, mask.mean()))\n    cost[~mask] = get_platform_maxint()\n    return cost, mask\nif lapjv_old is not None:\n    @mark.timeout(max_time_per_benchmark)\n    @mark.parametrize(\n        \"sz,sparsity,seed\",\n        [(sz, sparsity, seed) for sz in szs for sparsity in sparsities for seed in seeds],",
+        "detail": "bench.matrix_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "test_JV",
+        "kind": 2,
+        "importPath": "bench.matrix_sparse",
+        "description": "bench.matrix_sparse",
+        "peekOfCode": "def test_JV(benchmark, sz, sparsity, seed):\n    cost, mask = get_data(sz, sparsity, seed)\n    benchmark(lapjv, cost, return_cost=False)\n@mark.timeout(max_time_per_benchmark)\n@mark.parametrize(\n    \"sz,sparsity,seed\",\n    [(sz, sparsity, seed) for sz in szs for sparsity in sparsities for seed in seeds],\n)\ndef test_MOD_c(benchmark, sz, sparsity, seed):\n    cost, mask = get_data(sz, sparsity, seed)",
+        "detail": "bench.matrix_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "test_MOD_c",
+        "kind": 2,
+        "importPath": "bench.matrix_sparse",
+        "description": "bench.matrix_sparse",
+        "peekOfCode": "def test_MOD_c(benchmark, sz, sparsity, seed):\n    cost, mask = get_data(sz, sparsity, seed)\n    _, cc, ii, kk = sparse_from_masked(cost, mask)\n    benchmark(lapmod, sz, cc, ii, kk, fast=True, return_cost=False)\n@mark.timeout(max_time_per_benchmark)\n@mark.parametrize(\n    \"sz,sparsity,seed\",\n    [(sz, sparsity, seed) for sz in szs for sparsity in sparsities for seed in seeds],\n)\ndef test_CSCY(benchmark, sz, sparsity, seed):",
+        "detail": "bench.matrix_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "test_CSCY",
+        "kind": 2,
+        "importPath": "bench.matrix_sparse",
+        "description": "bench.matrix_sparse",
+        "peekOfCode": "def test_CSCY(benchmark, sz, sparsity, seed):\n    cost, mask = get_data(sz, sparsity, seed)\n    i, j, cc = sparse_from_masked_CS(cost, mask)\n    benchmark(lapjv_centrosome, i, j, cc)",
+        "detail": "bench.matrix_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "max_time_per_benchmark",
+        "kind": 5,
+        "importPath": "bench.matrix_sparse",
+        "description": "bench.matrix_sparse",
+        "peekOfCode": "max_time_per_benchmark = 15\nszs = [1000, 5000, 10000]\nsparsities = [0.5, 0.05, 0.005, 0.0005, 0.00005]\nseeds = [1299821, 15485867, 32452867, 49979693]\ncachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(sz, sparsity, seed, rng=100):\n    cost, mask = get_sparse_int(sz, rng, sparsity, hard=False, seed=seed)\n    print(\"Requested sparsity {:f} generated {:f}\".format(sparsity, mask.mean()))",
+        "detail": "bench.matrix_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "szs",
+        "kind": 5,
+        "importPath": "bench.matrix_sparse",
+        "description": "bench.matrix_sparse",
+        "peekOfCode": "szs = [1000, 5000, 10000]\nsparsities = [0.5, 0.05, 0.005, 0.0005, 0.00005]\nseeds = [1299821, 15485867, 32452867, 49979693]\ncachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(sz, sparsity, seed, rng=100):\n    cost, mask = get_sparse_int(sz, rng, sparsity, hard=False, seed=seed)\n    print(\"Requested sparsity {:f} generated {:f}\".format(sparsity, mask.mean()))\n    cost[~mask] = get_platform_maxint()",
+        "detail": "bench.matrix_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "sparsities",
+        "kind": 5,
+        "importPath": "bench.matrix_sparse",
+        "description": "bench.matrix_sparse",
+        "peekOfCode": "sparsities = [0.5, 0.05, 0.005, 0.0005, 0.00005]\nseeds = [1299821, 15485867, 32452867, 49979693]\ncachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(sz, sparsity, seed, rng=100):\n    cost, mask = get_sparse_int(sz, rng, sparsity, hard=False, seed=seed)\n    print(\"Requested sparsity {:f} generated {:f}\".format(sparsity, mask.mean()))\n    cost[~mask] = get_platform_maxint()\n    return cost, mask",
+        "detail": "bench.matrix_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "seeds",
+        "kind": 5,
+        "importPath": "bench.matrix_sparse",
+        "description": "bench.matrix_sparse",
+        "peekOfCode": "seeds = [1299821, 15485867, 32452867, 49979693]\ncachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(sz, sparsity, seed, rng=100):\n    cost, mask = get_sparse_int(sz, rng, sparsity, hard=False, seed=seed)\n    print(\"Requested sparsity {:f} generated {:f}\".format(sparsity, mask.mean()))\n    cost[~mask] = get_platform_maxint()\n    return cost, mask\nif lapjv_old is not None:",
+        "detail": "bench.matrix_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "cachedir",
+        "kind": 5,
+        "importPath": "bench.matrix_sparse",
+        "description": "bench.matrix_sparse",
+        "peekOfCode": "cachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(sz, sparsity, seed, rng=100):\n    cost, mask = get_sparse_int(sz, rng, sparsity, hard=False, seed=seed)\n    print(\"Requested sparsity {:f} generated {:f}\".format(sparsity, mask.mean()))\n    cost[~mask] = get_platform_maxint()\n    return cost, mask\nif lapjv_old is not None:\n    @mark.timeout(max_time_per_benchmark)",
+        "detail": "bench.matrix_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "memory",
+        "kind": 5,
+        "importPath": "bench.matrix_sparse",
+        "description": "bench.matrix_sparse",
+        "peekOfCode": "memory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(sz, sparsity, seed, rng=100):\n    cost, mask = get_sparse_int(sz, rng, sparsity, hard=False, seed=seed)\n    print(\"Requested sparsity {:f} generated {:f}\".format(sparsity, mask.mean()))\n    cost[~mask] = get_platform_maxint()\n    return cost, mask\nif lapjv_old is not None:\n    @mark.timeout(max_time_per_benchmark)\n    @mark.parametrize(",
+        "detail": "bench.matrix_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "get_data",
+        "kind": 2,
+        "importPath": "bench.overview_dense",
+        "description": "bench.overview_dense",
+        "peekOfCode": "def get_data(seed):\n    cost = get_dense_int(100, 1000, hard=True, seed=seed)\n    opt = lapjv(cost)[0]\n    return cost, opt\nseeds = [1299821, 15485867, 32452867, 49979693]\nif lapjv_old is not None:\n    @mark.parametrize(\"seed\", seeds)\n    def test_JV_old(benchmark, seed):\n        cost, opt = get_data(seed)\n        ret = benchmark(lapjv_old, cost)",
+        "detail": "bench.overview_dense",
+        "documentation": {}
+    },
+    {
+        "label": "test_JV",
+        "kind": 2,
+        "importPath": "bench.overview_dense",
+        "description": "bench.overview_dense",
+        "peekOfCode": "def test_JV(benchmark, seed):\n    cost, opt = get_data(seed)\n    ret = benchmark(lapjv, cost)\n    assert ret[0] == opt\n@mark.parametrize(\"seed\", seeds)\ndef test_MODPY(benchmark, seed):\n    cost, opt = get_data(seed)\n    n, cc, ii, kk = sparse_from_dense(cost)\n    ret = benchmark(lapmod, n, cc, ii, kk, fast=False, return_cost=False)\n    assert get_cost(n, cc, ii, kk, ret[0]) == opt",
+        "detail": "bench.overview_dense",
+        "documentation": {}
+    },
+    {
+        "label": "test_MODPY",
+        "kind": 2,
+        "importPath": "bench.overview_dense",
+        "description": "bench.overview_dense",
+        "peekOfCode": "def test_MODPY(benchmark, seed):\n    cost, opt = get_data(seed)\n    n, cc, ii, kk = sparse_from_dense(cost)\n    ret = benchmark(lapmod, n, cc, ii, kk, fast=False, return_cost=False)\n    assert get_cost(n, cc, ii, kk, ret[0]) == opt\n@mark.parametrize(\"seed\", seeds)\ndef test_MOD_c(benchmark, seed):\n    cost, opt = get_data(seed)\n    n, cc, ii, kk = sparse_from_dense(cost)\n    ret = benchmark(lapmod, n, cc, ii, kk, fast=True, return_cost=False)",
+        "detail": "bench.overview_dense",
+        "documentation": {}
+    },
+    {
+        "label": "test_MOD_c",
+        "kind": 2,
+        "importPath": "bench.overview_dense",
+        "description": "bench.overview_dense",
+        "peekOfCode": "def test_MOD_c(benchmark, seed):\n    cost, opt = get_data(seed)\n    n, cc, ii, kk = sparse_from_dense(cost)\n    ret = benchmark(lapmod, n, cc, ii, kk, fast=True, return_cost=False)\n    assert get_cost(n, cc, ii, kk, ret[0]) == opt\n@mark.parametrize(\"seed\", seeds)\ndef test_PMG(benchmark, seed):\n    cost, opt = get_data(seed)\n    ret = benchmark(LinearAssignment, cost)\n    assert ret.min_cost == opt",
+        "detail": "bench.overview_dense",
+        "documentation": {}
+    },
+    {
+        "label": "test_PMG",
+        "kind": 2,
+        "importPath": "bench.overview_dense",
+        "description": "bench.overview_dense",
+        "peekOfCode": "def test_PMG(benchmark, seed):\n    cost, opt = get_data(seed)\n    ret = benchmark(LinearAssignment, cost)\n    assert ret.min_cost == opt\n@mark.parametrize(\"seed\", seeds)\ndef test_CSCY(benchmark, seed):\n    cost, opt = get_data(seed)\n    i, j, cc = sparse_from_dense_CS(cost)\n    ret = benchmark(lapjv_centrosome, i, j, cc)\n    assert get_cost_CS(cost, ret[0]) == opt",
+        "detail": "bench.overview_dense",
+        "documentation": {}
+    },
+    {
+        "label": "test_CSCY",
+        "kind": 2,
+        "importPath": "bench.overview_dense",
+        "description": "bench.overview_dense",
+        "peekOfCode": "def test_CSCY(benchmark, seed):\n    cost, opt = get_data(seed)\n    i, j, cc = sparse_from_dense_CS(cost)\n    ret = benchmark(lapjv_centrosome, i, j, cc)\n    assert get_cost_CS(cost, ret[0]) == opt",
+        "detail": "bench.overview_dense",
+        "documentation": {}
+    },
+    {
+        "label": "cachedir",
+        "kind": 5,
+        "importPath": "bench.overview_dense",
+        "description": "bench.overview_dense",
+        "peekOfCode": "cachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(seed):\n    cost = get_dense_int(100, 1000, hard=True, seed=seed)\n    opt = lapjv(cost)[0]\n    return cost, opt\nseeds = [1299821, 15485867, 32452867, 49979693]\nif lapjv_old is not None:\n    @mark.parametrize(\"seed\", seeds)",
+        "detail": "bench.overview_dense",
+        "documentation": {}
+    },
+    {
+        "label": "memory",
+        "kind": 5,
+        "importPath": "bench.overview_dense",
+        "description": "bench.overview_dense",
+        "peekOfCode": "memory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(seed):\n    cost = get_dense_int(100, 1000, hard=True, seed=seed)\n    opt = lapjv(cost)[0]\n    return cost, opt\nseeds = [1299821, 15485867, 32452867, 49979693]\nif lapjv_old is not None:\n    @mark.parametrize(\"seed\", seeds)\n    def test_JV_old(benchmark, seed):",
+        "detail": "bench.overview_dense",
+        "documentation": {}
+    },
+    {
+        "label": "seeds",
+        "kind": 5,
+        "importPath": "bench.overview_dense",
+        "description": "bench.overview_dense",
+        "peekOfCode": "seeds = [1299821, 15485867, 32452867, 49979693]\nif lapjv_old is not None:\n    @mark.parametrize(\"seed\", seeds)\n    def test_JV_old(benchmark, seed):\n        cost, opt = get_data(seed)\n        ret = benchmark(lapjv_old, cost)\n        assert ret[0] == opt\n@mark.parametrize(\"seed\", seeds)\ndef test_JV(benchmark, seed):\n    cost, opt = get_data(seed)",
+        "detail": "bench.overview_dense",
+        "documentation": {}
+    },
+    {
+        "label": "get_data",
+        "kind": 2,
+        "importPath": "bench.overview_sparse",
+        "description": "bench.overview_sparse",
+        "peekOfCode": "def get_data(seed):\n    cost, mask = get_sparse_int(5000, 1000, 0.01, hard=False, seed=seed)\n    cost_ = cost.copy()\n    cost_[~mask] = get_platform_maxint()\n    opt = lapjv(cost_)[0]\n    return cost, mask, opt\nseeds = [1299821, 15485867, 32452867, 49979693]\ndef _get_cost_CS(cost, x):\n    return cost[np.arange(cost.shape[0]), x].sum()\n@mark.parametrize(\"seed\", seeds)",
+        "detail": "bench.overview_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "test_CSCY",
+        "kind": 2,
+        "importPath": "bench.overview_sparse",
+        "description": "bench.overview_sparse",
+        "peekOfCode": "def test_CSCY(benchmark, seed):\n    cost, mask, opt = get_data(seed)\n    i, j, cc = sparse_from_masked_CS(cost, mask)\n    ret = benchmark(lapjv_centrosome, i, j, cc)\n    assert _get_cost_CS(cost, ret[0]) == opt\nif lapjv_old is not None:\n    @mark.parametrize(\"seed\", seeds)\n    def test_JV_old(benchmark, seed):\n        cost, mask, opt = get_data(seed)\n        cost[~mask] = get_platform_maxint()",
+        "detail": "bench.overview_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "test_JV",
+        "kind": 2,
+        "importPath": "bench.overview_sparse",
+        "description": "bench.overview_sparse",
+        "peekOfCode": "def test_JV(benchmark, seed):\n    cost, mask, opt = get_data(seed)\n    cost[~mask] = get_platform_maxint()\n    ret = benchmark(lapjv, cost)\n    assert ret[0] == opt\n@mark.parametrize(\"seed\", seeds)\ndef test_MOD_c(benchmark, seed):\n    cost, mask, opt = get_data(seed)\n    n, cc, ii, kk = sparse_from_masked(cost, mask)\n    ret = benchmark(lapmod, n, cc, ii, kk, fast=True, return_cost=False)",
+        "detail": "bench.overview_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "test_MOD_c",
+        "kind": 2,
+        "importPath": "bench.overview_sparse",
+        "description": "bench.overview_sparse",
+        "peekOfCode": "def test_MOD_c(benchmark, seed):\n    cost, mask, opt = get_data(seed)\n    n, cc, ii, kk = sparse_from_masked(cost, mask)\n    ret = benchmark(lapmod, n, cc, ii, kk, fast=True, return_cost=False)\n    assert get_cost(n, cc, ii, kk, ret[0]) == opt",
+        "detail": "bench.overview_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "cachedir",
+        "kind": 5,
+        "importPath": "bench.overview_sparse",
+        "description": "bench.overview_sparse",
+        "peekOfCode": "cachedir = \"/tmp/lapjv-cache\"\nmemory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(seed):\n    cost, mask = get_sparse_int(5000, 1000, 0.01, hard=False, seed=seed)\n    cost_ = cost.copy()\n    cost_[~mask] = get_platform_maxint()\n    opt = lapjv(cost_)[0]\n    return cost, mask, opt\nseeds = [1299821, 15485867, 32452867, 49979693]",
+        "detail": "bench.overview_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "memory",
+        "kind": 5,
+        "importPath": "bench.overview_sparse",
+        "description": "bench.overview_sparse",
+        "peekOfCode": "memory = Memory(cachedir=cachedir, verbose=1)\n@memory.cache\ndef get_data(seed):\n    cost, mask = get_sparse_int(5000, 1000, 0.01, hard=False, seed=seed)\n    cost_ = cost.copy()\n    cost_[~mask] = get_platform_maxint()\n    opt = lapjv(cost_)[0]\n    return cost, mask, opt\nseeds = [1299821, 15485867, 32452867, 49979693]\ndef _get_cost_CS(cost, x):",
+        "detail": "bench.overview_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "seeds",
+        "kind": 5,
+        "importPath": "bench.overview_sparse",
+        "description": "bench.overview_sparse",
+        "peekOfCode": "seeds = [1299821, 15485867, 32452867, 49979693]\ndef _get_cost_CS(cost, x):\n    return cost[np.arange(cost.shape[0]), x].sum()\n@mark.parametrize(\"seed\", seeds)\ndef test_CSCY(benchmark, seed):\n    cost, mask, opt = get_data(seed)\n    i, j, cc = sparse_from_masked_CS(cost, mask)\n    ret = benchmark(lapjv_centrosome, i, j, cc)\n    assert _get_cost_CS(cost, ret[0]) == opt\nif lapjv_old is not None:",
+        "detail": "bench.overview_sparse",
+        "documentation": {}
+    },
+    {
+        "label": "prepare_sparse_cost",
+        "kind": 2,
+        "importPath": "lap.tests.test_arr_loop",
+        "description": "lap.tests.test_arr_loop",
+        "peekOfCode": "def prepare_sparse_cost(shape, cc, ii, jj, cost_limit):\n    \"\"\"Transform the given sparse matrix extending it to a square sparse matrix.\n    Parameters\n    ==========\n    shape: tuple\n       - cost matrix shape\n    (cc, ii, jj): tuple of floats, ints, ints)\n        - cost matrix in COO format, see [1]\n    cost_limit: float\n    Returns",
+        "detail": "lap.tests.test_arr_loop",
+        "documentation": {}
+    },
+    {
+        "label": "test_lapjv_arr_loop",
+        "kind": 2,
+        "importPath": "lap.tests.test_arr_loop",
+        "description": "lap.tests.test_arr_loop",
+        "peekOfCode": "def test_lapjv_arr_loop():\n    shape = (7, 3)\n    cc = np.array(\n        [\n            2.593883482138951146e-01,\n            3.080381437461217620e-01,\n            1.976243020727339317e-01,\n            2.462740976049606068e-01,\n            4.203993396282833528e-01,\n            4.286184525458427985e-01,",
+        "detail": "lap.tests.test_arr_loop",
+        "documentation": {}
+    },
+    {
+        "label": "test_lapmod_arr_loop",
+        "kind": 2,
+        "importPath": "lap.tests.test_arr_loop",
+        "description": "lap.tests.test_arr_loop",
+        "peekOfCode": "def test_lapmod_arr_loop():\n    shape = (7, 3)\n    cc = np.array(\n        [\n            2.593883482138951146e-01,\n            3.080381437461217620e-01,\n            1.976243020727339317e-01,\n            2.462740976049606068e-01,\n            4.203993396282833528e-01,\n            4.286184525458427985e-01,",
+        "detail": "lap.tests.test_arr_loop",
+        "documentation": {}
+    },
+    {
+        "label": "test_lapjv_empty",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_lapjv_empty():\n    with raises(ValueError):\n        lapjv(np.ndarray([]))\ndef test_lapjv_non_square_fail():\n    with raises(ValueError):\n        lapjv(np.zeros((3, 2)))\ndef test_lapjv_non_contigous():\n    cost = get_dense_8x8_int()[0]\n    ret = lapjv(cost[:3, :3])\n    assert ret[0] == 8.0",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_lapjv_non_square_fail",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_lapjv_non_square_fail():\n    with raises(ValueError):\n        lapjv(np.zeros((3, 2)))\ndef test_lapjv_non_contigous():\n    cost = get_dense_8x8_int()[0]\n    ret = lapjv(cost[:3, :3])\n    assert ret[0] == 8.0\n    assert np.all(ret[1] == [1, 2, 0])\n    assert np.all(ret[2] == [2, 0, 1])\ndef test_lapjv_extension():",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_lapjv_non_contigous",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_lapjv_non_contigous():\n    cost = get_dense_8x8_int()[0]\n    ret = lapjv(cost[:3, :3])\n    assert ret[0] == 8.0\n    assert np.all(ret[1] == [1, 2, 0])\n    assert np.all(ret[2] == [2, 0, 1])\ndef test_lapjv_extension():\n    cost = get_dense_8x8_int()[0]\n    ret = lapjv(cost[:2, :4], extend_cost=True)\n    assert ret[0] == 3.0",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_lapjv_extension",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_lapjv_extension():\n    cost = get_dense_8x8_int()[0]\n    ret = lapjv(cost[:2, :4], extend_cost=True)\n    assert ret[0] == 3.0\n    assert np.all(ret[1] == [1, 2])\n    assert np.all(ret[2] == [-1, 0, 1, -1])\ndef test_lapjv_noextension():\n    cost = get_dense_8x8_int()[0]\n    c = np.r_[cost[:2, :4], [[1001, 1001, 1001, 2001], [2001, 1001, 1001, 1001]]]\n    ret = lapjv(c, extend_cost=False)",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_lapjv_noextension",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_lapjv_noextension():\n    cost = get_dense_8x8_int()[0]\n    c = np.r_[cost[:2, :4], [[1001, 1001, 1001, 2001], [2001, 1001, 1001, 1001]]]\n    ret = lapjv(c, extend_cost=False)\n    assert ret[0] - 2002 == 3.0\n    assert np.all(ret[1] == [1, 2, 0, 3])\n    assert np.all(ret[2] == [2, 0, 1, 3])\ndef test_lapjv_cost_limit():\n    cost = get_dense_8x8_int()[0]\n    ret = lapjv(cost[:3, :3], cost_limit=4.99)",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_lapjv_cost_limit",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_lapjv_cost_limit():\n    cost = get_dense_8x8_int()[0]\n    ret = lapjv(cost[:3, :3], cost_limit=4.99)\n    assert ret[0] == 3.0\n    assert np.all(ret[1] == [1, 2, -1])\n    assert np.all(ret[2] == [-1, 0, 1])\n@mark.parametrize(\n    \"cost,expected\",\n    [\n        (",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_square",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_square(cost, expected):\n    ret = lapjv(cost)\n    assert len(ret) == len(expected)\n    assert cost[range(cost.shape[0]), ret[1]].sum() == ret[0]\n    assert cost[ret[2], range(cost.shape[1])].sum() == ret[0]\n    assert ret[0] == expected[0]\n    assert np.all(ret[1] == expected[1])\n    assert np.all(ret[2] == expected[2])\n@mark.parametrize(\n    \"cost,expected\",",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_sparse_square",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_sparse_square(cost, expected):\n    ret = lapjv(cost)\n    assert len(ret) == len(expected)\n    assert cost[range(cost.shape[0]), ret[1]].sum() == ret[0]\n    assert cost[ret[2], range(cost.shape[1])].sum() == ret[0]\n    assert ret[0] == expected[0]\n    assert np.all(ret[1] == expected[1])\n    assert np.all(ret[2] == expected[2])\n# This test triggers a possibly infinite loop in ARR.\n@mark.timeout(60)",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_infs_unsolvable",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_infs_unsolvable():\n    cost = np.array(\n        [\n            [0.0, 0.0, 0.0, np.inf, np.inf],\n            [np.inf, np.inf, np.inf, 0.0, 0.0],\n            [np.inf, np.inf, np.inf, 0.0, 0.0],\n            [np.inf, np.inf, np.inf, 0.0, 0.0],\n            [0.0, 0.0, 0.0, np.inf, np.inf],\n        ],\n        dtype=float,",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_inf_unique",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_inf_unique():\n    cost = np.array([[1000, 4, 1], [1, 1000, 3], [5, 1, 1000]])\n    cost_ext = np.empty((4, 4))\n    cost_ext[:] = np.inf\n    cost_ext[:3, :3] = cost\n    cost_ext[3, 3] = 0\n    ret = lapjv(cost_ext)\n    assert len(ret) == 3\n    assert ret[0] == 3.0\n    assert np.all(ret[1] == [2, 0, 1, 3])",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_inf_col",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_inf_col():\n    cost = np.array(\n        [\n            [0.0, np.inf, 0.0, 0.0, np.inf],\n            [np.inf, np.inf, 0.0, 0.0, 0.0],\n            [np.inf, np.inf, np.inf, 0.0, np.inf],\n            [np.inf, np.inf, np.inf, 0.0, 0.0],\n            [0.0, np.inf, 0.0, np.inf, np.inf],\n        ],\n        dtype=float,",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_inf_row",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_inf_row():\n    cost = np.array(\n        [\n            [0.0, 0.0, 0.0, 0.0, np.inf],\n            [np.inf, np.inf, 0.0, 0.0, 0.0],\n            [np.inf, np.inf, np.inf, np.inf, np.inf],\n            [np.inf, np.inf, np.inf, 0.0, 0.0],\n            [0.0, 0.0, 0.0, np.inf, np.inf],\n        ],\n        dtype=float,",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_all_inf",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_all_inf():\n    cost = np.empty((5, 5), dtype=float)\n    cost[:] = np.inf\n    ret = lapjv(cost)\n    assert len(ret) == 3\n    assert ret[0] == np.inf\n@fixture\ndef dense_8x8_int():\n    return get_dense_8x8_int()\n@fixture",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "dense_8x8_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def dense_8x8_int():\n    return get_dense_8x8_int()\n@fixture\ndef dense_100x100_int():\n    return get_dense_100x100_int()\n@fixture\ndef dense_100x100_int_hard():\n    return get_dense_100x100_int_hard()\n@fixture\ndef sparse_100x100_int():",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "dense_100x100_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def dense_100x100_int():\n    return get_dense_100x100_int()\n@fixture\ndef dense_100x100_int_hard():\n    return get_dense_100x100_int_hard()\n@fixture\ndef sparse_100x100_int():\n    return get_sparse_100x100_int()\n@fixture\ndef dense_1kx1k_int():",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "dense_100x100_int_hard",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def dense_100x100_int_hard():\n    return get_dense_100x100_int_hard()\n@fixture\ndef sparse_100x100_int():\n    return get_sparse_100x100_int()\n@fixture\ndef dense_1kx1k_int():\n    return get_dense_1kx1k_int()\n@fixture\ndef dense_1kx1k_int_hard():",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_100x100_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def sparse_100x100_int():\n    return get_sparse_100x100_int()\n@fixture\ndef dense_1kx1k_int():\n    return get_dense_1kx1k_int()\n@fixture\ndef dense_1kx1k_int_hard():\n    return get_dense_1kx1k_int_hard()\n@fixture\ndef sparse_1kx1k_int():",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "dense_1kx1k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def dense_1kx1k_int():\n    return get_dense_1kx1k_int()\n@fixture\ndef dense_1kx1k_int_hard():\n    return get_dense_1kx1k_int_hard()\n@fixture\ndef sparse_1kx1k_int():\n    return get_sparse_1kx1k_int()\n@fixture\ndef sparse_4kx4k_int():",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "dense_1kx1k_int_hard",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def dense_1kx1k_int_hard():\n    return get_dense_1kx1k_int_hard()\n@fixture\ndef sparse_1kx1k_int():\n    return get_sparse_1kx1k_int()\n@fixture\ndef sparse_4kx4k_int():\n    return get_sparse_4kx4k_int()\n@fixture\ndef dense_eps():",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_1kx1k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def sparse_1kx1k_int():\n    return get_sparse_1kx1k_int()\n@fixture\ndef sparse_4kx4k_int():\n    return get_sparse_4kx4k_int()\n@fixture\ndef dense_eps():\n    return get_dense_eps()\n@mark.timeout(60)\ndef test_eps(dense_eps):",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_4kx4k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def sparse_4kx4k_int():\n    return get_sparse_4kx4k_int()\n@fixture\ndef dense_eps():\n    return get_dense_eps()\n@mark.timeout(60)\ndef test_eps(dense_eps):\n    cost, opt = dense_eps\n    ret = lapjv(cost)\n    assert len(ret) == 3",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "dense_eps",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def dense_eps():\n    return get_dense_eps()\n@mark.timeout(60)\ndef test_eps(dense_eps):\n    cost, opt = dense_eps\n    ret = lapjv(cost)\n    assert len(ret) == 3\n    assert ret[0] == opt\ndef test_dense_100x100_int(dense_100x100_int):\n    cost, opt = dense_100x100_int",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_eps",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_eps(dense_eps):\n    cost, opt = dense_eps\n    ret = lapjv(cost)\n    assert len(ret) == 3\n    assert ret[0] == opt\ndef test_dense_100x100_int(dense_100x100_int):\n    cost, opt = dense_100x100_int\n    ret = lapjv(cost)\n    assert len(ret) == 3\n    assert ret[0] == opt",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_dense_100x100_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_dense_100x100_int(dense_100x100_int):\n    cost, opt = dense_100x100_int\n    ret = lapjv(cost)\n    assert len(ret) == 3\n    assert ret[0] == opt\ndef test_dense_100x100_int_hard(dense_100x100_int_hard):\n    cost, opt = dense_100x100_int_hard\n    ret = lapjv(cost)\n    assert len(ret) == 3\n    assert ret[0] == opt",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_dense_100x100_int_hard",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_dense_100x100_int_hard(dense_100x100_int_hard):\n    cost, opt = dense_100x100_int_hard\n    ret = lapjv(cost)\n    assert len(ret) == 3\n    assert ret[0] == opt\n# TODO: too sparse unsolvable matrices cause sometimne IndexError, easily\n# generated - just set the mask threshold low enough\ndef test_sparse_100x100_int(sparse_100x100_int):\n    cost, mask, opt = sparse_100x100_int\n    cost[~mask] = get_platform_maxint()",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_sparse_100x100_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_sparse_100x100_int(sparse_100x100_int):\n    cost, mask, opt = sparse_100x100_int\n    cost[~mask] = get_platform_maxint()\n    ret = lapjv(cost)\n    assert len(ret) == 3\n    assert ret[0] == opt\n@mark.timeout(60)\ndef test_dense_1kx1k_int(dense_1kx1k_int):\n    cost, opt = dense_1kx1k_int\n    ret = lapjv(cost)",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_dense_1kx1k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_dense_1kx1k_int(dense_1kx1k_int):\n    cost, opt = dense_1kx1k_int\n    ret = lapjv(cost)\n    assert len(ret) == 3\n    assert ret[0] == opt\n@mark.timeout(60)\ndef test_dense_1kx1k_int_hard(dense_1kx1k_int_hard):\n    cost, opt = dense_1kx1k_int_hard\n    ret = lapjv(cost)\n    assert len(ret) == 3",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_dense_1kx1k_int_hard",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_dense_1kx1k_int_hard(dense_1kx1k_int_hard):\n    cost, opt = dense_1kx1k_int_hard\n    ret = lapjv(cost)\n    assert len(ret) == 3\n    assert ret[0] == opt\n@mark.timeout(60)\ndef test_sparse_1kx1k_int(sparse_1kx1k_int):\n    cost, mask, opt = sparse_1kx1k_int\n    cost[~mask] = get_platform_maxint()\n    ret = lapjv(cost)",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_sparse_1kx1k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_sparse_1kx1k_int(sparse_1kx1k_int):\n    cost, mask, opt = sparse_1kx1k_int\n    cost[~mask] = get_platform_maxint()\n    ret = lapjv(cost)\n    assert len(ret) == 3\n    assert ret[0] == opt\n@mark.timeout(60)\ndef test_sparse_4kx4k_int(sparse_4kx4k_int):\n    cost, mask, opt = sparse_4kx4k_int\n    cost[~mask] = get_platform_maxint()",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_sparse_4kx4k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapjv",
+        "description": "lap.tests.test_lapjv",
+        "peekOfCode": "def test_sparse_4kx4k_int(sparse_4kx4k_int):\n    cost, mask, opt = sparse_4kx4k_int\n    cost[~mask] = get_platform_maxint()\n    ret = lapjv(cost)\n    assert len(ret) == 3\n    assert ret[0] == opt",
+        "detail": "lap.tests.test_lapjv",
+        "documentation": {}
+    },
+    {
+        "label": "test_square",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def test_square(cost, expected):\n    ret = lapmod(*sparse_from_dense(cost))\n    assert len(ret) == len(expected)\n    assert cost[range(cost.shape[0]), ret[1]].sum() == ret[0]\n    assert cost[ret[2], range(cost.shape[1])].sum() == ret[0]\n    assert ret[0] == expected[0]\n    assert np.all(ret[1] == expected[1])\n    assert np.all(ret[2] == expected[2])\n    dense_ret = lapjv(cost)\n    assert ret[0] == dense_ret[0]",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "test_sparse_square",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def test_sparse_square(cost, expected):\n    ret = lapmod(*sparse_from_masked(cost))\n    assert len(ret) == len(expected)\n    assert cost[range(cost.shape[0]), ret[1]].sum() == ret[0]\n    assert cost[ret[2], range(cost.shape[1])].sum() == ret[0]\n    assert ret[0] == expected[0]\n    assert np.all(ret[1] == expected[1])\n    assert np.all(ret[2] == expected[2])\n    dense_ret = lapjv(cost)\n    assert ret[0] == dense_ret[0]",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "test_infs_unsolvable",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def test_infs_unsolvable():\n    cost = np.array(\n        [\n            [0.0, 0.0, 0.0, np.inf, np.inf],\n            [np.inf, np.inf, np.inf, 0.0, 0.0],\n            [np.inf, np.inf, np.inf, 0.0, 0.0],\n            [np.inf, np.inf, np.inf, 0.0, 0.0],\n            [0.0, 0.0, 0.0, np.inf, np.inf],\n        ],\n        dtype=float,",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "test_inf_unique",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def test_inf_unique():\n    cost = np.array([[1000, 4, 1], [1, 1000, 3], [5, 1, 1000]])\n    cost_ext = np.empty((4, 4))\n    cost_ext[:] = np.inf\n    cost_ext[:3, :3] = cost\n    cost_ext[3, 3] = 0\n    with raises(ValueError):\n        ret = lapmod(*sparse_from_dense(cost_ext))\n    ret = lapmod(*sparse_from_masked(cost_ext))\n    assert len(ret) == 3",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "test_inf_col",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def test_inf_col():\n    cost = np.array(\n        [\n            [0.0, np.inf, 0.0, 0.0, np.inf],\n            [np.inf, np.inf, 0.0, 0.0, 0.0],\n            [np.inf, np.inf, np.inf, 0.0, np.inf],\n            [np.inf, np.inf, np.inf, 0.0, 0.0],\n            [0.0, np.inf, 0.0, np.inf, np.inf],\n        ],\n        dtype=float,",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "test_inf_row",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def test_inf_row():\n    cost = np.array(\n        [\n            [0.0, 0.0, 0.0, 0.0, np.inf],\n            [np.inf, np.inf, 0.0, 0.0, 0.0],\n            [np.inf, np.inf, np.inf, np.inf, np.inf],\n            [np.inf, np.inf, np.inf, 0.0, 0.0],\n            [0.0, 0.0, 0.0, np.inf, np.inf],\n        ],\n        dtype=float,",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "test_all_inf",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def test_all_inf():\n    cost = np.empty((5, 5), dtype=float)\n    cost[:] = np.inf\n    with raises(ValueError):\n        lapmod(*sparse_from_dense(cost))\n    with raises(ValueError):\n        lapmod(*sparse_from_masked(cost))\n@fixture\ndef dense_8x8_int():\n    return get_dense_8x8_int()",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "dense_8x8_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def dense_8x8_int():\n    return get_dense_8x8_int()\n@fixture\ndef dense_100x100_int():\n    return get_dense_100x100_int()\n@fixture\ndef dense_100x100_int_hard():\n    return get_dense_100x100_int_hard()\n@fixture\ndef sparse_100x100_int():",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "dense_100x100_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def dense_100x100_int():\n    return get_dense_100x100_int()\n@fixture\ndef dense_100x100_int_hard():\n    return get_dense_100x100_int_hard()\n@fixture\ndef sparse_100x100_int():\n    return get_sparse_100x100_int()\n@fixture\ndef dense_1kx1k_int():",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "dense_100x100_int_hard",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def dense_100x100_int_hard():\n    return get_dense_100x100_int_hard()\n@fixture\ndef sparse_100x100_int():\n    return get_sparse_100x100_int()\n@fixture\ndef dense_1kx1k_int():\n    return get_dense_1kx1k_int()\n@fixture\ndef dense_1kx1k_int_hard():",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_100x100_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def sparse_100x100_int():\n    return get_sparse_100x100_int()\n@fixture\ndef dense_1kx1k_int():\n    return get_dense_1kx1k_int()\n@fixture\ndef dense_1kx1k_int_hard():\n    return get_dense_1kx1k_int_hard()\n@fixture\ndef sparse_1kx1k_int():",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "dense_1kx1k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def dense_1kx1k_int():\n    return get_dense_1kx1k_int()\n@fixture\ndef dense_1kx1k_int_hard():\n    return get_dense_1kx1k_int_hard()\n@fixture\ndef sparse_1kx1k_int():\n    return get_sparse_1kx1k_int()\n@fixture\ndef sparse_4kx4k_int():",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "dense_1kx1k_int_hard",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def dense_1kx1k_int_hard():\n    return get_dense_1kx1k_int_hard()\n@fixture\ndef sparse_1kx1k_int():\n    return get_sparse_1kx1k_int()\n@fixture\ndef sparse_4kx4k_int():\n    return get_sparse_4kx4k_int()\n@fixture\ndef dense_eps():",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_1kx1k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def sparse_1kx1k_int():\n    return get_sparse_1kx1k_int()\n@fixture\ndef sparse_4kx4k_int():\n    return get_sparse_4kx4k_int()\n@fixture\ndef dense_eps():\n    return get_dense_eps()\n@mark.timeout(60)\ndef test_eps(dense_eps):",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_4kx4k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def sparse_4kx4k_int():\n    return get_sparse_4kx4k_int()\n@fixture\ndef dense_eps():\n    return get_dense_eps()\n@mark.timeout(60)\ndef test_eps(dense_eps):\n    cost, opt = dense_eps\n    ret = lapmod(*sparse_from_dense(cost))\n    assert len(ret) == 3",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "dense_eps",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def dense_eps():\n    return get_dense_eps()\n@mark.timeout(60)\ndef test_eps(dense_eps):\n    cost, opt = dense_eps\n    ret = lapmod(*sparse_from_dense(cost))\n    assert len(ret) == 3\n    assert ret[0] == opt\ndef test_dense_100x100_int(dense_100x100_int):\n    cost, opt = dense_100x100_int",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "test_eps",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def test_eps(dense_eps):\n    cost, opt = dense_eps\n    ret = lapmod(*sparse_from_dense(cost))\n    assert len(ret) == 3\n    assert ret[0] == opt\ndef test_dense_100x100_int(dense_100x100_int):\n    cost, opt = dense_100x100_int\n    ret = lapmod(*sparse_from_dense(cost))\n    assert len(ret) == 3\n    assert ret[0] == opt",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "test_dense_100x100_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def test_dense_100x100_int(dense_100x100_int):\n    cost, opt = dense_100x100_int\n    ret = lapmod(*sparse_from_dense(cost))\n    assert len(ret) == 3\n    assert ret[0] == opt\n    lapjv_ret = lapjv(cost)\n    assert ret[0] == lapjv_ret[0]\ndef test_dense_100x100_int_hard(dense_100x100_int_hard):\n    cost, opt = dense_100x100_int_hard\n    ret = lapmod(*sparse_from_dense(cost))",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "test_dense_100x100_int_hard",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def test_dense_100x100_int_hard(dense_100x100_int_hard):\n    cost, opt = dense_100x100_int_hard\n    ret = lapmod(*sparse_from_dense(cost))\n    assert len(ret) == 3\n    assert ret[0] == opt\n    lapjv_ret = lapjv(cost)\n    assert ret[0] == lapjv_ret[0]\n# TODO: too sparse unsolvable matrices cause sometimne IndexError, easily\n# generated - just set the mask threshold low enough\ndef test_sparse_100x100_int(sparse_100x100_int):",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "test_sparse_100x100_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def test_sparse_100x100_int(sparse_100x100_int):\n    cost, mask, opt = sparse_100x100_int\n    ret = lapmod(*sparse_from_masked(cost, mask))\n    assert len(ret) == 3\n    assert ret[0] == opt\n@mark.timeout(60)\ndef test_dense_1kx1k_int(dense_1kx1k_int):\n    cost, opt = dense_1kx1k_int\n    ret = lapmod(*sparse_from_dense(cost))\n    assert len(ret) == 3",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "test_dense_1kx1k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def test_dense_1kx1k_int(dense_1kx1k_int):\n    cost, opt = dense_1kx1k_int\n    ret = lapmod(*sparse_from_dense(cost))\n    assert len(ret) == 3\n    assert ret[0] == opt\n    lapjv_ret = lapjv(cost)\n    assert ret[0] == lapjv_ret[0]\n@mark.timeout(60)\ndef test_dense_1kx1k_int_hard(dense_1kx1k_int_hard):\n    cost, opt = dense_1kx1k_int_hard",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "test_dense_1kx1k_int_hard",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def test_dense_1kx1k_int_hard(dense_1kx1k_int_hard):\n    cost, opt = dense_1kx1k_int_hard\n    ret = lapmod(*sparse_from_dense(cost))\n    assert len(ret) == 3\n    assert ret[0] == opt\n    lapjv_ret = lapjv(cost)\n    assert ret[0] == lapjv_ret[0]\n@mark.timeout(60)\ndef test_sparse_1kx1k_int(sparse_1kx1k_int):\n    cost, mask, opt = sparse_1kx1k_int",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "test_sparse_1kx1k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def test_sparse_1kx1k_int(sparse_1kx1k_int):\n    cost, mask, opt = sparse_1kx1k_int\n    ret = lapmod(*sparse_from_masked(cost, mask))\n    assert len(ret) == 3\n    assert ret[0] == opt\n    cost[~mask] = get_platform_maxint()\n    lapjv_ret = lapjv(cost)\n    assert ret[0] == lapjv_ret[0]\n@mark.timeout(60)\ndef test_sparse_4kx4k_int(sparse_4kx4k_int):",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "test_sparse_4kx4k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_lapmod",
+        "description": "lap.tests.test_lapmod",
+        "peekOfCode": "def test_sparse_4kx4k_int(sparse_4kx4k_int):\n    cost, mask, opt = sparse_4kx4k_int\n    ret = lapmod(*sparse_from_masked(cost, mask))\n    assert len(ret) == 3\n    assert ret[0] == opt\n    cost[~mask] = get_platform_maxint()\n    lapjv_ret = lapjv(cost)\n    assert ret[0] == lapjv_ret[0]",
+        "detail": "lap.tests.test_lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "make_hard",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def make_hard(cost, lo, hi):\n    hard = cost.copy()\n    for row in range(hard.shape[0]):\n        hard[row, :] += np.random.randint(lo, hi)\n    for col in range(hard.shape[1]):\n        hard[:, col] += np.random.randint(lo, hi)\n    return hard\ndef get_dense_8x8_int():\n    cost = np.array(\n        [",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_dense_8x8_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def get_dense_8x8_int():\n    cost = np.array(\n        [\n            [1000, 2, 11, 10, 8, 7, 6, 5],\n            [6, 1000, 1, 8, 8, 4, 6, 7],\n            [5, 12, 1000, 11, 8, 12, 3, 11],\n            [11, 9, 10, 1000, 1, 9, 8, 10],\n            [11, 11, 9, 4, 1000, 2, 10, 9],\n            [12, 8, 5, 2, 11, 1000, 11, 9],\n            [10, 11, 12, 10, 9, 12, 1000, 3],",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_dense_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def get_dense_int(sz, rng, hard=True, seed=1299821):\n    np.random.seed(seed)\n    cost = np.random.randint(1, rng + 1, size=(sz, sz))\n    if hard is True:\n        cost = make_hard(cost, 0, rng)\n    return cost\ndef get_sparse_int(sz, rng, sparsity, hard=True, seed=1299821):\n    np.random.seed(seed)\n    cost = np.random.randint(1, rng + 1, size=(sz, sz))\n    if hard is True:",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_sparse_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def get_sparse_int(sz, rng, sparsity, hard=True, seed=1299821):\n    np.random.seed(seed)\n    cost = np.random.randint(1, rng + 1, size=(sz, sz))\n    if hard is True:\n        cost = make_hard(cost, 0, rng)\n    mask = np.random.rand(sz, sz)\n    thresh = np.percentile(mask.flat, max(0, (sparsity - sz / float(sz * sz)) * 100.0))\n    mask = mask < thresh\n    # Make sure there exists a solution.\n    row = np.random.permutation(sz)",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_nnz_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def get_nnz_int(sz, nnz, rng=100, seed=1299821):\n    np.random.seed(seed)\n    cc = np.random.randint(1, rng + 1, size=(sz * nnz,))\n    ii = np.empty((sz + 1,), dtype=np.int32)\n    ii[0] = 0\n    ii[1:] = nnz\n    ii = np.cumsum(ii)\n    kk = np.empty((sz, nnz), dtype=np.int32)\n    # Make sure there exists a solution.\n    kk[:, 0] = np.random.permutation(sz)",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_dense_100x100_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def get_dense_100x100_int():\n    cost = get_dense_int(100, 100, hard=False, seed=1299821)\n    opt = 198.0\n    return cost, opt\ndef get_dense_100x100_int_hard():\n    cost = get_dense_int(100, 100, hard=True, seed=1299821)\n    opt = 11399.0\n    return cost, opt\ndef get_sparse_100x100_int():\n    cost, mask = get_sparse_int(100, 100, 0.04, seed=1299821)",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_dense_100x100_int_hard",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def get_dense_100x100_int_hard():\n    cost = get_dense_int(100, 100, hard=True, seed=1299821)\n    opt = 11399.0\n    return cost, opt\ndef get_sparse_100x100_int():\n    cost, mask = get_sparse_int(100, 100, 0.04, seed=1299821)\n    opt = 11406\n    return cost, np.logical_not(mask), opt\ndef get_dense_1kx1k_int():\n    cost = get_dense_int(1000, 100, hard=False, seed=1299821)",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_sparse_100x100_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def get_sparse_100x100_int():\n    cost, mask = get_sparse_int(100, 100, 0.04, seed=1299821)\n    opt = 11406\n    return cost, np.logical_not(mask), opt\ndef get_dense_1kx1k_int():\n    cost = get_dense_int(1000, 100, hard=False, seed=1299821)\n    opt = 1000.0\n    return cost, opt\ndef get_dense_1kx1k_int_hard():\n    cost = get_dense_int(1000, 100, hard=True, seed=1299821)",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_dense_1kx1k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def get_dense_1kx1k_int():\n    cost = get_dense_int(1000, 100, hard=False, seed=1299821)\n    opt = 1000.0\n    return cost, opt\ndef get_dense_1kx1k_int_hard():\n    cost = get_dense_int(1000, 100, hard=True, seed=1299821)\n    opt = 101078.0\n    return cost, opt\ndef get_sparse_1kx1k_int():\n    cost, mask = get_sparse_int(1000, 100, 0.01, seed=1299821)",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_dense_1kx1k_int_hard",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def get_dense_1kx1k_int_hard():\n    cost = get_dense_int(1000, 100, hard=True, seed=1299821)\n    opt = 101078.0\n    return cost, opt\ndef get_sparse_1kx1k_int():\n    cost, mask = get_sparse_int(1000, 100, 0.01, seed=1299821)\n    opt = 101078\n    return cost, np.logical_not(mask), opt\ndef get_dense_4kx4k_int():\n    cost = get_dense_int(4000, 100, hard=False, seed=1299821)",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_sparse_1kx1k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def get_sparse_1kx1k_int():\n    cost, mask = get_sparse_int(1000, 100, 0.01, seed=1299821)\n    opt = 101078\n    return cost, np.logical_not(mask), opt\ndef get_dense_4kx4k_int():\n    cost = get_dense_int(4000, 100, hard=False, seed=1299821)\n    opt = 1000.0\n    return cost, opt\ndef get_sparse_4kx4k_int():\n    cost, mask = get_sparse_int(4000, 100, 0.004, seed=1299821)",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_dense_4kx4k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def get_dense_4kx4k_int():\n    cost = get_dense_int(4000, 100, hard=False, seed=1299821)\n    opt = 1000.0\n    return cost, opt\ndef get_sparse_4kx4k_int():\n    cost, mask = get_sparse_int(4000, 100, 0.004, seed=1299821)\n    opt = 402541\n    return cost, np.logical_not(mask), opt\n# Thanks to Michael Lewis for providing this cost matrix.\ndef get_dense_eps():",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_sparse_4kx4k_int",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def get_sparse_4kx4k_int():\n    cost, mask = get_sparse_int(4000, 100, 0.004, seed=1299821)\n    opt = 402541\n    return cost, np.logical_not(mask), opt\n# Thanks to Michael Lewis for providing this cost matrix.\ndef get_dense_eps():\n    from pytest import approx\n    datadir = os.path.abspath(os.path.dirname(__file__))\n    filename = os.path.join(datadir, \"cost_eps.csv.gz\")\n    cost = np.genfromtxt(GzipFile(filename), delimiter=\",\")",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_dense_eps",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def get_dense_eps():\n    from pytest import approx\n    datadir = os.path.abspath(os.path.dirname(__file__))\n    filename = os.path.join(datadir, \"cost_eps.csv.gz\")\n    cost = np.genfromtxt(GzipFile(filename), delimiter=\",\")\n    opt = approx(224.8899507294651, 0.0000000000001)\n    return cost, opt\ndef sparse_from_dense(cost):\n    cc = cost.flatten()\n    n_rows = cost.shape[0]",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_from_dense",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def sparse_from_dense(cost):\n    cc = cost.flatten()\n    n_rows = cost.shape[0]\n    n_columns = cost.shape[1]\n    ii = np.empty((n_rows + 1,), dtype=int)\n    ii[0] = 0\n    ii[1:] = n_columns\n    ii = np.cumsum(ii)\n    kk = np.tile(np.arange(n_columns, dtype=int), n_rows)\n    return n_rows, cc, ii, kk",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_from_masked",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def sparse_from_masked(cost, mask=None):\n    if mask is None:\n        mask = np.logical_not(np.isinf(cost))\n    cc = cost[mask].flatten()\n    n_rows = cost.shape[0]\n    n_columns = cost.shape[1]\n    ii = np.empty((n_rows + 1,), dtype=int)\n    ii[0] = 0\n    ii[1:] = mask.sum(axis=1)\n    ii = np.cumsum(ii)",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_from_dense_CS",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def sparse_from_dense_CS(cost):\n    i = np.tile(np.atleast_2d(np.arange(cost.shape[0])).T, cost.shape[1]).flatten()\n    j = np.tile(np.arange(cost.shape[1]), cost.shape[0])\n    cc = cost.flatten()\n    return i, j, cc\ndef sparse_from_masked_CS(cost, mask):\n    i = np.tile(np.atleast_2d(np.arange(cost.shape[0])).T, cost.shape[1])[mask]\n    j = np.tile(np.arange(cost.shape[1]), cost.shape[0])[mask.flat]\n    cc = cost[mask].flatten()\n    return i, j, cc",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "sparse_from_masked_CS",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def sparse_from_masked_CS(cost, mask):\n    i = np.tile(np.atleast_2d(np.arange(cost.shape[0])).T, cost.shape[1])[mask]\n    j = np.tile(np.arange(cost.shape[1]), cost.shape[0])[mask.flat]\n    cc = cost[mask].flatten()\n    return i, j, cc\ndef get_cost_CS(cost, x):\n    return cost[np.arange(cost.shape[0]), x].sum()\ndef get_platform_maxint():\n    import struct\n    return 2 ** (struct.Struct(\"i\").size * 8 - 1) - 1",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_cost_CS",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def get_cost_CS(cost, x):\n    return cost[np.arange(cost.shape[0]), x].sum()\ndef get_platform_maxint():\n    import struct\n    return 2 ** (struct.Struct(\"i\").size * 8 - 1) - 1",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_platform_maxint",
+        "kind": 2,
+        "importPath": "lap.tests.test_utils",
+        "description": "lap.tests.test_utils",
+        "peekOfCode": "def get_platform_maxint():\n    import struct\n    return 2 ** (struct.Struct(\"i\").size * 8 - 1) - 1",
+        "detail": "lap.tests.test_utils",
+        "documentation": {}
+    },
+    {
+        "label": "find_minima",
+        "kind": 2,
+        "importPath": "lap.lapmod",
+        "description": "lap.lapmod",
+        "peekOfCode": "def find_minima(indices, values):\n    if len(indices) > 0:\n        j1 = indices[0]\n        v1 = values[0]\n    else:\n        j1 = 0\n        v1 = LARGE\n    j2 = -1\n    v2 = LARGE\n    # log = logging.getLogger('find_minima')",
+        "detail": "lap.lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "binary_search",
+        "kind": 2,
+        "importPath": "lap.lapmod",
+        "description": "lap.lapmod",
+        "peekOfCode": "def binary_search(data, key):\n    # log = logging.getLogger('binary_search')\n    i = bisect_left(data, key)\n    # log.debug('Found data[%d]=%d for %d', i, data[i], key)\n    if i < len(data) and data[i] == key:\n        return i\n    else:\n        return None\ndef _find(hi, d, cols, y):\n    lo, hi = hi, hi + 1",
+        "detail": "lap.lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "find_path",
+        "kind": 2,
+        "importPath": "lap.lapmod",
+        "description": "lap.lapmod",
+        "peekOfCode": "def find_path(n, cc, ii, kk, start_i, y, v):\n    # log = logging.getLogger('find_path')\n    cols = np.arange(n, dtype=int)\n    pred = np.empty((n,), dtype=int)\n    pred[:] = start_i\n    d = np.empty((n,), dtype=float)\n    d[:] = LARGE\n    ks = slice(ii[start_i], ii[start_i + 1])\n    js = kk[ks]\n    d[js] = cc[ks] - v[js]",
+        "detail": "lap.lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "check_cost",
+        "kind": 2,
+        "importPath": "lap.lapmod",
+        "description": "lap.lapmod",
+        "peekOfCode": "def check_cost(n, cc, ii, kk):\n    if n == 0:\n        raise ValueError(\"Cost matrix has zero rows.\")\n    if len(kk) == 0:\n        raise ValueError(\"Cost matrix has zero columns.\")\n    lo = cc.min()\n    hi = cc.max()\n    if lo < 0:\n        raise ValueError(\"Cost matrix values must be non-negative.\")\n    if hi >= LARGE:",
+        "detail": "lap.lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "get_cost",
+        "kind": 2,
+        "importPath": "lap.lapmod",
+        "description": "lap.lapmod",
+        "peekOfCode": "def get_cost(n, cc, ii, kk, x0):\n    ret = 0\n    for i, j in enumerate(x0):\n        kj = binary_search(kk[ii[i] : ii[i + 1]], j)\n        if kj is None:\n            return np.inf\n        kj = ii[i] + kj\n        ret += cc[kj]\n    return ret\ndef lapmod(n, cc, ii, kk, fast=True, return_cost=True, fp_version=FP_DYNAMIC):",
+        "detail": "lap.lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "lapmod",
+        "kind": 2,
+        "importPath": "lap.lapmod",
+        "description": "lap.lapmod",
+        "peekOfCode": "def lapmod(n, cc, ii, kk, fast=True, return_cost=True, fp_version=FP_DYNAMIC):\n    \"\"\"Solve sparse linear assignment problem using Jonker-Volgenant algorithm.\n    n: number of rows of the assignment cost matrix\n    cc: 1D array of all finite elements of the assignement cost matrix\n    ii: 1D array of indices of the row starts in cc. The following must hold:\n            ii[0] = 0 and ii[n+1] = len(cc).\n    kk: 1D array of the column indices so that:\n            cost[i, kk[ii[i] + k]] == cc[ii[i] + k].\n        Indices within one row must be sorted.\n    extend_cost: whether or not extend a non-square matrix [default: False]",
+        "detail": "lap.lapmod",
+        "documentation": {}
+    },
+    {
+        "label": "screen_width",
+        "kind": 5,
+        "importPath": "tools.header",
+        "description": "tools.header",
+        "peekOfCode": "screen_width = 50\nprint(\"*\" * screen_width)\nif len(sys.argv) > 1:\n    header = \" \".join(sys.argv[1:])\n    header = header.replace(\".\", \" \")\n    print(\"*\", header.center(screen_width - 4), \"*\")\nprint(\"*\" * screen_width)",
+        "detail": "tools.header",
+        "documentation": {}
+    },
+    {
+        "label": "CleanCommand",
+        "kind": 6,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "class CleanCommand(Clean):\n    description = \"Remove build artifacts from the source tree\"\n    def run(self):\n        Clean.run(self)\n        if os.path.exists(\"build\"):\n            shutil.rmtree(\"build\")\n        # Remove c files if we are not within a sdist package\n        cwd = os.path.abspath(os.path.dirname(__file__))\n        remove_c_files = not os.path.exists(os.path.join(cwd, \"PKG-INFO\"))\n        if remove_c_files:",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "cythonize",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def cythonize(cython_file, gen_file):\n    try:\n        from Cython.Compiler.Version import version as cython_version\n        if LooseVersion(cython_version) < LooseVersion(\"0.21\"):\n            raise ImportError(\n                \"Installed cython is too old (0.21 required), \" 'please \"pip install -U cython\".'\n            )\n    except ImportError:\n        raise ImportError(\"Building lapjv requires cython, \" 'please \"pip install cython\".')\n        pass",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "get_wrapper_pyx",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def get_wrapper_pyx():\n    return os.path.join(\"lap\", \"_lapjv.pyx\")\ndef generate_cython():\n    wrapper_pyx_file = get_wrapper_pyx()\n    wrapper_c_file = os.path.splitext(wrapper_pyx_file)[0] + \".cpp\"\n    cythonize(wrapper_pyx_file, wrapper_c_file)\ndef configuration(parent_package=\"\", top_path=None):\n    from numpy.distutils.misc_util import Configuration, get_numpy_include_dirs\n    config = Configuration(None, parent_package, top_path)\n    config.set_options(",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "generate_cython",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def generate_cython():\n    wrapper_pyx_file = get_wrapper_pyx()\n    wrapper_c_file = os.path.splitext(wrapper_pyx_file)[0] + \".cpp\"\n    cythonize(wrapper_pyx_file, wrapper_c_file)\ndef configuration(parent_package=\"\", top_path=None):\n    from numpy.distutils.misc_util import Configuration, get_numpy_include_dirs\n    config = Configuration(None, parent_package, top_path)\n    config.set_options(\n        ignore_setup_xxx_py=True,\n        assume_default_configuration=True,",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "configuration",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def configuration(parent_package=\"\", top_path=None):\n    from numpy.distutils.misc_util import Configuration, get_numpy_include_dirs\n    config = Configuration(None, parent_package, top_path)\n    config.set_options(\n        ignore_setup_xxx_py=True,\n        assume_default_configuration=True,\n        delegate_options_to_subpackages=True,\n        quiet=True,\n    )\n    config.add_data_dir(\"lap/tests\")",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "setup_package",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def setup_package():\n    metadata = dict(\n        packages=[\"lap\"],\n        cmdclass=cmdclass,\n    )\n    if len(sys.argv) == 1 or (\n        len(sys.argv) >= 2\n        and (\n            \"--help\" in sys.argv[1:]\n            or sys.argv[1] in (\"--help-commands\", \"egg_info\", \"--version\", \"clean\")",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "builtins.__LAP_SETUP__",
+        "kind": 5,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "builtins.__LAP_SETUP__ = True\nfrom distutils.command.clean import clean as Clean\nclass CleanCommand(Clean):\n    description = \"Remove build artifacts from the source tree\"\n    def run(self):\n        Clean.run(self)\n        if os.path.exists(\"build\"):\n            shutil.rmtree(\"build\")\n        # Remove c files if we are not within a sdist package\n        cwd = os.path.abspath(os.path.dirname(__file__))",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "cmdclass",
+        "kind": 5,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "cmdclass = {\"clean\": CleanCommand}\nfrom distutils.version import LooseVersion\ndef cythonize(cython_file, gen_file):\n    try:\n        from Cython.Compiler.Version import version as cython_version\n        if LooseVersion(cython_version) < LooseVersion(\"0.21\"):\n            raise ImportError(\n                \"Installed cython is too old (0.21 required), \" 'please \"pip install -U cython\".'\n            )\n    except ImportError:",
+        "detail": "setup",
+        "documentation": {}
+    }
+]

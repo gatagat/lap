@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export PYTHONPATH=$LAPJV_OLD:$PYTHONPATH 
+export PYTHONPATH=$LAPJV_OLD:$PYTHONPATH
 
 PYTEST_OPTS="-v -s --benchmark-sort=mean --benchmark-columns=mean,min,max,median,rounds,iterations"
 

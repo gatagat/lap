@@ -21,14 +21,14 @@ matrix:
 
 install:
   - ECHO "Filesystem root:"
-  - ps: "ls \"C:/\""
+  - ps: 'ls "C:/"'
 
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - "python -m pip install -U pip"
 
   # Check that we have the expected version and architecture for Python
   - "python --version"
-  - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
+  - 'python -c "import struct; print(struct.calcsize(''P'') * 8)"'
   - "pip --version"
 
   # Install the build and runtime dependencies of the project.
@@ -49,11 +49,10 @@ test_script:
   - "cd C:\\"
 
   # Run unit tests with pytest
-  - "python -c \"import pytest; import os; from lap.tests import __file__ as d; d = os.path.dirname(d); pytest.main([d])\""
+  - 'python -c "import pytest; import os; from lap.tests import __file__ as d; d = os.path.dirname(d); pytest.main([d])"'
 
 artifacts:
   # Archive the generated wheel package in the ci.appveyor.com build report.
   - path: dist\*
-
 #on_success:
 #  - TODO: upload the content of dist/*.whl to a public wheelhouse
