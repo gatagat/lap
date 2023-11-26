@@ -1,9 +1,10 @@
 # Tomas Kazmar, 2012-2017, BSD 2-clause license, see LICENSE.
 
 import numpy as np
-cimport numpy as cnp
+
 cimport cython
-from libc.stdlib cimport malloc, free
+cimport numpy as cnp
+from libc.stdlib cimport free, malloc
 
 
 cdef extern from "lapjv.h" nogil:

@@ -5,67 +5,76 @@
 ![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)
 ![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)
 
-lap: Linear Assignment Problem solver
-=====================================
+# lap: Linear Assignment Problem solver
 
 **lap** is a [linear assignment
 problem](https://en.wikipedia.org/wiki/Assignment_problem) solver using
-Jonker-Volgenant algorithm for dense (LAPJV [1]) or sparse (LAPMOD [2])
+Jonker-Volgenant algorithm for dense (LAPJV \[1\]) or sparse (LAPMOD \[2\])
 matrices.
 
-Both algorithms are implemented from scratch based solely on the papers [1,2]
-and the public domain Pascal implementation provided by A. Volgenant [3].
+Both algorithms are implemented from scratch based solely on the papers \[1,2\]
+and the public domain Pascal implementation provided by A. Volgenant \[3\].
 
 In my tests the LAPMOD implementation seems to be faster than the LAPJV
 implementation for matrices with a side of more than ~5000 and with less than
 50% finite coefficients.
 
-[1] R. Jonker and A. Volgenant, "A Shortest Augmenting Path Algorithm for Dense
+\[1\] R. Jonker and A. Volgenant, "A Shortest Augmenting Path Algorithm for Dense
 and Sparse Linear Assignment Problems", Computing 38, 325-340 (1987)<br>
-[2] A. Volgenant, "Linear and Semi-Assignment Problems: A Core Oriented
+\[2\] A. Volgenant, "Linear and Semi-Assignment Problems: A Core Oriented
 Approach", Computer Ops Res. 23, 917-932 (1996)<br>
-[3] http://www.assignmentproblems.com/LAPJV.htm
+\[3\] http://www.assignmentproblems.com/LAPJV.htm
 
-Installation
-------------
+## Installation
 
 #### Runtime dependencies
 
 Running lap requires:
 
-  * Python (2.7, 3.7, 3.8, 3.9)
-  * NumPy (>=1.10.1)
+- Python (2.7, 3.7, 3.8, 3.9)
+- NumPy (>=1.10.1)
 
 In addition to above, running the tests requires:
 
-  * SciPy, pytest, pytest-timeout
+- SciPy, pytest, pytest-timeout
 
 #### Install using pip
 
 You can install the latest release of lap from PyPI (recommended):
 
-    pip install lap
+```
+pip install lap
+```
 
 Alternatively, you can install lap directly from the repository:
 
-    pip install git+git://github.com/gatagat/lap.git
+```
+pip install git+git://github.com/gatagat/lap.git
+```
 
 In some cases installing from PyPI results in building the package, in these
 cases make sure to check "Install from source" below.
 
 #### Install from source
 
-  1. Install a C++ compiler (e.g., g++)
-  2. Python headers (e.g., python-dev package on Debian/Ubuntu)
-  3. Install Cython (>=0.21)
-  4. Clone
+1. Install a C++ compiler (e.g., g++)
 
-         git clone https://github.com/gatagat/lap.git
+2. Python headers (e.g., python-dev package on Debian/Ubuntu)
 
-  5. Under the root of the repo
+3. Install Cython (>=0.21)
 
-         python setup.py build
-         python setup.py install
+4. Clone
+
+   ```
+   git clone https://github.com/gatagat/lap.git
+   ```
+
+5. Under the root of the repo
+
+   ```
+   python setup.py build
+   python setup.py install
+   ```
 
 On Windows, the build may fail if there is a mismatch between the MSVC compiler
 version used for the build and the version used to build Python itself. For
@@ -83,12 +92,15 @@ cost, x, y = lap.lapjv(C)
 The function `lapjv(C)` returns the assignment cost (`cost`) and two arrays, `x, y`. If cost matrix `C` has shape N x M, then `x` is a size-N array specifying to which column is row is assigned, and `y` is a size-M array specifying to which row each column is assigned. For example, an output of `x = [1, 0]` indicates that row 0 is assigned to column 1 and row 1 is assigned to column 0. Similarly, an output of `x = [2, 1, 0]` indicates that row 0 is assigned to column 2, row 1 is assigned to column 1, and row 2 is assigned to column 0.
 
 Note that this function *does not* return the assignment matrix (as done by scipy's [`linear_sum_assignment`](https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.optimize.linear_sum_assignment.html) and lapsolver's [`solve dense`](https://github.com/cheind/py-lapsolver)). The assignment matrix can be constructed from `x` as follows:
+
 ```
 A = np.zeros((N, M))
 for i in range(N):
     A[i, x[i]] = 1
 ```
+
 Equivalently, we could construct the assignment matrix from `y`:
+
 ```
 A = np.zeros((N, M))
 for j in range(M):
@@ -96,13 +108,13 @@ for j in range(M):
 ```
 
 Finally, note that the outputs are redundant: we can construct `x` from `y`, and vise versa:
+
 ```
 x = [np.where(y == i)[0][0] for i in range(N)]
 y = [np.where(x == j)[0][0] for j in range(M)]
 ```
 
-License
--------
+## License
 
 Released under the 2-clause BSD license, see `LICENSE`.
 

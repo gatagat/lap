@@ -1,9 +1,13 @@
-import numpy as np
 from bisect import bisect_left
+
+import numpy as np
+
+from ._lapjv import FP_DYNAMIC_ as FP_DYNAMIC
+from ._lapjv import LARGE_ as LARGE
+from ._lapjv import _lapmod
 
 # import logging
 
-from ._lapjv import _lapmod, FP_DYNAMIC_ as FP_DYNAMIC, LARGE_ as LARGE
 
 
 def _pycrrt(n, cc, ii, kk, free_rows, x, y, v):
@@ -12,7 +16,7 @@ def _pycrrt(n, cc, ii, kk, free_rows, x, y, v):
     y[:] = -1
     v[:] = LARGE
     for i in range(n):
-        ks = slice(ii[i], ii[i+1])
+        ks = slice(ii[i], ii[i + 1])
         js = kk[ks]
         ccs = cc[ks]
         mask = ccs < v[js]
@@ -23,7 +27,7 @@ def _pycrrt(n, cc, ii, kk, free_rows, x, y, v):
     # for j in range(cost.shape[1]):
     unique = np.empty((n,), dtype=bool)
     unique[:] = True
-    for j in range(n-1, -1, -1):
+    for j in range(n - 1, -1, -1):
         i = y[j]
         # If row is not taken yet, initialize it with the minimum stored in y.
         if x[i] < 0:
@@ -39,13 +43,13 @@ def _pycrrt(n, cc, ii, kk, free_rows, x, y, v):
         if x[i] < 0:
             free_rows[n_free_rows] = i
             n_free_rows += 1
-        elif unique[i] and ii[i+1] - ii[i] > 1:
+        elif unique[i] and ii[i + 1] - ii[i] > 1:
             # >1 check prevents choking on rows with a single entry
             # Transfer from an assigned row.
             j = x[i]
             # Find the current 2nd minimum of the reduced column costs:
             # (cost[i,j] - v[j]) for some j.
-            ks = slice(ii[i], ii[i+1])
+            ks = slice(ii[i], ii[i + 1])
             js = kk[ks]
             minv = np.min(cc[ks][js != j] - v[js][js != j])
             # log.debug("v[%d] = %f - %f", j, v[j], minv)
@@ -91,7 +95,7 @@ def _pyarr(n, cc, ii, kk, n_free_rows, free_rows, x, y, v):
         free_i = free_rows[current]
         # log.debug('current = %d', current)
         current += 1
-        ks = slice(ii[free_i], ii[free_i+1])
+        ks = slice(ii[free_i], ii[free_i + 1])
         js = kk[ks]
         j1, v1, j2, v2 = find_minima(js, cc[ks] - v[js])
         i0 = y[j1]
@@ -155,7 +159,7 @@ def _scan(n, cc, ii, kk, minv, lo, hi, d, cols, pred, y, v):
         lo += 1
         i = y[j]
         # log.debug('?%d kk[%d:%d]=%s', j, ii[i], ii[i+1], kk[ii[i]:ii[i+1]])
-        kj = binary_search(kk[ii[i]:ii[i+1]], j)
+        kj = binary_search(kk[ii[i] : ii[i + 1]], j)
         if kj is None:
             continue
         kj = ii[i] + kj
@@ -163,7 +167,7 @@ def _scan(n, cc, ii, kk, minv, lo, hi, d, cols, pred, y, v):
         # log.debug('i=%d j=%d kj=%s h=%f', i, j, kj, h)
         for k in range(hi, n):
             j = cols[k]
-            kj = binary_search(kk[ii[i]:ii[i+1]], j)
+            kj = binary_search(kk[ii[i] : ii[i + 1]], j)
             if kj is None:
                 continue
             kj = ii[i] + kj
@@ -187,7 +191,7 @@ def find_path(n, cc, ii, kk, start_i, y, v):
     pred[:] = start_i
     d = np.empty((n,), dtype=float)
     d[:] = LARGE
-    ks = slice(ii[start_i], ii[start_i+1])
+    ks = slice(ii[start_i], ii[start_i + 1])
     js = kk[ks]
     d[js] = cc[ks] - v[js]
     # log.debug('d = %s', d)
@@ -211,8 +215,7 @@ def find_path(n, cc, ii, kk, start_i, y, v):
                     final_j = cols[h]
         if final_j == -1:
             # log.debug('%d..%d -> scan', lo, hi)
-            final_j, lo, hi, d, cols, pred = _scan(
-                    n, cc, ii, kk, minv, lo, hi, d, cols, pred, y, v)
+            final_j, lo, hi, d, cols, pred = _scan(n, cc, ii, kk, minv, lo, hi, d, cols, pred, y, v)
             # log.debug('d = %s', d)
             # log.debug('cols = %s', cols)
             # log.debug('pred = %s', pred)
@@ -247,22 +250,21 @@ def _pya(n, cc, ii, kk, n_free_rows, free_rows, x, y, v):
 
 def check_cost(n, cc, ii, kk):
     if n == 0:
-        raise ValueError('Cost matrix has zero rows.')
+        raise ValueError("Cost matrix has zero rows.")
     if len(kk) == 0:
-        raise ValueError('Cost matrix has zero columns.')
+        raise ValueError("Cost matrix has zero columns.")
     lo = cc.min()
     hi = cc.max()
     if lo < 0:
-        raise ValueError('Cost matrix values must be non-negative.')
+        raise ValueError("Cost matrix values must be non-negative.")
     if hi >= LARGE:
-        raise ValueError(
-                'Cost matrix values must be less than %s' % LARGE)
+        raise ValueError("Cost matrix values must be less than %s" % LARGE)
 
 
 def get_cost(n, cc, ii, kk, x0):
     ret = 0
     for i, j in enumerate(x0):
-        kj = binary_search(kk[ii[i]:ii[i+1]], j)
+        kj = binary_search(kk[ii[i] : ii[i + 1]], j)
         if kj is None:
             return np.inf
         kj = ii[i] + kj
@@ -270,8 +272,7 @@ def get_cost(n, cc, ii, kk, x0):
     return ret
 
 
-def lapmod(n, cc, ii, kk, fast=True, return_cost=True,
-           fp_version=FP_DYNAMIC):
+def lapmod(n, cc, ii, kk, fast=True, return_cost=True, fp_version=FP_DYNAMIC):
     """Solve sparse linear assignment problem using Jonker-Volgenant algorithm.
 
     n: number of rows of the assignment cost matrix
@@ -322,8 +323,7 @@ def lapmod(n, cc, ii, kk, fast=True, return_cost=True,
                 return x, y
         for it in range(2):
             # log.debug('[---Augmenting row reduction (iteration: %d)---]', it)
-            n_free_rows = _pyarr(
-                    n, cc, ii, kk, n_free_rows, free_rows, x, y, v)
+            n_free_rows = _pyarr(n, cc, ii, kk, n_free_rows, free_rows, x, y, v)
             # log.debug(
             #   'free, x, y, v: %s %s %s %s', free_rows[:n_free_rows], x, y, v)
             if n_free_rows == 0:
