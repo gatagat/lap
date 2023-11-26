@@ -1,0 +1,41 @@
+[build-system]
+requires = [
+  "setuptools",
+  "numpy>=1.26.2",
+  "Cython>=3.0.6",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lap"
+version = "0.5.0"
+description = "Linear Assignment Problem solver (LAPJV/LAPMOD)."
+readme = "README.md"
+authors = [
+  {name= "Tomas Kazmar", email= "tomash.kazmar@seznam.cz"},
+]
+license = {text = "BSD (2-clause)"}
+classifiers = [
+    "Development Status :: 5 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Programming Language :: C",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Operating System :: MacOS"
+]
+dependencies = [
+    "numpy>=1.26.2",
+    "Cython>=3.0.6",
+    "pre-commit>=3.5.0",
+]
+
+[project.urls]
+homepage = "https://github.com/gatagat/lap"
