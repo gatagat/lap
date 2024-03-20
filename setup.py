@@ -1,6 +1,6 @@
 # # # # # # # # # # # # # # # # # # # # # #
 #    Rewrote on 2023/06/24 by rathaROG    #
-#    Updated on 2023/07/23 by rathaROG    #
+#    Updated on 2024/03/20 by rathaROG    #
 # # # # # # # # # # # # # # # # # # # # # #
 
 
@@ -11,13 +11,13 @@ from setuptools.extension import Extension
 ###################################################################
 
 DESCRIPTION = "Linear Assignment Problem solver (LAPJV/LAPMOD)."
-LICENSE = 'BSD-2-Clause'
+LICENSE = "BSD-2-Clause"
 LONG_DESCRIPTION = open("README.md", encoding="utf-8").read()
 
 ###################################################################
 
-package_name = 'lapx'
-package_path = 'lap'
+package_name = "lapx"
+package_path = "lap"
 _lapjv_src = "_lapjv_src"
 requirements_txt = "requirements.txt"
 
@@ -48,14 +48,14 @@ def compile_cpp(cython_file):
     """
     import os
     import subprocess
-    cpp_file = os.path.splitext(cython_file)[0] + '.cpp'
+    cpp_file = os.path.splitext(cython_file)[0] + ".cpp"
     flags = ['--fast-fail', '--cplus']
     rc = subprocess.call(['cython'] + flags + ["-o", cpp_file, cython_file])
     if rc != 0: raise Exception('Cythonizing %s failed' % cython_file)
     else: return cpp_file
 
 class ExportCythonCommand(distutils.cmd.Command):
-    description = 'Export _lapjv binary from source.'
+    description = "Export _lapjv binary from source."
     def run(self):
         super().run()
         import os
@@ -63,20 +63,20 @@ class ExportCythonCommand(distutils.cmd.Command):
         this_dir = os.path.dirname(os.path.realpath(__file__))
         lap = os.path.join(this_dir, "lap")
         _lapjv_src = os.path.join(this_dir, "_lapjv_src")
-        for file in  os.listdir(_lapjv_src):
+        for file in os.listdir(_lapjv_src):
             if file[-2:].lower() in "soyd":
                 shutil.copy2(os.path.join(_lapjv_src, file), lap)
                 break
 
 def main_setup():
-    """Use modern setup() by setuptools
+    """Use modern setup() by setuptools.
     """
     import os
     from Cython.Build import cythonize
-    _lapjvpyx = os.path.join(_lapjv_src, '_lapjv.pyx')
+    _lapjvpyx = os.path.join(_lapjv_src, "_lapjv.pyx")
     _lapjvcpp = compile_cpp(_lapjvpyx)
-    lapjvcpp = os.path.join(_lapjv_src, 'lapjv.cpp')
-    lapmodcpp = os.path.join(_lapjv_src, 'lapmod.cpp')
+    lapjvcpp = os.path.join(_lapjv_src, "lapjv.cpp")
+    lapmodcpp = os.path.join(_lapjv_src, "lapmod.cpp")
 
     ext_modules = [
         Extension(
@@ -97,8 +97,8 @@ def main_setup():
         description=DESCRIPTION,
         long_description=LONG_DESCRIPTION,
         long_description_content_type="text/markdown",
-        author='rathaROG',
-        url='https://github.com/rathaROG/lapx',
+        author="rathaROG",
+        url="https://github.com/rathaROG/lapx",
         license=LICENSE,
         packages=packages,
         package_data=package_data,
@@ -137,7 +137,7 @@ def main_setup():
 if __name__ == "__main__":
     """
     Recommend using :py:mod:`build` to build the package as it does not 
-    mess up your current enviroment.
+    mess up your current environment.
 
     >>> pip install wheel build
     >>> python -m build --sdist
