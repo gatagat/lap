@@ -104,7 +104,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
         with:
-          platforms: all
+          platforms: arm64
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.17.0
         env:
