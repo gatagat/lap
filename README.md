@@ -18,6 +18,17 @@
   pip install lapx
   ```
 
+  | **Pre-built Wheels** | **Windows** ✅ | **Linux** ✅ | **macOS** ✅ |
+  |:---:|:---:|:---:|:---:|
+  | Python v3.7 | AMD64/ARM64 | x86_64/aarch64 ¹ | x86_64/arm64 |
+  | Python v3.8 | AMD64/ARM64 | x86_64/aarch64 ¹ | x86_64/arm64 |
+  | Python v3.9 | AMD64/ARM64 | x86_64/aarch64 ¹ | x86_64/arm64 |
+  | Python v3.10 | AMD64/ARM64 | x86_64/aarch64 ¹ | x86_64/arm64 |
+  | Python v3.11 | AMD64/ARM64 | x86_64/aarch64 ¹ | x86_64/arm64 |
+  | Python v3.12 | AMD64/ARM64 | x86_64/aarch64 ¹ | x86_64/arm64 |
+
+  <sup>¹ Included both `manylinux` and `musllinux`.
+
 * Or install from GitHub repo directly (Require C++ compiler):
 
   ```
