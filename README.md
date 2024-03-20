@@ -10,7 +10,7 @@
 * Based on: [[ed04ab7752]](https://github.com/gatagat/lap/tree/ed04ab7752c7c9688ddcbae534633f34ce04361f)
 * License: BSD-2-Clause, see [`LICENSE`](LICENSE) @[`gatagat`](https://github.com/gatagat)
 
-## Installation: Windows ✅ | Linux ✅ | macOS ✅
+## 💽 Installation:
 
 * Install from [PyPI](https://pypi.org/project/lapx/):
 
@@ -18,16 +18,17 @@
   pip install lapx
   ```
 
-  | **Pre-built Wheels** | **Windows** ✅ | **Linux** ✅ | **macOS** ✅ |
+  | **Pre-built Wheels** 🛞 | **Windows** ✅ | **Linux** ✅ | **macOS** ✅ |
   |:---:|:---:|:---:|:---:|
-  | Python v3.7 | AMD64/ARM64 | x86_64/aarch64 ¹ | x86_64/arm64 |
-  | Python v3.8 | AMD64/ARM64 | x86_64/aarch64 ¹ | x86_64/arm64 |
-  | Python v3.9 | AMD64/ARM64 | x86_64/aarch64 ¹ | x86_64/arm64 |
-  | Python v3.10 | AMD64/ARM64 | x86_64/aarch64 ¹ | x86_64/arm64 |
-  | Python v3.11 | AMD64/ARM64 | x86_64/aarch64 ¹ | x86_64/arm64 |
-  | Python v3.12 | AMD64/ARM64 | x86_64/aarch64 ¹ | x86_64/arm64 |
+  | Python v3.7 | AMD64 | x86_64/aarch64 ² | x86_64 |
+  | Python v3.8 | AMD64 | x86_64/aarch64 ² | x86_64/arm64 |
+  | Python v3.9 | AMD64/ARM64 ¹ | x86_64/aarch64 ² | x86_64/arm64 |
+  | Python v3.10 | AMD64/ARM64 ¹ | x86_64/aarch64 ² | x86_64/arm64 |
+  | Python v3.11 | AMD64/ARM64 ¹ | x86_64/aarch64 ² | x86_64/arm64 |
+  | Python v3.12 | AMD64/ARM64 ¹ | x86_64/aarch64 ² | x86_64/arm64 |
 
-  <sup>¹ Included both `manylinux` and `musllinux`.
+  <sup>¹ Windows ARM64 is experimental.</sup><br>
+  <sup>² Linux now includes both `manylinux` and `musllinux`.</sup><br>
 
 * Or install from GitHub repo directly (Require C++ compiler):
 
@@ -37,6 +38,8 @@
 
 * Or clone and build on your local machine (Require C++ compiler):
 
+  <details><summary><ins>Click here to expand!</ins></summary>
+  
   ```
   git clone https://github.com/rathaROG/lapx.git
   cd lapx
@@ -46,8 +49,10 @@
   python -m build --wheel
   cd dist
   ```
+  
+  </details>
 
-## Usage 🧪
+## 🧪 Usage:
 
 * `lapx` is just the name for package distribution.
 * The same as `lap`, use `import lap` to import; for example:

@@ -27,7 +27,7 @@ jobs:
       - name: Archive wheels
         uses: actions/upload-artifact@v4
         with:
-          name: windows-all-wheels
+          name: pypi-windows-all-wheels
           path: ./wheelhouse/*.whl
   
   build_macos_intel:
@@ -50,7 +50,7 @@ jobs:
       - name: Archive wheels
         uses: actions/upload-artifact@v4
         with:
-          name: macos-intel-wheels
+          name: pypi-macos-intel-wheels
           path: ./wheelhouse/*.whl
 
   build_macos_arm:
@@ -73,7 +73,7 @@ jobs:
       - name: Archive wheels
         uses: actions/upload-artifact@v4
         with:
-          name: macos-arm-wheels
+          name: pypi-macos-arm-wheels
           path: ./wheelhouse/*.whl
 
   build_linux_intel:
@@ -96,7 +96,7 @@ jobs:
       - name: Archive wheels
         uses: actions/upload-artifact@v4
         with:
-          name: linux-intel-wheels
+          name: pypi-linux-intel-wheels
           path: ./wheelhouse/*.whl
 
   build_linux_arm:
@@ -116,7 +116,7 @@ jobs:
       - name: Archive wheels
         uses: actions/upload-artifact@v4
         with:
-          name: linux-arm-wheels
+          name: pypi-linux-arm-wheels
           path: ./wheelhouse/*.whl
 
   build_source:
@@ -139,12 +139,12 @@ jobs:
       - name: Archive .tar.gz
         uses: actions/upload-artifact@v4
         with:
-          name: source-dist
+          name: pypi-source-dist
           path: dist/*.tar.gz
 
   publish_pypi:
     name: Publish to PyPI
-    needs: [build_wheels, build_source]
+    needs: [build_windows_all, build_macos_intel, build_macos_arm, build_linux_intel, build_linux_arm, build_source]
     runs-on: ubuntu-latest
     environment: pypi
     permissions:
@@ -153,8 +153,9 @@ jobs:
       - name: Collect and extract artifact
         uses: actions/download-artifact@v4
         with:
-          name: artifact
           path: dist
+          pattern: pypi-*
+          merge-multiple: true
       - name: Publish
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
