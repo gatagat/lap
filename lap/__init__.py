@@ -11,7 +11,7 @@ lapmod
     Find optimal (minimum-cost) assignment for a sparse cost matrix.
 """
 
-__version__ = '0.5.6'
+__version__ = '0.5.7'
 
 from ._lapjv import (
     lapjv,
