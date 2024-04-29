@@ -18,25 +18,26 @@ cdef extern from "lapjv.h" nogil:
         FP_1
         FP_2
         FP_DYNAMIC
-    int lapjv_internal(
-            const uint_t n,
-            double *cost[],
-            int_t *x,
-            int_t *y)
-    int lapmod_internal(
-            const uint_t n,
-            double *cc,
-            uint_t *ii,
-            uint_t *kk,
-            int_t *x,
-            int_t *y,
-            fp_t fp_version)
+    int lapjv_internal(const uint_t n,
+                       double *cost[],
+                       int_t *x,
+                       int_t *y)
+    int lapmod_internal(const uint_t n,
+                        double *cc,
+                        uint_t *ii,
+                        uint_t *kk,
+                        int_t *x,
+                        int_t *y,
+                        fp_t fp_version)
 
 LARGE_ = LARGE
 FP_1_ = FP_1
 FP_2_ = FP_2
 FP_DYNAMIC_ = FP_DYNAMIC
 
+
+# Improved efficiency by raphaelreme
+# https://github.com/rathaROG/lapx/pull/7
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -95,9 +96,7 @@ def lapjv(cnp.ndarray cost not None, char extend_cost=False,
         cost_c = cost_c_extended
     elif extend_cost:
         n = max(n_rows, n_cols)
-        cost_c_extended = np.empty((n, n), dtype=np.double)
-        # Previous version was using cost_c.max() + 1 instead of 0, but this leads to faster results
-        cost_c_extended[:] = 0
+        cost_c_extended = np.zeros((n, n), dtype=np.double)
         cost_c_extended[:n_rows, :n_cols] = cost_c
         cost_c = cost_c_extended
 
@@ -139,12 +138,11 @@ def lapjv(cnp.ndarray cost not None, char extend_cost=False,
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def _lapmod(
-        const uint_t n,
-        cnp.ndarray cc not None,
-        cnp.ndarray ii not None,
-        cnp.ndarray kk not None,
-        fp_t fp_version=FP_DYNAMIC):
+def _lapmod(const uint_t n,
+            cnp.ndarray cc not None,
+            cnp.ndarray ii not None,
+            cnp.ndarray kk not None,
+            fp_t fp_version=FP_DYNAMIC):
     """Internal function called from lapmod(..., fast=True)."""
     cdef cnp.ndarray[cnp.double_t, ndim=1, mode='c'] cc_c = \
         np.ascontiguousarray(cc, dtype=np.double)
@@ -157,9 +155,8 @@ def _lapmod(
     cdef cnp.ndarray[int_t, ndim=1, mode='c'] y_c = \
         np.empty((n,), dtype=np.int32)
 
-    cdef int_t ret = lapmod_internal(
-                n, &cc_c[0], &ii_c[0], &kk_c[0],
-                &x_c[0], &y_c[0], fp_version)
+    cdef int_t ret = lapmod_internal(n, &cc_c[0], &ii_c[0], &kk_c[0], 
+                                     &x_c[0], &y_c[0], fp_version)
     if ret != 0:
         if ret == -1:
             raise MemoryError('Out of memory.')

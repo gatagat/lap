@@ -1,3 +1,6 @@
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
+
 import timeit
 import lap
 import numpy as np
@@ -21,20 +24,19 @@ def do_scipy(input):
 def test(n, m):
     print("test(" + str(n) + ", " + str(m) + ")")
     a = np.random.rand(n, m)
-    # print("array = " + str(a))
     print("-----------------------------------------")
     res_scipy, elapsed_scipy = do_scipy(a)
     print(" scipy completed in " + str(format((elapsed_scipy), '.8f')) + "s")
     res_lapx, elapsed_lapx = do_lapx(a)
     print(" lapx completed in " + str(format((elapsed_lapx), '.8f')) + "s")
     if (res_lapx == res_scipy).all():
-        print(" * PASS !!!")
+        print(" * ✅ PASS !!!")
         if elapsed_lapx <= elapsed_scipy:
-            print(" * lapx is faster by " + str(round((elapsed_scipy/elapsed_lapx), 4)) + "x time.")
+            print(" * 🏆 lapx is faster by " + str(round((elapsed_scipy/elapsed_lapx), 4)) + "x time.")
         else:
-            print(" * lapx is slower by " + str(round((elapsed_lapx/elapsed_scipy), 4)) + "x time.")
+            print(" * 🐌 lapx is slower by " + str(round((elapsed_lapx/elapsed_scipy), 4)) + "x time.")
     else:
-        print(" * FAIL !!!")
+        print(" * ❌ FAIL !!!")
     print("-----------------------------------------")
 
 
