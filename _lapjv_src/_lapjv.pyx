@@ -86,14 +86,18 @@ def lapjv(cnp.ndarray cost not None, char extend_cost=False,
             raise ValueError(
                     'Square cost array expected. If cost is intentionally '
                     'non-square, pass extend_cost=True.')
-    if extend_cost or cost_limit < np.inf:
+    if cost_limit < np.inf:
         n = n_rows + n_cols
         cost_c_extended = np.empty((n, n), dtype=np.double)
-        if cost_limit < np.inf:
-            cost_c_extended[:] = cost_limit / 2.
-        else:
-            cost_c_extended[:] = cost_c.max() + 1
+        cost_c_extended[:] = cost_limit / 2.
         cost_c_extended[n_rows:, n_cols:] = 0
+        cost_c_extended[:n_rows, :n_cols] = cost_c
+        cost_c = cost_c_extended
+    elif extend_cost:
+        n = max(n_rows, n_cols)
+        cost_c_extended = np.empty((n, n), dtype=np.double)
+        # Previous version was using cost_c.max() + 1 instead of 0, but this leads to faster results
+        cost_c_extended[:] = 0
         cost_c_extended[:n_rows, :n_cols] = cost_c
         cost_c = cost_c_extended
 
@@ -117,7 +121,7 @@ def lapjv(cnp.ndarray cost not None, char extend_cost=False,
 
 
     cdef double opt = np.nan
-    if n != n_rows:
+    if cost_limit < np.inf or extend_cost:
         x_c[x_c >= n_cols] = -1
         y_c[y_c >= n_rows] = -1
         x_c = x_c[:n_rows]
