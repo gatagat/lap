@@ -158,5 +158,3 @@ jobs:
           merge-multiple: true
       - name: Publish
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          password: ${{ secrets.MY_PYPI_API_TOKEN_2023_06_22 }}
