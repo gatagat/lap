@@ -1,27 +1,16 @@
-# # # # # # # # # # # # # # # # # # # # # #
-#    Rewrote on 2023/06/24 by rathaROG    #
-#    Updated on 2024/03/20 by rathaROG    #
-# # # # # # # # # # # # # # # # # # # # # #
-
+# Rewrote on 2023/06/24 by rathaROG
+# Updated on 2024/05/10 by rathaROG
 
 import distutils.cmd
-from setuptools import setup
-from setuptools.extension import Extension
+from setuptools import Extension, setup
 
-###################################################################
-
-DESCRIPTION = "Linear Assignment Problem solver (LAPJV/LAPMOD)."
 LICENSE = "BSD-2-Clause"
+DESCRIPTION = "Linear Assignment Problem solver (LAPJV/LAPMOD)."
 LONG_DESCRIPTION = open("README.md", encoding="utf-8").read()
-
-###################################################################
 
 package_name = "lapx"
 package_path = "lap"
 _lapjv_src = "_lapjv_src"
-requirements_txt = "requirements.txt"
-
-###################################################################
 
 def get_version_string():
     version_py = "lap/__init__.py"
@@ -30,10 +19,6 @@ def get_version_string():
             if line.startswith('__version__'):
                 delim = '"' if '"' in line else "'"
                 return line.split(delim)[1]
-
-def read_requirements():
-    with open(requirements_txt) as requirements_file:
-        return [line for line in requirements_file.read().splitlines()]
 
 def include_numpy():
     import numpy as np
@@ -50,7 +35,7 @@ def compile_cpp(cython_file):
     import subprocess
     cpp_file = os.path.splitext(cython_file)[0] + ".cpp"
     flags = ['--fast-fail', '--cplus']
-    rc = subprocess.call(['cython'] + flags + ["-o", cpp_file, cython_file])
+    rc = subprocess.call(['cython'] + flags + ['-o', cpp_file, cython_file])
     if rc != 0: raise Exception('Cythonizing %s failed' % cython_file)
     else: return cpp_file
 
@@ -95,16 +80,16 @@ def main_setup():
         name=package_name,
         version=get_version_string(),
         description=DESCRIPTION,
+        license=LICENSE,
         long_description=LONG_DESCRIPTION,
         long_description_content_type="text/markdown",
-        author="rathaROG",
+        keywords=['Linear Assignment', 'LAPJV', 'LAPMOD', 'lap'],
         url="https://github.com/rathaROG/lapx",
-        license=LICENSE,
+        author="rathaROG",
         packages=packages,
         package_data=package_data,
         include_package_data=True,
-        install_requires=read_requirements(),
-        keywords=['Linear Assignment', 'LAPJV', 'LAPMOD', 'lap'],
+        install_requires=['numpy>=1.21.6',],
         python_requires=">=3.7",
         classifiers=['Development Status :: 4 - Beta',
                      'Environment :: Console',

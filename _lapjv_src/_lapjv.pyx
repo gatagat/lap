@@ -1,6 +1,6 @@
 # Tomas Kazmar, 2012-2017, BSD 2-clause license, see LICENSE.
 
-# Updated 2023/06/22 by rathaROG
+# Updated by rathaROG
 # Force compiling with Python 3 
 # cython: language_level=3
 
@@ -117,7 +117,6 @@ def lapjv(cnp.ndarray cost not None, char extend_cost=False,
         if ret == -1:
             raise MemoryError('Out of memory.')
         raise RuntimeError('Unknown error (lapjv_internal returned %d).' % ret)
-
 
     cdef double opt = np.nan
     if cost_limit < np.inf or extend_cost:

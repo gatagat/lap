@@ -5,99 +5,74 @@
 
 # Linear Assignment Problem Solver
 
-`lapx` basically is Tomas Kazmar's [`gatagat/lap`](https://github.com/gatagat/lap) with support for all Windows/Linux/macOS and Python 3.7/3.8/3.9/3.10/3.11/3.12.
+`lapx` basically is Tomas Kazmar's [`gatagat/lap`](https://github.com/gatagat/lap) with support for all Windows/Linux/macOS and Python 3.7-3.12. 
 
-* Based on: [[ed04ab7752]](https://github.com/gatagat/lap/tree/ed04ab7752c7c9688ddcbae534633f34ce04361f)
-* License: BSD-2-Clause, see [`LICENSE`](LICENSE) @[`gatagat`](https://github.com/gatagat)
+<details><summary>About <code>lap</code></summary><br>
 
-## 💽 Installation:
+Tomas Kazmar's [`lap`](https://github.com/gatagat/lap) is a [linear assignment problem](https://en.wikipedia.org/wiki/Assignment_problem) solver using Jonker-Volgenant algorithm for dense LAPJV ¹ or sparse LAPMOD ² matrices. Both algorithms are implemented from scratch based solely on the papers ¹˒² and the public domain Pascal implementation provided by A. Volgenant ³. The LAPMOD implementation seems to be faster than the LAPJV implementation for matrices with a side of more than ~5000 and with less than 50% finite coefficients.
 
-* Install from [PyPI](https://pypi.org/project/lapx/):
+<sup>¹ R. Jonker and A. Volgenant, "A Shortest Augmenting Path Algorithm for Dense and Sparse Linear Assignment Problems", Computing 38, 325-340 (1987) </sup><br>
+<sup>² A. Volgenant, "Linear and Semi-Assignment Problems: A Core Oriented Approach", Computer Ops Res. 23, 917-932 (1996) </sup><br>
+<sup>³ http://www.assignmentproblems.com/LAPJV.htm | [[archive.org](https://web.archive.org/web/20220221010749/http://www.assignmentproblems.com/LAPJV.htm)] </sup><br>
 
-  ```
-  pip install lapx
-  ```
+</details>
 
-  | **Pre-built Wheels** 🛞 | **Windows** ✅ | **Linux** ✅ | **macOS** ✅ |
-  |:---:|:---:|:---:|:---:|
-  | Python v3.7 | AMD64 | x86_64/aarch64 ² | x86_64 |
-  | Python v3.8 | AMD64 | x86_64/aarch64 ² | x86_64/arm64 |
-  | Python v3.9 | AMD64/ARM64 ¹ | x86_64/aarch64 ² | x86_64/arm64 |
-  | Python v3.10 | AMD64/ARM64 ¹ | x86_64/aarch64 ² | x86_64/arm64 |
-  | Python v3.11 | AMD64/ARM64 ¹ | x86_64/aarch64 ² | x86_64/arm64 |
-  | Python v3.12 | AMD64/ARM64 ¹ | x86_64/aarch64 ² | x86_64/arm64 |
+## 💽 Installation
 
-  <sup>¹ Windows ARM64 is experimental.</sup><br>
-  <sup>² Linux now includes both `manylinux` and `musllinux`.</sup><br>
+### Install from [PyPI](https://pypi.org/project/lapx/):
 
-* Or install from GitHub repo directly (Require C++ compiler):
-
-  ```
-  pip install git+https://github.com/rathaROG/lapx.git
-  ```
-
-* Or clone and build on your local machine (Require C++ compiler):
-
-  <details><summary><ins>Click here to expand!</ins></summary>
-  
-  ```
-  git clone https://github.com/rathaROG/lapx.git
-  cd lapx
-  python -m pip install --upgrade pip
-  pip install "setuptools>=67.2.0"
-  pip install wheel build
-  python -m build --wheel
-  cd dist
-  ```
-  
-  </details>
-
-## 🧪 Usage:
-
-* `lapx` is just the name for package distribution.
-* The same as `lap`, use `import lap` to import; for example:
-
-  ```
-  import lap
-  import numpy as np
-  print(lap.lapjv(np.random.rand(4, 5), extend_cost=True))
-  ```
-
-<br />
-
-<details><summary>Click here to show more...</summary>
-
-<br />
-
-lap: Linear Assignment Problem solver
-=====================================
-
-**lap** is a [linear assignment
-problem](https://en.wikipedia.org/wiki/Assignment_problem) solver using
-Jonker-Volgenant algorithm for dense (LAPJV [1]) or sparse (LAPMOD [2])
-matrices.
-
-Both algorithms are implemented from scratch based solely on the papers [1,2]
-and the public domain Pascal implementation provided by A. Volgenant [3].
-
-In my tests the LAPMOD implementation seems to be faster than the LAPJV
-implementation for matrices with a side of more than ~5000 and with less than
-50% finite coefficients.
-
-[1] R. Jonker and A. Volgenant, "A Shortest Augmenting Path Algorithm for Dense
-and Sparse Linear Assignment Problems", Computing 38, 325-340 (1987)<br>
-[2] A. Volgenant, "Linear and Semi-Assignment Problems: A Core Oriented
-Approach", Computer Ops Res. 23, 917-932 (1996)<br>
-[3] http://www.assignmentproblems.com/LAPJV.htm
-
-
-### Usage
+[![PyPI version](https://badge.fury.io/py/lapx.svg)](https://badge.fury.io/py/lapx)
+[![Downloads](https://static.pepy.tech/badge/lapx)](https://pepy.tech/project/lapx)
+[![Downloads](https://static.pepy.tech/badge/lapx/month)](https://pepy.tech/project/lapx)
 
 ```
-cost, x, y = lap.lapjv(C)
+pip install lapx
 ```
 
-The function `lapjv(C)` returns the assignment cost (`cost`) and two arrays, `x, y`. If cost matrix `C` has shape N x M, then `x` is a size-N array specifying to which column is row is assigned, and `y` is a size-M array specifying to which row each column is assigned. For example, an output of `x = [1, 0]` indicates that row 0 is assigned to column 1 and row 1 is assigned to column 0. Similarly, an output of `x = [2, 1, 0]` indicates that row 0 is assigned to column 2, row 1 is assigned to column 1, and row 2 is assigned to column 0.
+| **Pre-built Wheels** 🛞 | **Windows** ✅ | **Linux** ✅ | **macOS** ✅ |
+|:---:|:---:|:---:|:---:|
+| Python 3.7 | AMD64 | x86_64/aarch64 | x86_64 |
+| Python 3.8 | AMD64 | x86_64/aarch64 | x86_64/arm64 |
+| Python 3.9-3.12 | AMD64/ARM64 ¹ | x86_64/aarch64 | x86_64/arm64 |
+
+<sup>¹ Windows ARM64 is experimental.</sup><br>
+
+<details><summary>Other options</summary>
+
+### Install from GitHub repo (Require C++ compiler):
+
+```
+pip install git+https://github.com/rathaROG/lapx.git
+```
+
+### Build and install (Require C++ compiler):
+
+```
+git clone https://github.com/rathaROG/lapx.git
+cd lapx
+pip install "setuptools>=67.8.0"
+pip install wheel build
+python -m build --wheel
+cd dist
+```
+
+</details>
+
+## 🧪 Usage
+
+`lapx` is just the name for package distribution. The same as `lap`, use `import lap` to import; for example:
+
+```
+import lap
+import numpy as np
+print(lap.lapjv(np.random.rand(4, 5), extend_cost=True))
+```
+
+<details><summary>More details</summary>
+  
+### `cost, x, y = lap.lapjv(C)`
+
+The function `lapjv(C)` returns the assignment cost `cost` and two arrays `x` and `y`. If cost matrix `C` has shape NxM, then `x` is a size-N array specifying to which column is row is assigned, and `y` is a size-M array specifying to which row each column is assigned. For example, an output of `x = [1, 0]` indicates that row 0 is assigned to column 1 and row 1 is assigned to column 0. Similarly, an output of `x = [2, 1, 0]` indicates that row 0 is assigned to column 2, row 1 is assigned to column 1, and row 2 is assigned to column 0.
 
 Note that this function *does not* return the assignment matrix (as done by scipy's [`linear_sum_assignment`](https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.optimize.linear_sum_assignment.html) and lapsolver's [`solve dense`](https://github.com/cheind/py-lapsolver)). The assignment matrix can be constructed from `x` as follows:
 ```
@@ -105,6 +80,7 @@ A = np.zeros((N, M))
 for i in range(N):
     A[i, x[i]] = 1
 ```
+
 Equivalently, we could construct the assignment matrix from `y`:
 ```
 A = np.zeros((N, M))
