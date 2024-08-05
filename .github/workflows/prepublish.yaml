@@ -19,7 +19,7 @@ jobs:
           python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_BUILD_VERBOSITY: 1
-          CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-*"
+          CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*"
           CIBW_SKIP: "*-win32 pp*"
           CIBW_ARCHS_WINDOWS: "AMD64 ARM64"
       - name: Archive wheels
@@ -43,7 +43,7 @@ jobs:
           python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_BUILD_VERBOSITY: 1
-          CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-*"
+          CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*"
           CIBW_SKIP: "pp*"
           CIBW_ARCHS_MACOS: "x86_64"
       - name: Archive wheels
@@ -67,7 +67,7 @@ jobs:
           python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_BUILD_VERBOSITY: 1
-          CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-*"
+          CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*"
           CIBW_SKIP: "pp*"
           CIBW_ARCHS_MACOS: "arm64"
       - name: Archive wheels
@@ -91,7 +91,7 @@ jobs:
           python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_BUILD_VERBOSITY: 1
-          CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-*"
+          CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*"
           CIBW_SKIP: "*-manylinux_i686 pp*"
           CIBW_ARCHS_LINUX: "x86_64"
       - name: Archive wheels
@@ -113,7 +113,7 @@ jobs:
         uses: pypa/cibuildwheel@v2.19.1
         env:
           CIBW_BUILD_VERBOSITY: 1
-          CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-*"
+          CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*"
           CIBW_ARCHS_LINUX: "aarch64"
       - name: Archive wheels
         uses: actions/upload-artifact@v4
