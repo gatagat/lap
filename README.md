@@ -5,7 +5,7 @@
 
 # Linear Assignment Problem Solver
 
-`lapx` basically is Tomas Kazmar's [`gatagat/lap`](https://github.com/gatagat/lap) with support for all Windows/Linux/macOS and Python 3.7-3.12. 
+`lapx` basically is Tomas Kazmar's [`gatagat/lap`](https://github.com/gatagat/lap) with support for all Windows/Linux/macOS and Python 3.7-3.13. 
 
 <details><summary>About <code>lap</code></summary><br>
 
@@ -33,9 +33,9 @@ pip install lapx
 |:---:|:---:|:---:|:---:|
 | Python 3.7 | AMD64 | x86_64/aarch64 | x86_64 |
 | Python 3.8 | AMD64 | x86_64/aarch64 | x86_64/arm64 |
-| Python 3.9-3.12 ¹ | AMD64/ARM64 ² | x86_64/aarch64 | x86_64/arm64 |
+| Python 3.9-3.13 ¹ | AMD64/ARM64 ² | x86_64/aarch64 | x86_64/arm64 |
 
-<sup>¹ lapx v0.5.9.post1 supports numpy v2.0 for Python 3.9-3.12. 🆕 </sup><br>
+<sup>¹ v0.5.10 supports numpy v2.x for Python 3.9-3.13. 🆕 </sup><br>
 <sup>² Windows ARM64 is experimental.</sup><br>
 
 <details><summary>Other options</summary>
