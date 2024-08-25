@@ -270,8 +270,7 @@ def get_cost(n, cc, ii, kk, x0):
     return ret
 
 
-def lapmod(n, cc, ii, kk, fast=True, return_cost=True,
-           fp_version=FP_DYNAMIC):
+def lapmod(n, cc, ii, kk, fast=True, return_cost=True, fp_version=FP_DYNAMIC):
     """Solve sparse linear assignment problem using Jonker-Volgenant algorithm.
 
     n: number of rows of the assignment cost matrix
