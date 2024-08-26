@@ -12,7 +12,7 @@ jobs:
         os: ["windows-latest", "ubuntu-latest", "macos-13"]
         python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12", "3.13.0-rc.1"]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
@@ -23,18 +23,15 @@ jobs:
           pip install "setuptools>=67.2.0"
           pip install wheel build
       - name: Test build from source
-        run: |
-          python -m build --wheel
+        run: python -m build --wheel
       - name: Test direct install from GitHub main
-        run: |
-          pip install git+https://github.com/rathaROG/lapx.git
-      - name: Run test_simple.py
+        run: pip install git+https://github.com/rathaROG/lapx.git
+      - name: 🧪 Run test_simple.py
         run: |
           cd .githubtest
           python test_simple.py
       - name: Archive wheels
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: test-wheels
-          path: |
-            dist/*.whl
+          name: wheel-${{ matrix.os }}-${{ matrix.python-version }}
+          path: dist/*.whl
