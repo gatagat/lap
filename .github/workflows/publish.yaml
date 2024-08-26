@@ -12,14 +12,14 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v3
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
       - name: Install cibuildwheel
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install cibuildwheel==2.20.0
+        run: python -m pip install cibuildwheel==2.20.0
       - name: Build wheels
-        run: |
-          python -m cibuildwheel --output-dir wheelhouse
+        run: python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_BUILD_VERBOSITY: 1
           CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*"
@@ -36,14 +36,14 @@ jobs:
     runs-on: macos-13
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v3
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
       - name: Install cibuildwheel
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install cibuildwheel==2.20.0
+        run: python -m pip install cibuildwheel==2.20.0
       - name: Build wheels
-        run: |
-          python -m cibuildwheel --output-dir wheelhouse
+        run: python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_BUILD_VERBOSITY: 1
           CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*"
@@ -60,14 +60,14 @@ jobs:
     runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v3
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
       - name: Install cibuildwheel
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install cibuildwheel==2.20.0
+        run: python -m pip install cibuildwheel==2.20.0
       - name: Build wheels
-        run: |
-          python -m cibuildwheel --output-dir wheelhouse
+        run: python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_BUILD_VERBOSITY: 1
           CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*"
@@ -84,14 +84,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v3
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
       - name: Install cibuildwheel
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install cibuildwheel==2.20.0
+        run: python -m pip install cibuildwheel==2.20.0
       - name: Build wheels
-        run: |
-          python -m cibuildwheel --output-dir wheelhouse
+        run: python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_BUILD_VERBOSITY: 1
           CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*"
@@ -129,18 +129,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python 3
-        uses: actions/setup-python@v4
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
       - name: Install requirements
         run: |
-          python -m pip install --upgrade pip
           pip install "setuptools>=67.2.0"
           pip install wheel build
       - name: Build .tar.gz
-        run: |
-          python -m build --sdist
+        run: python -m build --sdist
       - name: Archive .tar.gz
         uses: actions/upload-artifact@v4
         with:
