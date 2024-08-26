@@ -2,7 +2,6 @@ include *.txt *.md *.in LICENSE
 recursive-include _lapjv_src *
 recursive-include lap *
 recursive-include lap/tests *
-exclude lap/_lapjv.cpp
 global-exclude */__pycache__
 global-exclude *.pyc
 prune .github
