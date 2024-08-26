@@ -1,5 +1,5 @@
 # Rewrote on 2023/06/24 by rathaROG
-# Updated on 2024/05/10 by rathaROG
+# Updated on 2024/08/26 by rathaROG
 
 import distutils.cmd
 from setuptools import Extension, setup
@@ -104,6 +104,7 @@ def main_setup():
                      'Programming Language :: Python :: 3.10',
                      'Programming Language :: Python :: 3.11',
                      'Programming Language :: Python :: 3.12',
+                     'Programming Language :: Python :: 3.13',
                      'Topic :: Education',
                      'Topic :: Education :: Testing',
                      'Topic :: Scientific/Engineering',
