@@ -8,7 +8,7 @@ from scipy.optimize import linear_sum_assignment
 
 def do_lapx(input):
     start_time = timeit.default_timer()
-    ext_cost = False if input.shape[0] == input.shape[1] else True
+    ext_cost = input.shape[0] != input.shape[1]
     _, x, y = lap.lapjv(input, extend_cost=ext_cost)
     res_lapx = np.array([[y[i],i] for i in x if i >= 0])
     elapsed_lapx = timeit.default_timer() - start_time
