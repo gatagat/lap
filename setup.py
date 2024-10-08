@@ -1,5 +1,5 @@
 # Rewrote on 2023/06/24 by rathaROG
-# Updated on 2024/08/26 by rathaROG
+# Updated on 2024/10/08 by rathaROG
 
 import distutils.cmd
 from setuptools import Extension, setup
@@ -13,8 +13,7 @@ package_path = "lap"
 _lapjv_src = "_lapjv_src"
 
 def get_version_string():
-    version_py = "lap/__init__.py"
-    with open(version_py) as version_file:
+    with open("lap/__init__.py") as version_file:
         for line in version_file.read().splitlines():
             if line.startswith('__version__'):
                 delim = '"' if '"' in line else "'"
@@ -29,7 +28,7 @@ def include_numpy():
     return numpy_include
 
 def compile_cpp(cython_file):
-    """Compile cpp from Cython's pyx or py.
+    """Compile a C++ file from Cython's pyx or py.
     """
     import os
     import subprocess
@@ -83,7 +82,7 @@ def main_setup():
         license=LICENSE,
         long_description=LONG_DESCRIPTION,
         long_description_content_type="text/markdown",
-        keywords=['Linear Assignment', 'LAPJV', 'LAPMOD', 'lap'],
+        keywords=['Linear Assignment', 'LAPJV', 'LAPMOD', 'lap', 'lapx'],
         url="https://github.com/rathaROG/lapx",
         author="rathaROG",
         packages=packages,
@@ -124,7 +123,7 @@ def main_setup():
 if __name__ == "__main__":
     """
     Recommend using :py:mod:`build` to build the package as it does not 
-    mess up your current environment.
+    disrupt your current environment.
 
     >>> pip install wheel build
     >>> python -m build --sdist
