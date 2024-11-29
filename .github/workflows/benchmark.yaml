@@ -17,8 +17,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install lapx from source
-        run: pip install git+https://github.com/rathaROG/lapx.git
+      - name: Install lap from source
+        run: pip install git+https://github.com/gatagat/lap.git
       - name: Install scipy
         run: pip install scipy
       - name: 📊 Run benchmark.py

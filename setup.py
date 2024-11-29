@@ -1,6 +1,3 @@
-# Rewrote on 2023/06/24 by rathaROG
-# Updated on 2024/10/08 by rathaROG
-
 import distutils.cmd
 from setuptools import Extension, setup
 
@@ -8,7 +5,7 @@ LICENSE = "BSD-2-Clause"
 DESCRIPTION = "Linear Assignment Problem solver (LAPJV/LAPMOD)."
 LONG_DESCRIPTION = open("README.md", encoding="utf-8").read()
 
-package_name = "lapx"
+package_name = "lap"
 package_path = "lap"
 _lapjv_src = "_lapjv_src"
 
@@ -35,8 +32,10 @@ def compile_cpp(cython_file):
     cpp_file = os.path.splitext(cython_file)[0] + ".cpp"
     flags = ['--fast-fail', '--cplus']
     rc = subprocess.call(['cython'] + flags + ['-o', cpp_file, cython_file])
-    if rc != 0: raise Exception('Cythonizing %s failed' % cython_file)
-    else: return cpp_file
+    if rc != 0:
+        raise Exception('Cythonizing %s failed' % cython_file)
+    else:
+        return cpp_file
 
 class ExportCythonCommand(distutils.cmd.Command):
     description = "Export _lapjv binary from source."
@@ -83,8 +82,8 @@ def main_setup():
         long_description=LONG_DESCRIPTION,
         long_description_content_type="text/markdown",
         keywords=['Linear Assignment', 'LAPJV', 'LAPMOD', 'lap', 'lapx'],
-        url="https://github.com/rathaROG/lapx",
-        author="rathaROG",
+        url="https://github.com/gatagat/lap",
+        author="gatagat, rathaROG, and co.",
         packages=packages,
         package_data=package_data,
         include_package_data=True,

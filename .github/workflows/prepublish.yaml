@@ -1,4 +1,4 @@
-name: Test PyPI Build
+name: PyPI Build
 
 on: [workflow_dispatch]
 

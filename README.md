@@ -1,32 +1,26 @@
-[![Test Simple](https://github.com/rathaROG/lapx/actions/workflows/test_simple.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/test_simple.yaml)
-[![Benchmark](https://github.com/rathaROG/lapx/actions/workflows/benchmark.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/benchmark.yaml)
-[![Test PyPI Build](https://github.com/rathaROG/lapx/actions/workflows/prepublish.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/prepublish.yaml)
-[![Publish to PyPI](https://github.com/rathaROG/lapx/actions/workflows/publish.yaml/badge.svg)](https://github.com/rathaROG/lapx/actions/workflows/publish.yaml)
+[![Test Simple](https://github.com/gatagat/lap/actions/workflows/test_simple.yaml/badge.svg)](https://github.com/gatagat/lap/actions/workflows/test_simple.yaml)
+[![Benchmark](https://github.com/gatagat/lap/actions/workflows/benchmark.yaml/badge.svg)](https://github.com/gatagat/lap/actions/workflows/benchmark.yaml)
+[![Test PyPI Build](https://github.com/gatagat/lap/actions/workflows/prepublish.yaml/badge.svg)](https://github.com/gatagat/lap/actions/workflows/prepublish.yaml)
+[![Publish to PyPI](https://github.com/gatagat/lap/actions/workflows/publish.yaml/badge.svg)](https://github.com/gatagat/lap/actions/workflows/publish.yaml)
 
-# Linear Assignment Problem Solver
+# lap: Linear Assignment Problem Solver
 
-`lapx` basically is Tomas Kazmar's [`gatagat/lap`](https://github.com/gatagat/lap) with support for all Windows/Linux/macOS and Python 3.7-3.13. 
-
-<details><summary>About <code>lap</code></summary><br>
-
-Tomas Kazmar's [`lap`](https://github.com/gatagat/lap) is a [linear assignment problem](https://en.wikipedia.org/wiki/Assignment_problem) solver using Jonker-Volgenant algorithm for dense LAPJV ¹ or sparse LAPMOD ² matrices. Both algorithms are implemented from scratch based solely on the papers ¹˒² and the public domain Pascal implementation provided by A. Volgenant ³. The LAPMOD implementation seems to be faster than the LAPJV implementation for matrices with a side of more than ~5000 and with less than 50% finite coefficients.
+[`lap`](https://github.com/gatagat/lap) is a [linear assignment problem](https://en.wikipedia.org/wiki/Assignment_problem) solver using Jonker-Volgenant algorithm for dense LAPJV¹ or sparse LAPMOD² matrices. Both algorithms are implemented from scratch based solely on the papers¹˒² and the public domain Pascal implementation provided by A. Volgenant³. The LAPMOD implementation seems to be faster than the LAPJV implementation for matrices with a side of more than ~5000 and with less than 50% finite coefficients.
 
 <sup>¹ R. Jonker and A. Volgenant, "A Shortest Augmenting Path Algorithm for Dense and Sparse Linear Assignment Problems", Computing 38, 325-340 (1987) </sup><br>
 <sup>² A. Volgenant, "Linear and Semi-Assignment Problems: A Core Oriented Approach", Computer Ops Res. 23, 917-932 (1996) </sup><br>
 <sup>³ http://www.assignmentproblems.com/LAPJV.htm | [[archive.org](https://web.archive.org/web/20220221010749/http://www.assignmentproblems.com/LAPJV.htm)] </sup><br>
 
-</details>
-
 ## 💽 Installation
 
-### Install from [PyPI](https://pypi.org/project/lapx/):
+### Install from [PyPI](https://pypi.org/project/lap/):
 
-[![PyPI version](https://badge.fury.io/py/lapx.svg)](https://badge.fury.io/py/lapx)
-[![Downloads](https://static.pepy.tech/badge/lapx)](https://pepy.tech/project/lapx)
-[![Downloads](https://static.pepy.tech/badge/lapx/month)](https://pepy.tech/project/lapx)
+[![PyPI version](https://badge.fury.io/py/lap.svg)](https://badge.fury.io/py/lap)
+[![Downloads](https://static.pepy.tech/badge/lap)](https://pepy.tech/project/lap)
+[![Downloads](https://static.pepy.tech/badge/lap/month)](https://pepy.tech/project/lap)
 
 ```
-pip install lapx
+pip install lap
 ```
 
 | **Pre-built Wheels** 🛞 | **Windows** ✅ | **Linux** ✅ | **macOS** ✅ |
@@ -40,17 +34,17 @@ pip install lapx
 
 <details><summary>Other options</summary>
 
-### Install from GitHub repo (Require C++ compiler):
+### Install from GitHub repo (requires C++ compiler):
 
 ```
-pip install git+https://github.com/rathaROG/lapx.git
+pip install git+https://github.com/gatagat/lap.git
 ```
 
-### Build and install (Require C++ compiler):
+### Build and install (requires C++ compiler):
 
 ```
-git clone https://github.com/rathaROG/lapx.git
-cd lapx
+git clone https://github.com/gatagat/lap.git
+cd lap
 pip install "setuptools>=67.8.0"
 pip install wheel build
 python -m build --wheel
@@ -61,8 +55,6 @@ cd dist
 
 ## 🧪 Usage
 
-`lapx` is just the name for package distribution. The same as `lap`, use `import lap` to import; for example:
-
 ```
 import lap
 import numpy as np
@@ -70,7 +62,7 @@ print(lap.lapjv(np.random.rand(4, 5), extend_cost=True))
 ```
 
 <details><summary>More details</summary>
-  
+
 ### `cost, x, y = lap.lapjv(C)`
 
 The function `lapjv(C)` returns the assignment cost `cost` and two arrays `x` and `y`. If cost matrix `C` has shape NxM, then `x` is a size-N array specifying to which column each row is assigned, and `y` is a size-M array specifying to which row each column is assigned. For example, an output of `x = [1, 0]` indicates that row 0 is assigned to column 1 and row 1 is assigned to column 0. Similarly, an output of `x = [2, 1, 0]` indicates that row 0 is assigned to column 2, row 1 is assigned to column 1, and row 2 is assigned to column 0.
@@ -96,3 +88,20 @@ y = [np.where(x == j)[0][0] for j in range(M)]
 ```
 
 </details>
+
+# License
+
+Released under the 2-clause BSD license, see [LICENSE](./LICENSE).
+
+Copyright (C) 2012-2024, Tomas Kazmar
+
+Contributors (in alphabetic order):
+- Benjamin Eysenbach
+- Léo Duret
+- Raphael Reme
+- Ratha Siv
+- Robert Wen
+- Steven
+- Tom White
+- Tomas Kazmar
+- Wok
