@@ -25,7 +25,7 @@ jobs:
       - name: Test build from source
         run: python -m build --wheel
       - name: Test direct install from GitHub main
-        run: pip install git+https://github.com/rathaROG/lapx.git
+        run: pip install git+https://github.com/gatagat/lap.git
       - name: 🧪 Run test_simple.py
         run: |
           cd .githubtest

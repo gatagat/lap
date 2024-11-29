@@ -6,13 +6,13 @@ import lap
 import numpy as np
 from scipy.optimize import linear_sum_assignment
 
-def do_lapx(input):
+def do_lap(input):
     start_time = timeit.default_timer()
     ext_cost = input.shape[0] != input.shape[1]
     _, x, y = lap.lapjv(input, extend_cost=ext_cost)
-    res_lapx = np.array([[y[i],i] for i in x if i >= 0])
-    elapsed_lapx = timeit.default_timer() - start_time
-    return res_lapx, elapsed_lapx
+    res_lap = np.array([[y[i],i] for i in x if i >= 0])
+    elapsed_lap = timeit.default_timer() - start_time
+    return res_lap, elapsed_lap
 
 def do_scipy(input):
     start_time = timeit.default_timer()
@@ -27,14 +27,14 @@ def test(n, m):
     print("-----------------------------------------")
     res_scipy, elapsed_scipy = do_scipy(a)
     print(" scipy completed in " + str(format((elapsed_scipy), '.8f')) + "s")
-    res_lapx, elapsed_lapx = do_lapx(a)
-    print(" lapx completed in " + str(format((elapsed_lapx), '.8f')) + "s")
-    if (res_lapx == res_scipy).all():
+    res_lap, elapsed_lap = do_lap(a)
+    print(" lap completed in " + str(format((elapsed_lap), '.8f')) + "s")
+    if (res_lap == res_scipy).all():
         print(" * ✅ PASS !!!")
-        if elapsed_lapx <= elapsed_scipy:
-            print(" * 🏆 lapx is faster by " + str(round((elapsed_scipy/elapsed_lapx), 4)) + "x time.")
+        if elapsed_lap <= elapsed_scipy:
+            print(" * 🏆 lap is faster by " + str(round((elapsed_scipy/elapsed_lap), 4)) + "x time.")
         else:
-            print(" * 🐌 lapx is slower by " + str(round((elapsed_lapx/elapsed_scipy), 4)) + "x time.")
+            print(" * 🐌 lap is slower by " + str(round((elapsed_lap/elapsed_scipy), 4)) + "x time.")
     else:
         print(" * ❌ FAIL !!!")
     print("-----------------------------------------")

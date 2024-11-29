@@ -1,6 +1,3 @@
-# Tomas Kazmar, 2012-2017, BSD 2-clause license, see LICENSE.
-
-# Updated by rathaROG
 # Force compiling with Python 3 
 # cython: language_level=3
 
@@ -35,9 +32,6 @@ FP_1_ = FP_1
 FP_2_ = FP_2
 FP_DYNAMIC_ = FP_DYNAMIC
 
-
-# Improved efficiency by raphaelreme
-# https://github.com/rathaROG/lapx/pull/7
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
