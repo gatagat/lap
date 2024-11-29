@@ -28,7 +28,7 @@ jobs:
         run: pip install git+https://github.com/gatagat/lap.git
       - name: 🧪 Run test_simple.py
         run: |
-          cd .githubtest
+          cd lap/tests/
           python test_simple.py
       - name: Archive wheels
         uses: actions/upload-artifact@v4

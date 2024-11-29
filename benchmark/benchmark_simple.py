@@ -21,20 +21,29 @@ def do_scipy(input):
     elapsed_scipy = timeit.default_timer() - start_time
     return res_scipy, elapsed_scipy
 
-def test(n, m):
+def test(n, m, tries=3):
     print("test(" + str(n) + ", " + str(m) + ")")
-    a = np.random.rand(n, m)
     print("-----------------------------------------")
-    res_scipy, elapsed_scipy = do_scipy(a)
-    print(" scipy completed in " + str(format((elapsed_scipy), '.8f')) + "s")
-    res_lap, elapsed_lap = do_lap(a)
-    print(" lap completed in " + str(format((elapsed_lap), '.8f')) + "s")
-    if (res_lap == res_scipy).all():
+    same_result = []
+    elapsed_scipy = []
+    elapsed_lap = []
+    for i in range(tries):
+        a = np.random.rand(n, m)
+        res_scipy, elapsed = do_scipy(a)
+        elapsed_scipy.append(elapsed)
+        res_lap, elapsed = do_lap(a)
+        elapsed_lap.append(elapsed)
+        same_result.append((res_lap == res_scipy).all())
+    if all(same_result):
         print(" * ✅ PASS !!!")
+        elapsed_scipy = sum(elapsed_scipy) / tries
+        elapsed_lap = sum(elapsed_lap) / tries
+        print(f" scipy completed in {elapsed_scipy:.8f}s")
+        print(f" lap completed in {elapsed_lap:.8f}s")
         if elapsed_lap <= elapsed_scipy:
-            print(" * 🏆 lap is faster by " + str(round((elapsed_scipy/elapsed_lap), 4)) + "x time.")
+            print(f" * 🏆 lap is faster by {round(elapsed_scipy/elapsed_lap, 4)}x time.")
         else:
-            print(" * 🐌 lap is slower by " + str(round((elapsed_lap/elapsed_scipy), 4)) + "x time.")
+            print(f" * 🐌 lap is slower by {round(elapsed_lap/elapsed_scipy, 4)}x time.")
     else:
         print(" * ❌ FAIL !!!")
     print("-----------------------------------------")
