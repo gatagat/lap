@@ -21,7 +21,7 @@ jobs:
         run: pip install git+https://github.com/gatagat/lap.git
       - name: Install scipy
         run: pip install scipy
-      - name: 📊 Run benchmark.py
+      - name: 📊 Run benchmark_simple.py
         run: |
-          cd .githubtest
-          python benchmark.py
+          cd benchmark
+          python benchmark_simple.py
