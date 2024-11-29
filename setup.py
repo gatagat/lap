@@ -7,7 +7,7 @@ LONG_DESCRIPTION = open("README.md", encoding="utf-8").read()
 
 package_name = "lap"
 package_path = "lap"
-_lapjv_src = "_lapjv_src"
+_lapjv_src = "_lapjv_cpp"
 
 def get_version_string():
     with open("lap/__init__.py") as version_file:
@@ -44,10 +44,11 @@ class ExportCythonCommand(distutils.cmd.Command):
         import os
         import shutil
         this_dir = os.path.dirname(os.path.realpath(__file__))
-        lap = os.path.join(this_dir, "lap")
-        _lapjv_src = os.path.join(this_dir, "_lapjv_src")
+        lap = os.path.join(this_dir, package_path)
+        _lapjv_src = os.path.join(this_dir, _lapjv_src)
         for file in os.listdir(_lapjv_src):
             if file[-2:].lower() in "soyd":
+                print(f"Moving {_lapjv_src}/{file} to {lap}/")
                 shutil.copy2(os.path.join(_lapjv_src, file), lap)
                 break
 
