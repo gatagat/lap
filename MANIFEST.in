@@ -5,4 +5,4 @@ recursive-include lap/tests *
 global-exclude */__pycache__
 global-exclude *.pyc
 prune .github
-prune .githubtest
+prune benchmark
