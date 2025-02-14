@@ -29,7 +29,7 @@ pip install lap
 | Python 3.8 | AMD64 | x86_64/aarch64 | x86_64/arm64 |
 | Python 3.9-3.13 ¹ | AMD64/ARM64 ² | x86_64/aarch64 | x86_64/arm64 |
 
-<sup>¹ v0.5.12 supports both numpy 1.x and 2.x for Python 3.9-3.13. 🆕 </sup><br>
+<sup>¹ v0.5.12 supports both numpy 1.x and 2.x for Python 3.8-3.13. 🆕 </sup><br>
 <sup>² Windows ARM64 is experimental.</sup><br>
 
 <details><summary>Other options</summary>
