@@ -1,4 +1,4 @@
-import distutils.cmd
+from setuptools import Command
 from setuptools import Extension, setup
 
 LICENSE = "BSD-2-Clause"
@@ -37,7 +37,7 @@ def compile_cpp(cython_file):
     else:
         return cpp_file
 
-class ExportCythonCommand(distutils.cmd.Command):
+class ExportCythonCommand(Command):
     description = "Export _lapjv binary from source."
     def run(self):
         super().run()
