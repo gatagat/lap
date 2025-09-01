@@ -1,5 +1,4 @@
-from setuptools import Command
-from setuptools import Extension, setup
+from setuptools import Extension, Command, setup
 
 LICENSE = "BSD-2-Clause"
 DESCRIPTION = "Linear Assignment Problem solver (LAPJV/LAPMOD)."
@@ -95,7 +94,6 @@ def main_setup():
                      'Intended Audience :: Developers',
                      'Intended Audience :: Education',
                      'Intended Audience :: Science/Research',
-                     'License :: OSI Approved :: BSD License',
                      'Programming Language :: Python :: 3',
                      'Programming Language :: Python :: 3.7',
                      'Programming Language :: Python :: 3.8',
@@ -112,7 +110,7 @@ def main_setup():
                      'Topic :: Scientific/Engineering',
                      'Topic :: Scientific/Engineering :: Artificial Intelligence',
                      'Topic :: Scientific/Engineering :: Image Recognition',
-                     'Operating System :: Microsoft :: Windows',                                  
+                     'Operating System :: Microsoft :: Windows',
                      'Operating System :: POSIX',
                      'Operating System :: Unix',
                      'Operating System :: MacOS',],
@@ -122,11 +120,11 @@ def main_setup():
 
 if __name__ == "__main__":
     """
-    Recommend using :py:mod:`build` to build the package as it does not 
+    Recommend using :py:mod:`build` to build the package as it does not
     disrupt your current environment.
 
     >>> pip install wheel build
     >>> python -m build --sdist
     >>> python -m build --wheel
-    """ 
+    """
     main_setup()

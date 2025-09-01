@@ -89,8 +89,7 @@ scipy's
 [`linear_sum_assignment`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linear_sum_assignment.html)
 and lapsolver's [`solve dense`](https://github.com/cheind/py-lapsolver)). The
 assignment matrix can be constructed from `x` as follows: ``` A = np.zeros((N,
-M)) for i in range(N): A[i, x[i]] = 1
-```
+M)) for i in range(N): A[i, x[i]] = 1 ```
 
 Equivalently, we could construct the assignment matrix from `y`:
 ```
