@@ -111,11 +111,12 @@ y = [np.where(x == j)[0][0] for j in range(M)]
 
 Released under the 2-clause BSD license, see [LICENSE](./LICENSE).
 
-Copyright (C) 2012-2024, Tomas Kazmar
+Copyright (C) 2012-2025, Tomas Kazmar
 
 Contributors (in alphabetic order):
 - Benjamin Eysenbach
 - Léo Duret
+- Pieter Lenaerts
 - Raphael Reme
 - Ratha Siv
 - Robert Wen
