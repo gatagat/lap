@@ -1,4 +1,5 @@
 [![Test Simple](https://github.com/gatagat/lap/actions/workflows/test_simple.yaml/badge.svg)](https://github.com/gatagat/lap/actions/workflows/test_simple.yaml)
+[![Test Full](https://github.com/gatagat/lap/actions/workflows/test_full.yaml/badge.svg)](https://github.com/gatagat/lap/actions/workflows/test_full.yaml)
 [![Benchmark](https://github.com/gatagat/lap/actions/workflows/benchmark.yaml/badge.svg)](https://github.com/gatagat/lap/actions/workflows/benchmark.yaml)
 [![Test PyPI Build](https://github.com/gatagat/lap/actions/workflows/prepublish.yaml/badge.svg)](https://github.com/gatagat/lap/actions/workflows/prepublish.yaml)
 [![Publish to PyPI](https://github.com/gatagat/lap/actions/workflows/publish.yaml/badge.svg)](https://github.com/gatagat/lap/actions/workflows/publish.yaml)
