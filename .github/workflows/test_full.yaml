@@ -1,0 +1,104 @@
+name: Test Full
+
+on: [workflow_dispatch]
+
+jobs:
+
+  build_and_test_p37:
+    name: "${{ matrix.os }} + python ${{ matrix.python-version }}"
+    runs-on: "${{ matrix.os }}"
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["windows-latest", "ubuntu-22.04", "macos-15-intel"]
+        python-version: ["3.7"]
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Prepare for build
+        run: |
+          python -m pip install --upgrade pip
+          pip install "setuptools>=67.8.0"
+          pip install wheel build
+      - name: 👷 Test build from source ⚒️
+        run: python -m build --wheel
+      - name: 👩‍💻 Test install from GitHub 🌐
+        run: pip install git+https://github.com/gatagat/lap.git
+      - name: 🧪 Run full tests with pytest 👨‍⚖️
+        run: |
+          pip install -U pytest pytest-timeout numpy scipy
+          pytest -v --pyargs lap.tests
+      - name: Archive wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: wheel-${{ matrix.os }}-${{ matrix.python-version }}
+          path: dist/*.whl
+
+  build_and_test_p38_p314:
+    name: "${{ matrix.os }} + python ${{ matrix.python-version }}"
+    runs-on: "${{ matrix.os }}"
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["windows-latest", "ubuntu-latest", "ubuntu-24.04-arm", "macos-15-intel", "macos-latest"]
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Prepare for build
+        run: |
+          python -m pip install --upgrade pip
+          pip install "setuptools>=67.8.0"
+          pip install wheel build
+      - name: 👷 Test build from source ⚒️
+        run: python -m build --wheel
+      - name: 👩‍💻 Test install from GitHub 🌐
+        run: pip install git+https://github.com/gatagat/lap.git
+      - name: 🧪 Run full tests with pytest 👨‍⚖️
+        run: |
+          pip install -U pytest pytest-timeout numpy scipy
+          pytest -v --pyargs lap.tests
+      - name: Archive wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: wheel-${{ matrix.os }}-${{ matrix.python-version }}
+          path: dist/*.whl
+
+  build_and_test_win_arm_p311_p314:
+    name: "${{ matrix.os }} + python ${{ matrix.python-version }}"
+    runs-on: "${{ matrix.os }}"
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["windows-11-arm"]
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Prepare for build
+        run: |
+          python -m pip install --upgrade pip
+          pip install "setuptools>=67.8.0"
+          pip install wheel build
+      - name: 👷 Test build from source ⚒️
+        run: python -m build --wheel
+      - name: 👩‍💻 Test install from GitHub 🌐
+        run: pip install git+https://github.com/gatagat/lap.git
+      - name: 🧪 Run full tests with pytest 👨‍⚖️
+        run: |
+          pip install -U pytest pytest-timeout numpy scipy
+          pytest -v --pyargs lap.tests
+      - name: Archive wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: wheel-${{ matrix.os }}-${{ matrix.python-version }}
+          path: dist/*.whl

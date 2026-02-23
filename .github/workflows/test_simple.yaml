@@ -22,14 +22,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install "setuptools>=67.8.0"
           pip install wheel build
-      - name: Test build from source
+      - name: 👷 Test build from source ⚒️
         run: python -m build --wheel
       - name: Test direct install from GitHub (dynamic branch)
         shell: bash
         run: |
           BRANCH="${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
           pip install "git+https://github.com/gatagat/lap.git@$BRANCH"
-      - name: 🧪 Run test_simple.py
+      - name: 🧪 Run test_simple.py 👩‍💻
         run: |
           cd lap/tests/
           python test_simple.py
