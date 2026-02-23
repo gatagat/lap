@@ -7,46 +7,84 @@ on:
 
 jobs:
 
-  build_windows_all:
-    name: Build windows wheels
+  # # # # # # # # # # # # # # # # # # # # #
+  # Windows jobs
+  # # # # # # # # # # # # # # # # # # # # #
+
+  build_windows:
+    name: Build windows (Python 3.8-3.14)
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Python 3.x
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
       - name: Install cibuildwheel
-        run: python -m pip install cibuildwheel==2.21.3
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install cibuildwheel==3.3.1
       - name: Build wheels
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_BUILD_VERBOSITY: 1
-          CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*"
+          CIBW_BUILD: "cp38-* cp39-* cp310-* cp311-* cp312-* cp313-* cp314-*"
           CIBW_SKIP: "*-win32 pp*"
           CIBW_ARCHS_WINDOWS: "AMD64 ARM64"
       - name: Archive wheels
         uses: actions/upload-artifact@v4
         with:
-          name: pypi-windows-all-wheels
+          name: pypi-windows-wheels
           path: ./wheelhouse/*.whl
-  
-  build_macos_intel:
-    name: Build macos-intel wheels
-    runs-on: macos-13
+
+  build_windows_p37:
+    name: Build windows (Python 3.7)
+    runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Python 3.x
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
       - name: Install cibuildwheel
-        run: python -m pip install cibuildwheel==2.21.3
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install cibuildwheel==2.23.3
       - name: Build wheels
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_BUILD_VERBOSITY: 1
-          CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*"
+          CIBW_BUILD: "cp37-*"
+          CIBW_SKIP: "*-win32 pp*"
+          CIBW_ARCHS_WINDOWS: "AMD64 ARM64"
+      - name: Archive wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: pypi-windows-all-p37-wheels
+          path: ./wheelhouse/*.whl
+
+  # # # # # # # # # # # # # # # # # # # # #
+  # macOS jobs
+  # # # # # # # # # # # # # # # # # # # # #
+
+  build_macos_intel:
+    name: Build macos-intel (Python 3.8-3.14)
+    runs-on: macos-15-intel
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install cibuildwheel
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install cibuildwheel==3.3.1
+      - name: Build wheels
+        run: python -m cibuildwheel --output-dir wheelhouse
+        env:
+          CIBW_BUILD_VERBOSITY: 1
+          CIBW_BUILD: "cp38-* cp39-* cp310-* cp311-* cp312-* cp313-* cp314-*"
           CIBW_SKIP: "pp*"
           CIBW_ARCHS_MACOS: "x86_64"
       - name: Archive wheels
@@ -55,22 +93,50 @@ jobs:
           name: pypi-macos-intel-wheels
           path: ./wheelhouse/*.whl
 
-  build_macos_arm:
-    name: Build macos-arm wheels
-    runs-on: macos-14
+  build_macos_intel_p37:
+    name: Build macos-intel (Python 3.7)
+    runs-on: macos-15-intel
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Python 3.x
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
       - name: Install cibuildwheel
-        run: python -m pip install cibuildwheel==2.21.3
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install cibuildwheel==2.23.3
       - name: Build wheels
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_BUILD_VERBOSITY: 1
-          CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*"
+          CIBW_BUILD: "cp37-*"
+          CIBW_SKIP: "pp*"
+          CIBW_ARCHS_MACOS: "x86_64"
+      - name: Archive wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: pypi-macos-intel-p37-wheels
+          path: ./wheelhouse/*.whl
+
+  build_macos_arm:
+    name: Build macos-arm (Python 3.8-3.14)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install cibuildwheel
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install cibuildwheel==3.3.1
+      - name: Build wheels
+        run: python -m cibuildwheel --output-dir wheelhouse
+        env:
+          CIBW_BUILD_VERBOSITY: 1
+          CIBW_BUILD: "cp38-* cp39-* cp310-* cp311-* cp312-* cp313-* cp314-*"
           CIBW_SKIP: "pp*"
           CIBW_ARCHS_MACOS: "arm64"
       - name: Archive wheels
@@ -79,22 +145,28 @@ jobs:
           name: pypi-macos-arm-wheels
           path: ./wheelhouse/*.whl
 
+  # # # # # # # # # # # # # # # # # # # # #
+  # Linux jobs
+  # # # # # # # # # # # # # # # # # # # # #
+
   build_linux_intel:
-    name: Build linux-intel wheels
+    name: Build linux-intel (Python 3.8-3.14)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Python 3.x
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
       - name: Install cibuildwheel
-        run: python -m pip install cibuildwheel==2.21.3
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install cibuildwheel==3.3.1
       - name: Build wheels
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_BUILD_VERBOSITY: 1
-          CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*"
+          CIBW_BUILD: "cp38-* cp39-* cp310-* cp311-* cp312-* cp313-* cp314-*"
           CIBW_SKIP: "*-manylinux_i686 pp*"
           CIBW_ARCHS_LINUX: "x86_64"
       - name: Archive wheels
@@ -103,20 +175,51 @@ jobs:
           name: pypi-linux-intel-wheels
           path: ./wheelhouse/*.whl
 
-  build_linux_arm:
-    name: Build linux-arm wheels
+  build_linux_intel_p37:
+    name: Build linux-intel (Python 3.7)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+      - uses: actions/checkout@v5
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v5
         with:
-          platforms: arm64
+          python-version: '3.x'
+      - name: Install cibuildwheel
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install cibuildwheel==2.23.3
       - name: Build wheels
-        uses: pypa/cibuildwheel@v2.21.3
+        run: python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_BUILD_VERBOSITY: 1
-          CIBW_BUILD: "cp37-* cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*"
+          CIBW_BUILD: "cp37-*"
+          CIBW_SKIP: "*-manylinux_i686 pp*"
+          CIBW_ARCHS_LINUX: "x86_64"
+      - name: Archive wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: pypi-linux-intel-p37-wheels
+          path: ./wheelhouse/*.whl
+
+  build_linux_arm:
+    name: Build linux-arm (Python 3.8-3.14)
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install cibuildwheel
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install cibuildwheel==3.3.1
+      - name: Build wheels
+        run: python -m cibuildwheel --output-dir wheelhouse
+        env:
+          CIBW_BUILD_VERBOSITY: 1
+          CIBW_BUILD: "cp38-* cp39-* cp310-* cp311-* cp312-* cp313-* cp314-*"
+          CIBW_SKIP: "pp*"
           CIBW_ARCHS_LINUX: "aarch64"
       - name: Archive wheels
         uses: actions/upload-artifact@v4
@@ -124,18 +227,49 @@ jobs:
           name: pypi-linux-arm-wheels
           path: ./wheelhouse/*.whl
 
+  build_linux_arm_p37:
+    name: Build linux-arm (Python 3.7)
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install cibuildwheel
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install cibuildwheel==2.23.3
+      - name: Build wheels
+        run: python -m cibuildwheel --output-dir wheelhouse
+        env:
+          CIBW_BUILD_VERBOSITY: 1
+          CIBW_BUILD: "cp37-*"
+          CIBW_SKIP: "pp*"
+          CIBW_ARCHS_LINUX: "aarch64"
+      - name: Archive wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: pypi-linux-arm-p37-wheels
+          path: ./wheelhouse/*.whl
+
+  # # # # # # # # # # # # # # # # # # # # #
+  # Source dist job
+  # # # # # # # # # # # # # # # # # # # # #
+
   build_source:
-    name: Build source distribution
+    name: Build source dist
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Python 3.x
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
       - name: Install requirements
         run: |
-          pip install "setuptools>=67.2.0"
+          python -m pip install --upgrade pip
+          pip install "setuptools>=67.8.0"
           pip install wheel build
       - name: Build .tar.gz
         run: python -m build --sdist
@@ -145,9 +279,23 @@ jobs:
           name: pypi-source-dist
           path: dist/*.tar.gz
 
+  # # # # # # # # # # # # # # # # # # # # #
+  # Publish job
+  # # # # # # # # # # # # # # # # # # # # #
+
   publish_pypi:
     name: Publish to PyPI
-    needs: [build_windows_all, build_macos_intel, build_macos_arm, build_linux_intel, build_linux_arm, build_source]
+    needs: 
+      - build_windows
+      - build_windows_p37
+      - build_macos_intel
+      - build_macos_intel_p37
+      - build_macos_arm
+      - build_linux_intel
+      - build_linux_intel_p37
+      - build_linux_arm
+      - build_linux_arm_p37
+      - build_source
     runs-on: ubuntu-latest
     environment: pypi
     permissions:

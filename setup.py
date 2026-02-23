@@ -1,12 +1,12 @@
-from setuptools import Extension, Command, setup
+from setuptools import Extension, setup, find_packages
 
 LICENSE = "BSD-2-Clause"
 DESCRIPTION = "Linear Assignment Problem solver (LAPJV/LAPMOD)."
 LONG_DESCRIPTION = open("README.md", encoding="utf-8").read()
 
-package_name = "lap"
-package_path = "lap"
-_lapjv_src = "_lapjv_cpp"
+PACKAGE_NAME = "lap"
+PACKAGE_PATH = "lap"
+SRC_DIR = "_lapjv_cpp"
 
 def get_version_string():
     with open("lap/__init__.py") as version_file:
@@ -14,68 +14,32 @@ def get_version_string():
             if line.startswith('__version__'):
                 delim = '"' if '"' in line else "'"
                 return line.split(delim)[1]
+    raise RuntimeError('[!] Unable to find version string.')
 
 def include_numpy():
     import numpy as np
-    try:
-        numpy_include = np.get_include()
-    except AttributeError:
-        numpy_include = np.get_numpy_include()
-    return numpy_include
-
-def compile_cpp(cython_file):
-    """Compile a C++ file from Cython's pyx or py.
-    """
-    import os
-    import subprocess
-    cpp_file = os.path.splitext(cython_file)[0] + ".cpp"
-    flags = ['--fast-fail', '--cplus']
-    rc = subprocess.call(['cython'] + flags + ['-o', cpp_file, cython_file])
-    if rc != 0:
-        raise Exception('Cythonizing %s failed' % cython_file)
-    else:
-        return cpp_file
-
-class ExportCythonCommand(Command):
-    description = "Export _lapjv binary from source."
-    def run(self):
-        super().run()
-        import os
-        import shutil
-        this_dir = os.path.dirname(os.path.realpath(__file__))
-        lap = os.path.join(this_dir, package_path)
-        _lapjv_src = os.path.join(this_dir, _lapjv_src)
-        for file in os.listdir(_lapjv_src):
-            if file[-2:].lower() in "soyd":
-                print(f"Moving {_lapjv_src}/{file} to {lap}/")
-                shutil.copy2(os.path.join(_lapjv_src, file), lap)
-                break
+    return np.get_include()
 
 def main_setup():
     """Use modern setup() by setuptools.
     """
     import os
     from Cython.Build import cythonize
-    _lapjvpyx = os.path.join(_lapjv_src, "_lapjv.pyx")
-    _lapjvcpp = compile_cpp(_lapjvpyx)
-    lapjvcpp = os.path.join(_lapjv_src, "lapjv.cpp")
-    lapmodcpp = os.path.join(_lapjv_src, "lapmod.cpp")
+    _lapjvpyx = os.path.join(SRC_DIR, "_lapjv.pyx")
+    lapjvcpp = os.path.join(SRC_DIR, "lapjv.cpp")
+    lapmodcpp = os.path.join(SRC_DIR, "lapmod.cpp")
 
     ext_modules = [
         Extension(
             name='lap._lapjv',
-            sources=[_lapjvcpp, lapjvcpp, lapmodcpp],
-            include_dirs=[include_numpy(), _lapjv_src, package_path],
+            sources=[_lapjvpyx, lapjvcpp, lapmodcpp],
+            include_dirs=[include_numpy(), SRC_DIR, PACKAGE_PATH],
+            language="c++",
         )
     ]
 
-    package_data = {}
-    tests_package = package_path + ".tests"
-    packages = [package_path, tests_package]
-    for p in packages: package_data.update({p: ["*"]})
-
     setup(
-        name=package_name,
+        name=PACKAGE_NAME,
         version=get_version_string(),
         description=DESCRIPTION,
         license=LICENSE,
@@ -84,8 +48,7 @@ def main_setup():
         keywords=['Linear Assignment', 'LAPJV', 'LAPMOD', 'lap', 'lapx'],
         url="https://github.com/gatagat/lap",
         author="gatagat, rathaROG, and co.",
-        packages=packages,
-        package_data=package_data,
+        packages=find_packages(include=[PACKAGE_PATH, f"{PACKAGE_PATH}.*"]),
         include_package_data=True,
         install_requires=['numpy>=1.21.6',],
         python_requires=">=3.7",
@@ -102,6 +65,7 @@ def main_setup():
                      'Programming Language :: Python :: 3.11',
                      'Programming Language :: Python :: 3.12',
                      'Programming Language :: Python :: 3.13',
+                     'Programming Language :: Python :: 3.14',
                      'Topic :: Education',
                      'Topic :: Education :: Testing',
                      'Topic :: Scientific/Engineering',
@@ -115,7 +79,6 @@ def main_setup():
                      'Operating System :: Unix',
                      'Operating System :: MacOS',],
         ext_modules=cythonize(ext_modules),
-        cmdclass={'cmdexport': ExportCythonCommand,},
     )
 
 if __name__ == "__main__":

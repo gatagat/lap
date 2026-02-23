@@ -33,13 +33,13 @@ http://www.assignmentproblems.com/LAPJV.htm |
 pip install lap
 ```
 
-| **Pre-built Wheels** 🛞 | **Windows** ✅ | **Linux** ✅ | **macOS** ✅ |
+| [**PyPI Wheels**](https://pypi.org/project/lap/#files) 🛞 | **Windows** ✅ | **Linux** ✅ | **macOS** ✅ |
 |:---:|:---:|:---:|:---:|
 | Python 3.7 | AMD64 | x86_64/aarch64 | x86_64 |
 | Python 3.8 | AMD64 | x86_64/aarch64 | x86_64/arm64 |
-| Python 3.9-3.13 ¹ | AMD64/ARM64 ² | x86_64/aarch64 | x86_64/arm64 |
+| Python 3.9-3.14 ¹ | AMD64/ARM64 ² | x86_64/aarch64 | x86_64/arm64 |
 
-<sup>¹ v0.5.12 supports both numpy 1.x and 2.x for Python 3.8-3.13. 🆕 </sup><br>
+<sup>¹ v0.5.13 supports both numpy 1.x and 2.x for Python 3.8-3.14. 🆕 </sup><br>
 <sup>² Windows ARM64 is experimental.</sup><br>
 
 <details><summary>Other options</summary>

@@ -274,7 +274,7 @@ def lapmod(n, cc, ii, kk, fast=True, return_cost=True, fp_version=FP_DYNAMIC):
     """Solve sparse linear assignment problem using Jonker-Volgenant algorithm.
 
     n: number of rows of the assignment cost matrix
-    cc: 1D array of all finite elements of the assignement cost matrix
+    cc: 1D array of all finite elements of the assignment cost matrix
     ii: 1D array of indices of the row starts in cc. The following must hold:
             ii[0] = 0 and ii[n+1] = len(cc).
     kk: 1D array of the column indices so that:
