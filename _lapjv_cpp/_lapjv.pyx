@@ -105,7 +105,9 @@ def lapjv(cnp.ndarray cost not None, char extend_cost=False,
     cdef cnp.ndarray[int_t, ndim=1, mode='c'] y_c = \
         np.empty((n,), dtype=np.int32)
 
-    cdef int ret = lapjv_internal(n, cost_ptr, &x_c[0], &y_c[0])
+    cdef int ret
+    with nogil:
+        ret = lapjv_internal(n, cost_ptr, &x_c[0], &y_c[0])
     free(cost_ptr)
     if ret != 0:
         if ret == -1:
@@ -148,8 +150,10 @@ def _lapmod(const uint_t n,
     cdef cnp.ndarray[int_t, ndim=1, mode='c'] y_c = \
         np.empty((n,), dtype=np.int32)
 
-    cdef int_t ret = lapmod_internal(n, &cc_c[0], &ii_c[0], &kk_c[0], 
-                                     &x_c[0], &y_c[0], fp_version)
+    cdef int_t ret
+    with nogil:
+        ret = lapmod_internal(n, &cc_c[0], &ii_c[0], &kk_c[0],
+                              &x_c[0], &y_c[0], fp_version)
     if ret != 0:
         if ret == -1:
             raise MemoryError('Out of memory.')
