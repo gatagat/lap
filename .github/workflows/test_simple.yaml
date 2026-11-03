@@ -12,9 +12,9 @@ jobs:
         os: ["windows-latest", "ubuntu-22.04", "macos-15-intel"]
         python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12", "3.13", "3.14", "3.15"]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install requirements
@@ -34,7 +34,7 @@ jobs:
           cd lap/tests/
           python test_simple.py
       - name: Archive wheels
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: wheel-${{ matrix.os }}-${{ matrix.python-version }}
           path: dist/*.whl

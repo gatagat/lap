@@ -18,9 +18,9 @@ jobs:
       matrix:
         cibuildwheel: ["3.3.1", "4.3.5"]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Set up Python 3.x
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.x'
       - name: Install cibuildwheel
@@ -35,7 +35,7 @@ jobs:
           CIBW_SKIP: "*-win32 pp*"
           CIBW_ARCHS_WINDOWS: "AMD64 ARM64"
       - name: Archive wheels
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pypi-windows-wheels-${{ matrix.cibuildwheel }}
           path: ./wheelhouse/*.whl
@@ -44,11 +44,11 @@ jobs:
     name: Build windows (Python 3.7)
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Set up Python 3.x
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
-          python-version: '3.x'
+          python-version: '3.12'
       - name: Install cibuildwheel
         run: |
           python -m pip install --upgrade pip
@@ -61,7 +61,7 @@ jobs:
           CIBW_SKIP: "*-win32 pp*"
           CIBW_ARCHS_WINDOWS: "AMD64 ARM64"
       - name: Archive wheels
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pypi-windows-all-p37-wheels
           path: ./wheelhouse/*.whl
@@ -77,9 +77,9 @@ jobs:
       matrix:
         cibuildwheel: ["3.3.1", "4.3.5"]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Set up Python 3.x
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.x'
       - name: Install cibuildwheel
@@ -94,7 +94,7 @@ jobs:
           CIBW_SKIP: "pp*"
           CIBW_ARCHS_MACOS: "x86_64"
       - name: Archive wheels
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pypi-macos-intel-wheels-${{ matrix.cibuildwheel }}
           path: ./wheelhouse/*.whl
@@ -103,11 +103,11 @@ jobs:
     name: Build macos-intel (Python 3.7)
     runs-on: macos-15-intel
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Set up Python 3.x
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
-          python-version: '3.x'
+          python-version: '3.12'
       - name: Install cibuildwheel
         run: |
           python -m pip install --upgrade pip
@@ -120,7 +120,7 @@ jobs:
           CIBW_SKIP: "pp*"
           CIBW_ARCHS_MACOS: "x86_64"
       - name: Archive wheels
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pypi-macos-intel-p37-wheels
           path: ./wheelhouse/*.whl
@@ -132,9 +132,9 @@ jobs:
       matrix:
         cibuildwheel: ["3.3.1", "4.3.5"]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Set up Python 3.x
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.x'
       - name: Install cibuildwheel
@@ -149,7 +149,7 @@ jobs:
           CIBW_SKIP: "pp*"
           CIBW_ARCHS_MACOS: "arm64"
       - name: Archive wheels
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pypi-macos-arm-wheels-${{ matrix.cibuildwheel }}
           path: ./wheelhouse/*.whl
@@ -165,9 +165,9 @@ jobs:
       matrix:
         cibuildwheel: ["3.3.1", "4.3.5"]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Set up Python 3.x
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.x'
       - name: Install cibuildwheel
@@ -182,7 +182,7 @@ jobs:
           CIBW_SKIP: "*-manylinux_i686 pp*"
           CIBW_ARCHS_LINUX: "x86_64"
       - name: Archive wheels
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pypi-linux-intel-wheels-${{ matrix.cibuildwheel }}
           path: ./wheelhouse/*.whl
@@ -191,11 +191,11 @@ jobs:
     name: Build linux-intel (Python 3.7)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Set up Python 3.x
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
-          python-version: '3.x'
+          python-version: '3.12'
       - name: Install cibuildwheel
         run: |
           python -m pip install --upgrade pip
@@ -208,7 +208,7 @@ jobs:
           CIBW_SKIP: "*-manylinux_i686 pp*"
           CIBW_ARCHS_LINUX: "x86_64"
       - name: Archive wheels
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pypi-linux-intel-p37-wheels
           path: ./wheelhouse/*.whl
@@ -220,9 +220,9 @@ jobs:
       matrix:
         cibuildwheel: ["3.3.1", "4.3.5"]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Set up Python 3.x
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.x'
       - name: Install cibuildwheel
@@ -237,7 +237,7 @@ jobs:
           CIBW_SKIP: "pp*"
           CIBW_ARCHS_LINUX: "aarch64"
       - name: Archive wheels
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pypi-linux-arm-wheels-${{ matrix.cibuildwheel }}
           path: ./wheelhouse/*.whl
@@ -246,11 +246,11 @@ jobs:
     name: Build linux-arm (Python 3.7)
     runs-on: ubuntu-24.04-arm
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Set up Python 3.x
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
-          python-version: '3.x'
+          python-version: '3.12'
       - name: Install cibuildwheel
         run: |
           python -m pip install --upgrade pip
@@ -263,7 +263,7 @@ jobs:
           CIBW_SKIP: "pp*"
           CIBW_ARCHS_LINUX: "aarch64"
       - name: Archive wheels
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pypi-linux-arm-p37-wheels
           path: ./wheelhouse/*.whl
@@ -276,9 +276,9 @@ jobs:
     name: Build source dist
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Set up Python 3.x
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.x'
       - name: Install requirements
@@ -289,7 +289,7 @@ jobs:
       - name: Build .tar.gz
         run: python -m build --sdist
       - name: Archive .tar.gz
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pypi-source-dist
           path: dist/*.tar.gz
@@ -317,7 +317,7 @@ jobs:
       id-token: write
     steps:
       - name: Collect and extract artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: dist
           pattern: pypi-*
