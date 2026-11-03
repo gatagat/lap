@@ -157,7 +157,7 @@ jobs:
 
   build_linux_intel:
     name: Build linux-intel (cibuildwheel ${{ matrix.cibuildwheel }})
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         cibuildwheel: ["3.3.1", "4.3.5"]
@@ -186,7 +186,7 @@ jobs:
 
   build_linux_intel_p37:
     name: Build linux-intel (Python 3.7)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
       - name: Set up Python 3.x
@@ -271,7 +271,7 @@ jobs:
 
   build_source:
     name: Build source dist
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
       - name: Set up Python 3.x
