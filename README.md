@@ -38,7 +38,7 @@ pip install lap
 |:---:|:---:|:---:|:---:|
 | Python 3.7 | AMD64 | x86_64/aarch64 | x86_64 |
 | Python 3.8 | AMD64 | x86_64/aarch64 | x86_64/arm64 |
-| Python 3.9-3.15 ¹ | AMD64/ARM64 ² | x86_64/aarch64 | x86_64/arm64 |
+| Python 3.9-3.15 ¹ | AMD64/ARM64 | x86_64/aarch64 | x86_64/arm64 |
 
 <sup>¹ Windows ARM64 is experimental.</sup><br>
 
